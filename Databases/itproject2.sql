@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2019 at 04:00 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Sep 23, 2019 at 05:17 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,6 +42,28 @@ CREATE TABLE `accounts` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `equipment`
+--
+
+CREATE TABLE `equipment` (
+  `equipID` int(200) NOT NULL,
+  `equipName` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`equipID`, `equipName`) VALUES
+(1, 'Microphone'),
+(2, 'Project'),
+(3, 'Projector'),
+(4, 'Chair'),
+(5, 'Sound System'),
+(7, 'Divider');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `facility`
@@ -53,6 +75,22 @@ CREATE TABLE `facility` (
   `facRoom` varchar(100) NOT NULL,
   `facCapacity` varchar(100) NOT NULL,
   `facStat` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `resID` int(200) NOT NULL,
+  `userID` int(200) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `venue` varchar(200) NOT NULL,
+  `start_time` datetime(6) NOT NULL,
+  `end_time` datetime(6) NOT NULL,
+  `statusEvent` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
