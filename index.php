@@ -1,4 +1,6 @@
-
+<?php  
+    session_start();
+?>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -62,14 +64,18 @@
           <h2 class="brand-text">Facility Reservation System</h2>
         </div>
         <p>Sign into your pages account</p>
-        <form method="post" action="login.html">
+
+
+        <form method="post" action="php/login.php">
           <div class="form-group">
-            <label class="sr-only" for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+            <label  class="sr-only" for="inputEmail">Email</label>
+            
+            <input name = "mailuid" type="email" class="form-control" id="inputEmail" placeholder="Email">
           </div>
           <div class="form-group">
             <label class="sr-only" for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" name="password"
+
+            <input name = "pwdsu" type="password" class="form-control" id="inputPassword"
               placeholder="Password">
           </div>
           <div class="form-group clearfix">
@@ -79,7 +85,7 @@
             </div>
             <a class="float-right" href="classic/base/html/pages/forgot-password.html">Forgot password?</a>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+          <button type="submit" name = "signin" class="btn btn-primary btn-block">Sign in</button>
         </form>
 
         <footer class="page-copyright page-copyright-inverse">
