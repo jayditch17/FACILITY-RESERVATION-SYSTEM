@@ -111,7 +111,7 @@
               <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                 data-animation="scale-up" role="button">
                 <span class="avatar avatar-online">
-                  <img src="../../../global/portraits/5.jpg" alt="...">
+                  <img src="../../../global/portraits/admin.jpg" alt="...">
                   <i></i>
                 </span>
               </a>
