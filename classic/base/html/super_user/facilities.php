@@ -285,25 +285,66 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-15">
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add facility
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div id="exampleAddRow_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <div class="dataTables_length" id="exampleAddRow_length">
-                      <label>
-                        <select name="exampleAddRow_length" aria-controls="exampleAddRow" class="form-control form-control-sm">
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
-                        </select>
-                      </label>
+                  <button class="btn btn-outline btn-primary" data-target="#exampleNiftyFadeScale"
+                      data-toggle="modal" type="button"><i class="icon wb-plus ::before" aria-hidden="true"></i>Add Facility</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
+                      aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+                      <div class="modal-dialog modal-simple">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title">Facility  </h4>
+                          </div>
+                          <div class="modal-body">
+                            <form autocomplete="off">
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicLevel">Level</label>
+                                  <input type="text" class="form-control" id="inputBasicLevel" name="inputLevel"
+                                    placeholder="Level" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicRoom">Room</label>
+                                  <input type="text" class="form-control" id="inputBasicRoom" name="inputRoom"
+                                    placeholder="Room" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputCapacity">Capacity</label>
+                                  <input type="text" class="form-control" id="inputCapacity" name="Capacity"
+                                    placeholder="Capacity" autocomplete="off" />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputRoomType">Room Type</label>
+                                <select class="form-control">
+                                    <option>Clinic</option>
+                                    <option>Court</option>
+                                    <option>Laboratory</option>
+                                    <option>Lecture</option>
+                                    <option>Office</option>
+                                    <option>Others</option>
+                                    <option>Stage Area</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputBasicDescription">Description</label>
+                                <input type="text" class="form-control" id="inputBasicDescription" name="inputDescription"
+                                  placeholder="Description" autocomplete="off" />
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Add Facility</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <!-- End Modal -->
                   </div>
                 </div>
               </div>
@@ -320,7 +361,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="gradeA">
+                  <!-- <tr class="gradeA">
                     <td>1</td>
                     <td>Mezzanine</td>
                     <td>Mezzanine</td>
@@ -337,7 +378,7 @@
                       <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
                         data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
