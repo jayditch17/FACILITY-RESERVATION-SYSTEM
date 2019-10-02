@@ -1,3 +1,6 @@
+<?php
+  include('DBConnector.php');
+?>
 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -359,6 +362,28 @@
                     <th>Capacity</th>
                     <th>Actions</th>
                   </tr>
+                   <?php
+
+                  $sql = "SELECT * FROM facilities";
+                  $result = $conn-> query($sql);
+
+                  if($result -> num_rows > 0){
+                    while ($row = $result -> fetch_assoc()){
+                      echo "<tr>
+                        <td>" . $row["facilityID"] . "</td>
+                        <td>" . $row["facilityLevel"] . "</td>
+                        <td>" . $row["facilityRoom"] . "</td>
+                        <td>" . $row["roomType"] . "</td>
+                        <td>" . $row["roomDescription"] . "</td>
+                        <td>" . $row["roomCapacity"] . "</td>
+                        </tr>";
+                    }
+                    echo "</table>";
+                  }else{
+                    echo "0 result";
+                  }
+                  $conn-> close();
+                  ?>
                 </thead>
                 <tbody>
                   <!-- <tr class="gradeA">
