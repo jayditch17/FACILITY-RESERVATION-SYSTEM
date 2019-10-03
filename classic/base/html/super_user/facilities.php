@@ -279,6 +279,7 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
+          
             <!-- Panel Table Add Row -->
           <div class="panel">
             <header class="panel-heading">
@@ -291,6 +292,7 @@
                   <button class="btn btn-outline btn-primary" data-target="#exampleNiftyFadeScale"
                       data-toggle="modal" type="button"><i class="icon wb-plus ::before" aria-hidden="true"></i>Add Facility</button>
 
+                      <form action="addFacility.php" method="post" accept-charset="utf-8">
                     <!-- Modal -->
                     <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
                       aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
@@ -307,23 +309,23 @@
                               <div class="form-row">
                                 <div class="form-group col-md-4">
                                   <label class="form-control-label" for="inputBasicLevel">Level</label>
-                                  <input type="text" class="form-control" id="inputBasicLevel" name="inputLevel"
+                                  <input type="text" class="form-control" id="inputBasicLevel" name="level"
                                     placeholder="Level" autocomplete="off" />
                                 </div>
                                 <div class="form-group col-md-4">
                                   <label class="form-control-label" for="inputBasicRoom">Room</label>
-                                  <input type="text" class="form-control" id="inputBasicRoom" name="inputRoom"
+                                  <input type="text" class="form-control" id="inputBasicRoom" name="room"
                                     placeholder="Room" autocomplete="off" />
                                 </div>
                                 <div class="form-group col-md-4">
                                   <label class="form-control-label" for="inputCapacity">Capacity</label>
-                                  <input type="text" class="form-control" id="inputCapacity" name="Capacity"
+                                  <input type="text" class="form-control" id="inputCapacity" name="capacity"
                                     placeholder="Capacity" autocomplete="off" />
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label class="form-control-label" for="inputRoomType">Room Type</label>
-                                <select class="form-control">
+                                <select name = "roomType" class="form-control">
                                     <option>Clinic</option>
                                     <option>Court</option>
                                     <option>Laboratory</option>
@@ -335,18 +337,19 @@
                               </div>
                               <div class="form-group">
                                 <label class="form-control-label" for="inputBasicDescription">Description</label>
-                                <input type="text" class="form-control" id="inputBasicDescription" name="inputDescription"
+                                <input type="text" class="form-control" id="inputBasicDescription" name="description"
                                   placeholder="Description" autocomplete="off" />
                               </div>
                             </form>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add Facility</button>
+                            <button name = "addFac"type="submit" class="btn btn-primary">Add Facility</button>
                           </div>
                         </div>
                       </div>
                     </div>
+                    </form>
                     <!-- End Modal -->
                   </div>
                 </div>
@@ -384,6 +387,8 @@
                   }
                   $conn-> close();
                   ?>
+
+                  
                 </thead>
                 <tbody>
                   <!-- <tr class="gradeA">
@@ -416,8 +421,7 @@
       </div>
     </div>
     <!-- End Page -->
-
-
+    
     <!-- Footer -->
     <footer class="site-footer">
       <div class="site-footer-right">
