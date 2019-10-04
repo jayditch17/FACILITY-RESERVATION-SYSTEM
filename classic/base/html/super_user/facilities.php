@@ -277,59 +277,29 @@
             <!-- Panel Editing Rows -->
             <div class="panel">
               <header class="panel-heading">
-                <h3 class="panel-title">Events</h3>
+                <h3 class="panel-title">Facilities</h3>
               </header>
               <div class="panel-body">
                 <table id="exampleFooEditing" class="table table-bordered table-hover toggle-circle"
                   data-paging="true" data-filtering="true" data-sorting="true">
                   <thead>
                     <tr>
-                      <th data-name="id" data-type="number" data-breakpoints="xs">ID</th>
-                      <th data-name="firstName">First Name</th>
-                      <th data-name="lastName">Last Name</th>
-                      <th data-name="org">Organization</th>
-                      <th data-name="jobTitle">Activity/Event</th>
-                      <th data-name="venue">Venue</th>
-                      <th data-name="nop" data-type="number" data-breakpoints="xs">No. of Participants</th>
-                      <th data-name="startDate" data-type="date" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">Start Date</th>
-                      <th data-name="endDate" data-type="date" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">End Date</th>
-                      <th data-name="startTime" data-type="time" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">Start Time</th>
-                      <th data-name="endTime" data-type="time" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">End Time</th>
-                      <th data-name="status" data-visible="false" data-filterable="false">status</th>
+                      <th data-name="facilityID" data-type="number" data-breakpoints="xs">ID</th>
+                      <th data-name="facilityLevel">Level</th>
+                      <th data-name="facilityRoom">Room</th>
+                      <th data-name="roomType">Room Type</th>
+                      <th data-name="roomDescription">Description</th>
+                      <th data-name="roomCapacity" data-type="number" data-breakpoints="xs">Capacity</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>Lester</td>
-                      <td>de Guzman</td>
-                      <td>RPG</td>
-                      <td>Talent Show</td>
-                      <td>AVR</td>
-                      <td>50</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>
-                        <span class="badge badge-table badge-success">Active</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Yo</td>
-                      <td>de Guzman</td>
-                      <td>RPG</td>
-                      <td>Talent Show</td>
-                      <td>AVR</td>
-                      <td>50</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>5:30 AM</td>
-                      <td>6:30 AM</td>
-                      <td>
-                        <span class="badge badge-table badge-success">Active</span>
-                      </td>
+                      <td>Mezzanine</td>
+                      <td>Mezzanine</td>
+                      <td>Others</td>
+                      <td>LIBRARY READING AREA/ TESTING AREA</td>
+                      <td>300</td>
                     </tr>
                   </tbody>
                 </table>
@@ -346,43 +316,51 @@
                     <h4 class="modal-title" id="editor-title">Add Row</h4>
                   </div>
                   <div class="modal-body">
-                    <input type="number" id="id" name="id" class="hidden" style="display:none;" />
+                    <input type="number" id="facilityID" name="facilityID" class="hidden" style="display:none;" />
                     <div class="form-group required">
-                      <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                      <label for="facilityLevel" class="col-sm-3 control-label">Level</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                        <input type="text" class="form-control" id="facilityLevel" name="facilityLevel" placeholder="Level"
                           required>
                       </div>
                     </div>
                     <div class="form-group required">
-                      <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                      <label for="facilityRoom" class="col-sm-3 control-label">Room</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                        <input type="text" class="form-control" id="facilityRoom" name="facilityRoom" placeholder="Room"
                           required>
+                      </div>
+                    </div>
+                    <div class="form-group required">
+                      <label for="roomType" class="col-sm-3 control-label">Room Type</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>Clinic</option>
+                            <option>Court</option>
+                            <option>Laboratory</option>
+                            <option>Lecture</option>
+                            <option>Office</option>
+                            <option>Others</option>
+                            <option>Stage Area</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="jobTitle" class="col-sm-3 control-label">Job Title</label>
+                      <label for="roomDescription" class="col-sm-3 control-label">Description</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
+                        <input type="text" class="form-control" id="roomDescription" name="roomDescription" placeholder="Description">
                       </div>
                     </div>
                     <div class="form-group required">
-                      <label for="startedOn" class="col-sm-3 control-label">Started On</label>
+                      <label for="roomCapacity" class="col-sm-3 control-label">Capacity</label>
                       <div class="col-sm-9">
-                        <input type="date" class="form-control" id="startedOn" name="startedOn" placeholder="Started On"
+                        <input type="number" class="form-control" id="roomCapacity" name="roomCapacity" placeholder="Capacity"
                           required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="dob" class="col-sm-3 control-label">Date of Birth</label>
-                      <div class="col-sm-9">
-                        <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
                       </div>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Add Facility</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
