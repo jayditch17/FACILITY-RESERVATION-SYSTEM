@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2019 at 04:51 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 04, 2019 at 08:19 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,27 +25,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Table structure for table `account_orgs`
 --
 
-CREATE TABLE `accounts` (
+CREATE TABLE `account_orgs` (
   `userID` varchar(15) NOT NULL,
-  `userType` varchar(50) NOT NULL,
   `firstName` varchar(50) NOT NULL,
-  `surName` varchar(50) NOT NULL,
-  `office` varchar(50) NOT NULL,
-  `org` varchar(50) NOT NULL,
-  `position` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `lastName` varchar(50) NOT NULL,
+  `studOrg` varchar(50) NOT NULL,
+  `studPostition` varchar(50) NOT NULL,
+  `studEmail` varchar(50) NOT NULL,
+  `studPassword` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`userID`, `userType`, `firstName`, `surName`, `office`, `org`, `position`, `email`, `password`) VALUES
-('2164482', 'Student', 'Jayditch', 'Balansi', 'SAMCIS', 'SICAP', 'President', '2164482@slu.edu.ph', '1234jayditch');
 
 -- --------------------------------------------------------
 
@@ -95,10 +86,10 @@ INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
 --
 
 --
--- Indexes for table `facilities`
+-- Indexes for table `account_orgs`
 --
-ALTER TABLE `facilities`
-  ADD PRIMARY KEY (`facilityID`);
+ALTER TABLE `account_orgs`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- Indexes for table `super_user`
@@ -109,12 +100,6 @@ ALTER TABLE `super_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `facilities`
---
-ALTER TABLE `facilities`
-  MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `super_user`
