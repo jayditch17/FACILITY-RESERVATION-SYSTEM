@@ -286,7 +286,8 @@
                 <div class="col-md-6">
                   <div class="mb-15">
                     <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add account
+                      <i class="icon wb-plus ::before" aria-hidden="true"></i> 
+                      Add account
                     </button>
                   </div>
                 </div>
