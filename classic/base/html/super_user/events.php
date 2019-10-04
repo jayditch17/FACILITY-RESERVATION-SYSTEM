@@ -25,15 +25,6 @@
     <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
-        <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
 
         <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
         <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
@@ -427,23 +418,7 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-        <script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
-        <script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
-        <script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
-        <script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
-        <script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
-        <script src="../../../global/vendor/bootbox/bootbox.js"></script>
-
+        
         <script src="../../../global/vendor/moment/moment.min.js"></script>
         <script src="../../../global/vendor/footable/footable.min.js"></script>
     
@@ -468,10 +443,7 @@
     <script src="../../../global/js/Plugin/asscrollable.js"></script>
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
-        <script src="../../../global/js/Plugin/datatables.js"></script>
-        
-        <script src="../../assets/examples/js/tables/datatable.js"></script>
-
+       
         <script src="../../assets/examples/js/tables/footable.js"></script>
   </body>
 </html>
