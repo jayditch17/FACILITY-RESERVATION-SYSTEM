@@ -279,63 +279,7 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
-            <!-- Panel Table Add Row -->
-          <!-- <div class="panel">
-            <header class="panel-heading">
-              <h3 class="panel-title">Accounts</h3>
-            </header>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add account
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>User ID</th>
-                    <th>User Type</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Position</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="gradeA">
-                    <td>1</td>
-                    <td>Student</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>N/A</td>
-                    <td>JPMAP</td>
-                    <td>President</td>
-                    <td>johndoe@slu.edu.ph</td>
-                    <td>johndoe</td>
-                    <td class="actions">
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
-                        data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
-                        data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-                        data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
-                        data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div> -->
-          <!-- End Panel Table Add Row -->
+           
           
           <div class="col-xl-12">
             <!-- Panel Editing Rows -->
