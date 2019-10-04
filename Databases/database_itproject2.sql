@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2019 at 08:19 AM
+-- Generation Time: Oct 04, 2019 at 08:56 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -25,6 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account_fac`
+--
+
+CREATE TABLE `account_fac` (
+  `userID` int(10) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `deptFac` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `account_orgs`
 --
 
@@ -36,6 +51,26 @@ CREATE TABLE `account_orgs` (
   `studPostition` varchar(50) NOT NULL,
   `studEmail` varchar(50) NOT NULL,
   `studPassword` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `eventID` int(50) NOT NULL,
+  `firstName` varchar(15) NOT NULL,
+  `lastName` varchar(15) NOT NULL,
+  `eventOrg` varchar(15) NOT NULL,
+  `actEve` varchar(50) NOT NULL,
+  `actVenue` varchar(50) NOT NULL,
+  `numPart` int(10) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `startTime` time(6) NOT NULL,
+  `endTime` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -90,6 +125,12 @@ INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
 --
 ALTER TABLE `account_orgs`
   ADD PRIMARY KEY (`userID`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `super_user`
