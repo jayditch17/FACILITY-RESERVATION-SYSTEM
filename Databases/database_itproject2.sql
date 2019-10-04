@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2019 at 08:44 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Oct 04, 2019 at 08:56 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,6 +51,26 @@ CREATE TABLE `account_orgs` (
   `studPostition` varchar(50) NOT NULL,
   `studEmail` varchar(50) NOT NULL,
   `studPassword` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `eventID` int(50) NOT NULL,
+  `firstName` varchar(15) NOT NULL,
+  `lastName` varchar(15) NOT NULL,
+  `eventOrg` varchar(15) NOT NULL,
+  `actEve` varchar(50) NOT NULL,
+  `actVenue` varchar(50) NOT NULL,
+  `numPart` int(10) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `startTime` time(6) NOT NULL,
+  `endTime` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,6 +125,12 @@ INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
 --
 ALTER TABLE `account_orgs`
   ADD PRIMARY KEY (`userID`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `super_user`
