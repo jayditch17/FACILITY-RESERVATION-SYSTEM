@@ -1,3 +1,6 @@
+<?php
+  include('DBConnector.php');
+?>
 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -297,39 +300,42 @@
                       <th data-name="status" data-visible="false" data-filterable="false">status</th>
                     </tr>
                   </thead>
+
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Lester</td>
-                      <td>de Guzman</td>
-                      <td>RPG</td>
-                      <td>Talent Show</td>
-                      <td>AVR</td>
-                      <td>50</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>
-                        <span class="badge badge-table badge-success">Active</span>
+                    
+                  <?php
+
+                  $sql = "SELECT * FROM events";
+                  $result = $conn-> query($sql);
+
+                  	if($result -> num_rows > 0){
+                     while ($row = $result -> fetch_assoc()){
+                       echo "<tr>
+                         <td>" . $row["eventID"] . "</td>
+                         <td>" . $row["firstName"] . "</td>
+                         <td>" . $row["lastName"] . "</td>
+                         <td>" . $row["eventOrg"] . "</td>
+                         <td>" . $row["actEve"] . "</td>
+                         <td>" . $row["actVenue"] . "</td>
+                         <td>" . $row["numPart"] . "</td>
+                         <td>" . $row["startDate"] . "</td>
+                         <td>" . $row["endDate"] . "</td>
+                         <td>" . $row["startTime"] . "</td>
+                         <td>" . $row["endTime"] . "</td>
+
+                         </tr>";
+                     }
+                    echo "</table>";
+                  }else{
+                    echo "0 result";
+                   }
+                   $conn-> close();
+                  ?> -->
+                      
+                        
                       </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Yo</td>
-                      <td>de Guzman</td>
-                      <td>RPG</td>
-                      <td>Talent Show</td>
-                      <td>AVR</td>
-                      <td>50</td>
-                      <td>1367700388909</td>
-                      <td>122365714987</td>
-                      <td>5:30 AM</td>
-                      <td>6:30 AM</td>
-                      <td>
-                        <span class="badge badge-table badge-success">Active</span>
-                      </td>
-                    </tr>
+                    
+                    
                   </tbody>
                 </table>
               </div>
