@@ -290,6 +290,7 @@
                       <th data-name="roomType">Room Type</th>
                       <th data-name="roomDescription">Description</th>
                       <th data-name="roomCapacity" data-type="number" data-breakpoints="xs">Capacity</th>
+                      <th data-name="status" data-visible="false" data-filterable="false">status</th>
                     </tr>
                   </thead>
                   <tbody>
