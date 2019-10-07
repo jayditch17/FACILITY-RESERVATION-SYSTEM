@@ -306,6 +306,7 @@
               </div>
             </div>
             <!-- End Panel Editing Rows -->
+            
             <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
               <div class="modal-dialog modal-simple" role="document">
                 <form class="modal-content form-horizontal" id="editor">
@@ -334,18 +335,19 @@
                     <div class="form-group required">
                       <label for="roomType" class="col-sm-3 control-label">Room Type</label>
                       <div class="col-sm-9">
-                        <select class="form-control">
-                            <option>Clinic</option>
-                            <option>Court</option>
-                            <option>Laboratory</option>
-                            <option>Lecture</option>
-                            <option>Office</option>
-                            <option>Others</option>
-                            <option>Stage Area</option>
+                        <select class="form-control" id="roomType">
+                            <option value="" disabled selected>Select a room type</option>
+                            <option value="Clinic">Clinic</option>
+                            <option value="Court">Court</option>
+                            <option value="Laboratory">Laboratory</option>
+                            <option value="Lecture">Lecture</option>
+                            <option value="Office">Office</option>
+                            <option value="Others">Others</option>
+                            <option value="Stage Area">Stage Area</option>
                         </select>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group required">
                       <label for="roomDescription" class="col-sm-3 control-label">Description</label>
                       <div class="col-sm-9">
                         <input type="text" class="form-control" id="roomDescription" name="roomDescription" placeholder="Description">
@@ -360,37 +362,14 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Add Facility</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-                  
-                  <!-- <?php
 
-                  // $sql = "SELECT * FROM facilities";
-                  // $result = $conn-> query($sql);
-
-                  // if($result -> num_rows > 0){
-                  //   while ($row = $result -> fetch_assoc()){
-                  //     echo "<tr>
-                  //       <td>" . $row["facilityID"] . "</td>
-                  //       <td>" . $row["facilityLevel"] . "</td>
-                  //       <td>" . $row["facilityRoom"] . "</td>
-                  //       <td>" . $row["roomType"] . "</td>
-                  //       <td>" . $row["roomDescription"] . "</td>
-                  //       <td>" . $row["roomCapacity"] . "</td>
-                  //       </tr>";
-                  //   }
-                  //   echo "</table>";
-                  // }else{
-                  //   echo "0 result";
-                  // }
-                  // $conn-> close();
-                  ?> -->
-          
         </div>
       </div>
     </div>

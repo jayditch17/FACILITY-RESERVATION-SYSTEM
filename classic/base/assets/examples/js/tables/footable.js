@@ -180,15 +180,15 @@
         },
         editRow: function editRow(row) {
           var values = row.val();
-          $editor.find('#id').val(values.id);
-          $editor.find('#firstName').val(values.firstName);
-          $editor.find('#lastName').val(values.lastName);
-          $editor.find('#jobTitle').val(values.jobTitle);
-          $editor.find('#startedOn').val(values.startedOn.format('YYYY-MM-DD'));
-          $editor.find('#dob').val(values.dob.format('YYYY-MM-DD'));
+          $editor.find('#facilityID').val(values.facilityID);
+          $editor.find('#facilityLevel').val(values.facilityLevel);
+          $editor.find('#facilityRoom').val(values.facilityRoom);
+          $editor.find('#roomType').val(values.roomType);
+          $editor.find('#roomDescription').val(values.roomDescription);
+          $editor.find('#roomCapacity').val(values.roomCapacity);
 
           $modal.data('row', row); // set the row data value for use later
-          $editorTitle.text('Edit row #' + values.id); // set the modal title
+          $editorTitle.text('Edit Facility: ' + values.facilityRoom); // set the modal title
           $modal.modal('show'); // display the modal
         },
         deleteRow: function deleteRow(row) {
@@ -207,25 +207,25 @@
         }
       }
     }),
-        uid = 10;
+        uid = 147;
 
     $editor.on('submit', function (e) {
       if (this.checkValidity && !this.checkValidity()) return;
       e.preventDefault();
       var row = $modal.data('row'),
           values = {
-        id: $editor.find('#id').val(),
-        firstName: $editor.find('#firstName').val(),
-        lastName: $editor.find('#lastName').val(),
-        jobTitle: $editor.find('#jobTitle').val(),
-        startedOn: moment($editor.find('#startedOn').val(), 'YYYY-MM-DD'),
-        dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD')
+        facilityID: $editor.find('#facilityID').val(),
+        facilityLevel: $editor.find('#facilityLevel').val(),
+        facilityRoom: $editor.find('#facilityRoom').val(),
+        roomType: $editor.find('#roomType').val(),
+        roomDescription: $editor.find('#roomDescription').val(),
+        roomCapacity: $editor.find('#roomCapacity').val(),
       };
 
       if (row instanceof FooTable.Row) {
         row.val(values);
       } else {
-        values.id = uid++;
+        values.facilityID = uid++;
         ft.rows.add(values);
       }
       $modal.modal('hide');
