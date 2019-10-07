@@ -180,6 +180,12 @@
         },
         editRow: function editRow(row) {
           var values = row.val();
+          // $editor.find('#id').val(values.id);
+          // $editor.find('#firstName').val(values.firstName);
+          // $editor.find('#lastName').val(values.lastName);
+          // $editor.find('#jobTitle').val(values.jobTitle);
+          // $editor.find('#startedOn').val(values.startedOn.format('YYYY-MM-DD'));
+          // $editor.find('#dob').val(values.dob.format('YYYY-MM-DD'));
           $editor.find('#facilityID').val(values.facilityID);
           $editor.find('#facilityLevel').val(values.facilityLevel);
           $editor.find('#facilityRoom').val(values.facilityRoom);
@@ -214,6 +220,12 @@
       e.preventDefault();
       var row = $modal.data('row'),
           values = {
+        // id: $editor.find('#id').val(),
+        // firstName: $editor.find('#firstName').val(),
+        // lastName: $editor.find('#lastName').val(),
+        // jobTitle: $editor.find('#jobTitle').val(),
+        // startedOn: moment($editor.find('#startedOn').val(), 'YYYY-MM-DD'),
+        // dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD')
         facilityID: $editor.find('#facilityID').val(),
         facilityLevel: $editor.find('#facilityLevel').val(),
         facilityRoom: $editor.find('#facilityRoom').val(),
