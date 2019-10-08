@@ -251,61 +251,132 @@
                 <div class="col-md-6">
                   <div class="mb-15">
                     <h2>Swimming Pool</h2>
-                    <p>September 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Capacity</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
                     <p>October 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
+                      <!-- Example Optional Sizes -->
+                      <div class="example-wrap">
+                        <div class="example">
+                          <div class="example-buttons">
+                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Events</button>
+                          </div>
+
+                          <!-- Modal -->
+                          <div class="modal fade example-modal-lg" aria-hidden="true" aria-labelledby="exampleOptionalLarge"
+                            role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-simple modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="exampleOptionalLarge">Add Event</h4>
+                                </div>
+                                <div class="modal-body">
+                                        <!-- Example Basic Form (Form grid) -->
+                                        <div class="example-wrap">
+                                          <div class="example">
+                                            <form autocomplete="off">
+                                              <div class="row">
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicFirstName">First Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicFirstName" name="inputFirstName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicLastName">Last Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicLastName" name="inputLastName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                  <div class="form-group col-sm-4">
+                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">Mobile Number</label>
+                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
+                                                       autocomplete="off" />
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicOrganization">Organization</label>
+                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
+                                                   autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicPosition">Position</label>
+                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicAdviser">Adviser</label>
+                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
+                                                     autocomplete="off" />
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="form-control-label" for="inputBasicEventName">Event Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicEventName" name="inputEventName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">No. of Participants</label>
+                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
+                                                       autocomplete="off" />
+                                                </div>
+                                              </div>
+                                              <div class="example-wrap">
+                                                <div class="example datepair-wrap" data-plugin="datepair">
+                                                  <div class="input-daterange-wrap">
+                                                    <label class="form-control-label" for="inputBasicDateAndTime">Date and Time</label>
+                                                    <div class="input-daterange">
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-date datepair-start" data-plugin="datepicker">
+                                                      </div>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-time" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-time datepair-start" data-plugin="timepicker"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="input-daterange-to">to</div>
+                                                  <div class="input-daterange-wrap">
+                                                    <div class="input-daterange">
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-date datepair-end" name="end" data-plugin="datepicker">
+                                                      </div>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-time" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-time datepair-end" data-plugin="timepicker"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <!-- End Example Basic Form (Form grid) -->
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Modal -->
+                  </div>
+                </div>
+                <!-- End Example Optional Sizes -->
                   </div>
                 </div>
               </div>
@@ -313,12 +384,14 @@
                 <thead>
                   <tr>
                     <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
+                    <th>Event Name</th>
+                    <th>Date Start</th>
+                    <th>Date End</th>
+                    <th>Time Start</th>
+                    <th>Time End</th>
                     <th>Organization</th>
-                    <th>Capacity</th>
+                    <th>Position</th>
+                    <th>No. of Participants</th>
                   </tr>
                 </thead>
 
@@ -331,9 +404,13 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
 
                   <tr class="gradeA">
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -344,57 +421,7 @@
                   </tr>
 
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <p>November 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Capacity</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                </tbody>
+                
               </table>
             </div>
           </div>
