@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2019 at 09:01 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 09, 2019 at 09:30 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,6 +35,21 @@ CREATE TABLE `account_fac` (
   `deptFac` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account_office`
+--
+
+CREATE TABLE `account_office` (
+  `officeID` int(15) NOT NULL,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(20) NOT NULL,
+  `depOfc` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,6 +88,15 @@ CREATE TABLE `events` (
   `endTime` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`) VALUES
+(110, 'jay', 'ditch', 'rpg', 'sportsfest', 'courts', 90, '2019-11-01', '2019-11-14', '14:00:00.000000', '23:00:00.000000'),
+(989, 'Jayditch', 'Balansi', 'sicap', 'fund raising', 'oval', 90, '0000-00-00', '0000-00-00', '07:00:00.000000', '16:00:00.000000'),
+(3387, 'Jayditch', 'Hakdog', 'jpia', 'sportsfest', 'oval ', 89, '2019-10-23', '2019-10-29', '09:00:00.000000', '15:00:00.000000');
+
 -- --------------------------------------------------------
 
 --
@@ -93,9 +117,8 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`facilityID`, `facilityLevel`, `facilityRoom`, `roomType`, `roomDescription`, `roomCapacity`) VALUES
-(1, '5th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50'),
-(2, '6th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50'),
-(3, '7th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50');
+(2, '1', '555', 'Lecture', 'Thesis natin', '10'),
+(3, '5', '515', 'Lecture', 'meeting meetingmeeting meetingmeeting meetingmeeti', '50');
 
 -- --------------------------------------------------------
 
@@ -122,10 +145,22 @@ INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
 --
 
 --
--- Indexes for table `facilities`
+-- Indexes for table `account_office`
 --
-ALTER TABLE `facilities`
-  ADD PRIMARY KEY (`facilityID`);
+ALTER TABLE `account_office`
+  ADD PRIMARY KEY (`officeID`);
+
+--
+-- Indexes for table `account_orgs`
+--
+ALTER TABLE `account_orgs`
+  ADD PRIMARY KEY (`userID`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `super_user`
@@ -138,10 +173,10 @@ ALTER TABLE `super_user`
 --
 
 --
--- AUTO_INCREMENT for table `facilities`
+-- AUTO_INCREMENT for table `account_office`
 --
-ALTER TABLE `facilities`
-  MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `account_office`
+  MODIFY `officeID` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `super_user`
