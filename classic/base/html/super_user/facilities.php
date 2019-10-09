@@ -284,13 +284,6 @@
                   data-paging="true" data-filtering="true" data-sorting="true">
                   <thead>
                     <tr>
-                      <!-- <th data-name="id" data-type="number" data-breakpoints="xs">ID</th>
-                      <th data-name="firstName">First Name</th>
-                      <th data-name="lastName">Last Name</th>
-                      <th data-name="jobTitle" data-breakpoints="xs sm">Job Title</th>
-                      <th data-name="startedOn" data-type="date" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">Started On</th>
-                      <th data-name="dob" data-type="date" data-breakpoints="xs sm md" data-format-string="MMMM Do YYYY">Date of Birth</th>
-                      <th data-name="status" data-visible="false" data-filterable="false">status</th> -->
                       <th data-name="facilityID" data-type="number" data-breakpoints="xs">ID</th>
                       <th data-name="facilityLevel">Level</th>
                       <th data-name="facilityRoom">Room</th>
