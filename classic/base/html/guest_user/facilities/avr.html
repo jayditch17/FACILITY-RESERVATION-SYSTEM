@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Guest User</title>
     
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="../../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../../assets1/css/site.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../global/css/style.css">
     
     <!-- Plugins -->
     <link rel="stylesheet" href="../../../../global/vendor/animsition/animsition.css">
@@ -31,12 +33,42 @@
         <link rel="stylesheet" href="../../../../global/vendor/jquery-selective/jquery-selective.css">
         <link rel="stylesheet" href="../../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
         <link rel="stylesheet" href="../../../../global/vendor/asscrollable/asScrollable.css">
+        <link rel="stylesheet" href="../../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.css">
+        <link rel="stylesheet" href="../../../../global/vendor/timepicker/jquery-timepicker.css">
+        <link rel="stylesheet" href="../../../../global/vendor/jquery-strength/jquery-strength.css">
+        <link rel="stylesheet" href="../../../../global/vendor/multi-select/multi-select.css">
+        <link rel="stylesheet" href="../../../../global/vendor/typeahead-js/typeahead.css">
+        <link rel="stylesheet" href="../../../../global/vendor/ionrangeslider/ionrangeslider.min.css">
+        <link rel="stylesheet" href="../../../../global/vendor/asspinner/asSpinner.css">
+        <link rel="stylesheet" href="../../../../global/vendor/clockpicker/clockpicker.css">
+        <link rel="stylesheet" href="../../../../global/vendor/ascolorpicker/asColorPicker.css">
+        <link rel="stylesheet" href="../../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.css">
+        <link rel="stylesheet" href="../../../../global/vendor/jquery-labelauty/jquery-labelauty.css">
+        <link rel="stylesheet" href="../../../../global/vendor/select2/select2.css">
+        <link rel="stylesheet" href="../../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.css">
+        <link rel="stylesheet" href="../../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css">
+        <link rel="stylesheet" href="../../../../global/vendor/bootstrap-select/bootstrap-select.css">
+        <link rel="stylesheet" href="../../../../global/vendor/icheck/icheck.css">
+        <link rel="stylesheet" href="../../../../global/vendor/switchery/switchery.css">
+        <link rel="stylesheet" href="../../../../global/vendor/asrange/asRange.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
+        <link rel="stylesheet" href="../../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
+        <link rel="stylesheet" href="../../../assets1/examples/css/tables/datatable.css">
         <link rel="stylesheet" href="../../../assets1/examples/css/dashboard/team.css">
+        <link rel="stylesheet" href="../../../assets1/examples/css/forms/advanced.css">
     
     <!-- Fonts -->
     <link rel="stylesheet" href="../../../../global/fonts/web-icons/web-icons.min.css">
     <link rel="stylesheet" href="../../../../global/fonts/brand-icons/brand-icons.min.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link rel="stylesheet" href="../../../../global/fonts/7-stroke/7-stroke.css">
+    <link rel="stylesheet" href="../../../../global/fonts/weather-icons/weather-icons.css">
     
     <!--[if lt IE 9]>
     <script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>
@@ -233,7 +265,7 @@
               <li class="site-menu-category">General</li>
               <li class="dropdown site-menu-item has-sub">
                 <a data-toggle="dropdown" href="../guest_user.html" data-dropdown-toggle="false">
-                        <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                        <i class="icon wb-home" aria-hidden="true"></i>
                         <span class="site-menu-title">Home</span>
                     </a>
               </li>
@@ -243,168 +275,253 @@
       </div>
     </div>
 
-        <!-- Page -->
-                <!-- Panel Table Add Row -->
+    <!-- Page -->
+    <div class="page">
+      <div class="page-content container-fluid">
+        <div data-plugin="matchHeight" data-by-row="true">
+          <!-- Panel Table Add Row -->
           <div class="panel">
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-15">
                     <h2>AVR</h2>
-                    <p>September 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Capacity</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="gradeA">
-                    <td>2</td>
-                    <td>Mass</td>
-                    <td>11:00am</td>
-                    <td>12:00pm</td>
-                    <td>Parish Office</td>
-                    <td>N/A</td>
-                    <td>300</td>
-                  </tr>
-                  <tr>
-                    <td>11</td>
-                    <td>Recollection</td>
-                    <td>9:00am</td>
-                    <td>5:00pm</td>
-                    <td>Parish Office</td>
-                    <td>N/A</td>
-                    <td>600</td>
-                  </tr>
-                  <tr>
-                    <td>14</td>
-                    <td>Career Talk</td>
-                    <td>9:00am</td>
-                    <td>12:00pm</td>
-                    <td>Guidance Office</td>
-                    <td>N/A</td>
-                    <td>600</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
                     <p>October 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
+                      <!-- Example Optional Sizes -->
+                          <div class="example-buttons">
+                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
+                          </div>
+
+                          <!-- Modal -->
+                          <div class="modal fade example-modal-lg" aria-hidden="true" aria-labelledby="exampleOptionalLarge"
+                            role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-simple modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="exampleOptionalLarge">Event Reservation Form</h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                        <!-- Example Basic Form (Form grid) -->
+                                        <div class="example-wrap">
+                                          <div class="example">
+                                            <form autocomplete="off">
+                                              <div class="row">
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicFirstName">First Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicFirstName" name="inputFirstName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicLastName">Last Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicLastName" name="inputLastName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                  <div class="form-group col-sm-4">
+                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">Mobile Number</label>
+                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
+                                                       autocomplete="off" />
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicOrganization">Organization</label>
+                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
+                                                   autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicPosition">Position</label>
+                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicAdviser">Adviser</label>
+                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
+                                                     autocomplete="off" />
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="form-control-label" for="inputBasicEventName">Event Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicEventName" name="inputEventName"
+                                                     autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">No. of Participants</label>
+                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
+                                                       autocomplete="off" />
+                                                </div>
+                                              </div>
+                                              <div class="example-wrap">
+                                                <div class="example datepair-wrap" data-plugin="datepair">
+                                                  <div class="input-daterange-wrap">
+                                                    <label class="form-control-label" for="inputBasicDateAndTime">Date and Time</label>
+                                                    <div class="input-daterange">
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-date datepair-start" data-plugin="datepicker">
+                                                      </div>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-time" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-time datepair-start" data-plugin="timepicker"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="input-daterange-to"></div>
+                                                  <div class="input-daterange-wrap">
+                                                    <div class="input-daterange">
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-date datepair-end" name="end" data-plugin="datepicker">
+                                                      </div>
+                                                      <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                          <i class="icon wb-time" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control datepair-time datepair-end" data-plugin="timepicker"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <!-- End Example Basic Form (Form grid) -->
+                                        <h5>Equipment/s to be used:</h5>
+
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="gu_container">Bench(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Chairs(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Platform(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Table(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Triboard(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Divider(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                  <label class="gu_container">Microphone(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Mic Stand(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Karaoke
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Projector(s)
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">Sound System
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                  <label class="gu_container">TV/DVD
+                                                    <input type="checkbox">
+                                                    <span class="gu_checkmark"></span>
+                                                  </label>
+                                                </div>
+                                              </div>
+                                    </div>
+
+
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- End Modal -->
+                          <!-- End Example Optional Sizes -->
+                        </div>
+                      </div>
+                    </div>
+              
+                    <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Event Name</th>
+                          <th>Date Start</th>
+                          <th>Date End</th>
+                          <th>Time Start</th>
+                          <th>Time End</th>
+                          <th>Organization</th>
+                          <th>Position</th>
+                          <th>No. of Participants</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr class="gradeA">
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+
+                        <tr class="gradeA">
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+
+                      </tbody>
+                      
+                    </table>
                   </div>
                 </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Capacity</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
+                <!-- End Panel Table Add Row -->
           </div>
-
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <p>November 2019</p>
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add Event
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Time Starts</th>
-                    <th>Time Ends</th>
-                    <th>Office</th>
-                    <th>Organization</th>
-                    <th>Capacity</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                  <tr class="gradeA">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- End Panel Table Add Row -->
+      </div>
+    </div>
     <!-- End Page -->
 
     <!-- Add Item Dialog -->
@@ -511,8 +628,11 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <div class="site-footer-legal">© 2019 <a href="#">Maryheights Facility Reservation System</a></div>
+      <div class="site-footer-right">
+        © 2019 Facility Reservation System.
+      </div>
     </footer>
+
     <!-- Core  -->
     <script src="../../../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
     <script src="../../../../global/vendor/jquery/jquery.js"></script>
@@ -522,6 +642,7 @@
     <script src="../../../../global/vendor/mousewheel/jquery.mousewheel.js"></script>
     <script src="../../../../global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
     <script src="../../../../global/vendor/asscrollable/jquery-asScrollable.js"></script>
+    <script src="../../../../global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
     
     <!-- Plugins -->
     <script src="../../../../global/vendor/switchery/switchery.js"></script>
@@ -534,6 +655,48 @@
         <script src="../../../../global/vendor/matchheight/jquery.matchHeight-min.js"></script>
         <script src="../../../../global/vendor/jquery-selective/jquery-selective.min.js"></script>
         <script src="../../../../global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+        <script src="../../../../global/vendor/select2/select2.full.min.js"></script>
+        <script src="../../../../global/vendor/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>
+        <script src="../../../../global/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+        <script src="../../../../global/vendor/bootstrap-select/bootstrap-select.js"></script>
+        <script src="../../../../global/vendor/icheck/icheck.min.js"></script>
+        <script src="../../../../global/vendor/switchery/switchery.js"></script>
+        <script src="../../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+        <script src="../../../../global/vendor/ionrangeslider/ion.rangeSlider.min.js"></script>
+        <script src="../../../../global/vendor/asspinner/jquery-asSpinner.min.js"></script>
+        <script src="../../../../global/vendor/clockpicker/bootstrap-clockpicker.min.js"></script>
+        <script src="../../../../global/vendor/ascolor/jquery-asColor.min.js"></script>
+        <script src="../../../../global/vendor/asgradient/jquery-asGradient.min.js"></script>
+        <script src="../../../../global/vendor/ascolorpicker/jquery-asColorPicker.min.js"></script>
+        <script src="../../../../global/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+        <script src="../../../../global/vendor/jquery-knob/jquery.knob.js"></script>
+        <script src="../../../../global/vendor/bootstrap-touchspin/bootstrap-touchspin.min.js"></script>
+        <script src="../../../../global/vendor/jquery-labelauty/jquery-labelauty.js"></script>
+        <script src="../../../../global/vendor/timepicker/jquery.timepicker.min.js"></script>
+        <script src="../../../../global/vendor/datepair/datepair.min.js"></script>
+        <script src="../../../../global/vendor/datepair/jquery.datepair.min.js"></script>
+        <script src="../../../../global/vendor/jquery-strength/password_strength.js"></script>
+        <script src="../../../../global/vendor/jquery-strength/password_strength.js"></script>
+        <script src="../../../../global/vendor/jquery-strength/jquery-strength.min.js"></script>
+        <script src="../../../../global/vendor/multi-select/jquery.multi-select.js"></script>
+        <script src="../../../../global/vendor/typeahead-js/bloodhound.min.js"></script>
+        <script src="../../../../global/vendor/typeahead-js/typeahead.jquery.min.js"></script>
+        <script src="../../../../global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+        <script src="../../../../global/vendor/bootbox/bootbox.js"></script>
+        <script src="../../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
+        <script src="../../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="../../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
+        <script src="../../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
+        <script src="../../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
+        <script src="../../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
+        <script src="../../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
+        <script src="../../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
+        <script src="../../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
     
     <!-- Scripts -->
     <script src="../../../../global/js/Component.js"></script>
@@ -545,6 +708,7 @@
     <script src="../../../assets1/js/Section/Sidebar.js"></script>
     <script src="../../../assets1/js/Section/PageAside.js"></script>
     <script src="../../../assets1/js/Plugin/menu.js"></script>
+    <script src="../../assets1/js/Section/GridMenu.js"></script>
     
     <!-- Config -->
     <script src="../../../../global/js/config/colors.js"></script>
@@ -560,8 +724,34 @@
         <script src="../../../../global/js/Plugin/aspieprogress.js"></script>
         <script src="../../../../global/js/Plugin/bootstrap-datepicker.js"></script>
         <script src="../../../../global/js/Plugin/asscrollable.js"></script>
+        <script src="../../../../global/js/Plugin/select2.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-tokenfield.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-tagsinput.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-select.js"></script>
+        <script src="../../../../global/js/Plugin/icheck.js"></script>
+        <script src="../../../../global/js/Plugin/switchery.js"></script>
+        <script src="../../../../global/js/Plugin/asrange.js"></script>
+        <script src="../../../../global/js/Plugin/ionrangeslider.js"></script>
+        <script src="../../../../global/js/Plugin/asspinner.js"></script>
+        <script src="../../../../global/js/Plugin/clockpicker.js"></script>
+        <script src="../../../../global/js/Plugin/ascolorpicker.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-maxlength.js"></script>
+        <script src="../../../../global/js/Plugin/jquery-knob.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-touchspin.js"></script>
+        <script src="../../../../global/js/Plugin/card.js"></script>
+        <script src="../../../../global/js/Plugin/jquery-labelauty.js"></script>
+        <script src="../../../../global/js/Plugin/bootstrap-datepicker.js"></script>
+        <script src="../../../../global/js/Plugin/jt-timepicker.js"></script>
+        <script src="../../../../global/js/Plugin/datepair.js"></script>
+        <script src="../../../../global/js/Plugin/jquery-strength.js"></script>
+        <script src="../../../../global/js/Plugin/multi-select.js"></script>
+        <script src="../../../../global/js/Plugin/jquery-placeholder.js"></script>
+        <script src="../../../../global/js/Plugin/datatables.js"></script>
+        
+        <script src="../../../assets1/examples/js/tables/datatable.js"></script>
     
         <script src="../../../assets1/examples/js/dashboard/team.js"></script>
+        <script src="../../assets1/examples/js/forms/advanced.js"></script>
     
   </body>
 </html>
