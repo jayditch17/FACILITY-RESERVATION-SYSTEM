@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2019 at 08:56 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Oct 09, 2019 at 09:01 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -93,8 +93,9 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`facilityID`, `facilityLevel`, `facilityRoom`, `roomType`, `roomDescription`, `roomCapacity`) VALUES
-(2, '1', '555', 'Lecture', 'Thesis natin', '10'),
-(3, '5', '515', 'Lecture', 'meeting meetingmeeting meetingmeeting meetingmeeti', '50');
+(1, '5th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50'),
+(2, '6th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50'),
+(3, '7th', '515', 'Lecture', 'lecture lecturelecture lecturelecture lecturelectu', '50');
 
 -- --------------------------------------------------------
 
@@ -121,16 +122,10 @@ INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
 --
 
 --
--- Indexes for table `account_orgs`
+-- Indexes for table `facilities`
 --
-ALTER TABLE `account_orgs`
-  ADD PRIMARY KEY (`userID`);
-
---
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`eventID`);
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`facilityID`);
 
 --
 -- Indexes for table `super_user`
@@ -141,6 +136,12 @@ ALTER TABLE `super_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `super_user`
