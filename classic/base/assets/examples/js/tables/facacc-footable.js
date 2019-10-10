@@ -187,14 +187,14 @@
             // $editor.find('#startedOn').val(values.startedOn.format('YYYY-MM-DD'));
             // $editor.find('#dob').val(values.dob.format('YYYY-MM-DD'));
             $editor.find('#userID').val(values.userID);
-            $editor.find('#firstName').val(values.firstName);
-            $editor.find('#lastName').val(values.lastName);
-            $editor.find('#studOrg').val(values.studOrg);
-            $editor.find('#studEmail').val(values.studEmail);
-            $editor.find('#studPassword').val(values.studPassword);
+            $editor.find('#first_Name').val(values.first_Name);
+            $editor.find('#last_Name').val(values.last_Name);
+            $editor.find('#deptFac').val(values.deptFac);
+            $editor.find('#facEmail').val(values.facEmail);
+            $editor.find('#facPassword').val(values.facPassword);
   
             $modal.data('row', row); // set the row data value for use later
-            $editorTitle.text('Edit Student: ' + (values.firstName + " " + values.lastName)); // set the modal title
+            $editorTitle.text('Edit Faculty: ' + (values.first_Name + " " + values.last_Name)); // set the modal title
             $modal.modal('show'); // display the modal
           },
           deleteRow: function deleteRow(row) {
@@ -227,11 +227,11 @@
           // startedOn: moment($editor.find('#startedOn').val(), 'YYYY-MM-DD'),
           // dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD')
           userID: $editor.find('#userID').val(),
-          firstName: $editor.find('#firstName').val(),
-          lastName: $editor.find('#lastName').val(),
-          studOrg: $editor.find('#studOrg').val(),
-          studEmail: $editor.find('#studEmail').val(),
-          studPassword: $editor.find('#studPassword').val(),
+          first_Name: $editor.find('#first_Name').val(),
+          last_Name: $editor.find('#last_Name').val(),
+          deptFac: $editor.find('#deptFac').val(),
+          facEmail: $editor.find('#facEmail').val(),
+          facPassword: $editor.find('#facPassword').val(),
         };
   
         if (row instanceof FooTable.Row) {
