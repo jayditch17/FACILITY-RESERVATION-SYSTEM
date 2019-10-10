@@ -194,7 +194,7 @@
           $editor.find('#studPassword').val(values.studPassword);
 
           $modal.data('row', row); // set the row data value for use later
-          $editorTitle.text('Edit Facility: ' + values.lastName); // set the modal title
+          $editorTitle.text('Edit Student: ' + (values.firstName + " " + values.lastName)); // set the modal title
           $modal.modal('show'); // display the modal
         },
         deleteRow: function deleteRow(row) {
