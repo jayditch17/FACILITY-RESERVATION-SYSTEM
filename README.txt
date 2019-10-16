@@ -5,5 +5,5 @@ How to access the System:
 3. When the repository is downloaded, copy the folder FACILITY-RESERVATION-SYSTEM and paste it to C://xampp/htdocs.
 4. Click on Xampp to open. 
 5. Go to your browser and copy this link, "localhost/FACILITY-RESERVATION-SYSTEM/" and login in with these credentials:
-		email: superadminfs@localhost.com
+		email: superadminfs@localhost.ph
 		password: superadminfs
