@@ -25,15 +25,9 @@
     <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
-        <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
+
+        <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
+        <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
     
     
     <!-- Fonts -->
@@ -294,65 +288,110 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
-            <!-- Panel Table Add Row -->
-          <div class="panel">
-            <header class="panel-heading">
-              <h3 class="panel-title">Equipments</h3>
-            </header>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <button id="addToTable" class="btn btn-outline btn-primary" type="button">
-                      <i class="icon wb-plus" aria-hidden="true"></i> Add equipment
-                    </button>
+        <div class="col-xl-12">
+                <!-- Panel Editing Rows --> 
+                <div class="panel">
+                  <header class="panel-heading">
+                    <h3 class="panel-title">Equipments</h3>
+                  </header>
+                  <div class="panel-body">
+                    <table id="exampleFooEditing" class="table table-bordered table-hover toggle-circle"
+                      data-paging="true" data-filtering="true" data-sorting="true">
+                      <thead>
+                        <tr>
+                          <th data-name="userID" data-type="number" data-breakpoints="xs">ID</th>
+                          <th data-name="firstName">Equipment Name</th>
+                          <th data-name="lastName">Quantity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Microphone</td>
+                          <td>10</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-              </div>
-              <div id="exampleAddRow_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <div class="dataTables_length" id="exampleAddRow_length">
-                      <label>
-                        <select name="exampleAddRow_length" aria-controls="exampleAddRow" class="form-control form-control-sm">
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
-                        </select>
-                      </label>
-                    </div>
+                <!-- End Panel Editing Rows -->
+                
+                <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+                  <div class="modal-dialog modal-simple" role="document">
+                    <form class="modal-content form-horizontal" id="editor">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="editor-title">Add Row</h4>
+                      </div>
+                      <div class="modal-body">
+                        <input type="number" id="userID" name="userID" class="hidden" style="display:none;" />
+                        <div class="form-group required">
+                          <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                              required>
+                          </div>
+                        </div>
+                        <div class="form-group required">
+                          <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                              required>
+                          </div>
+                        </div>
+                        <div class="form-group required">
+                          <label for="studOrg" class="col-sm-3 control-label">Organization</label>
+                          <div class="col-sm-12">
+                            <select class="form-control" id="studOrg">
+                                <option value="" disabled selected>Select an organization</option>
+                                <option value="GCS">GCS</option>
+                                <option value="ICON">ICON</option>
+                                <option value="JFINEX">JFINEX</option>
+                                <option value="JPIA">JPIA</option>
+                                <option value="JPMAP">JPMAP</option>
+                                <option value="Laissez Faire">Laissez Faire</option>
+                                <option value="LIGHT">LIGHT</option>
+                                <option value="Marketing Mixers">Marketing Mixers</option>
+                                <option value="PESO">PESO</option>
+                                <option value="ROTARACT">ROTARACT</option>
+                                <option value="RPG">RPG</option>
+                                <option value="SCHEMA">SCHEMA</option>
+                                <option value="SICAP">SICAP</option>
+                                <option value="YES">YES</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group required">
+                          <label for="studPostition" class="col-sm-3 control-label">Position</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" id="studPostition" name="studPostition" placeholder="Position">
+                          </div>
+                        </div>
+                        <div class="form-group required">
+                          <label for="studEmail" class="col-sm-3 control-label">Email Address</label>
+                          <div class="col-sm-12">
+                            <input type="email" class="form-control" id="studEmail" name="studEmail" placeholder="Email Address"
+                              required>
+                          </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="studPassword" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-12">
+                              <input type="password" class="form-control" id="studPassword" name="studPassword" placeholder="Password"
+                                required>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
-              </div>
-              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                <thead>
-                  <tr>
-                    <th>Equipment ID</th>
-                    <th>Equipment Name</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="gradeA">
-                    <td>1</td>
-                    <td>Microphone</td>>
-                    <td class="actions">
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
-                        data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
-                        data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-                        data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
-                        data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
-          </div>
-          <!-- End Panel Table Add Row -->
           
 
           
@@ -384,22 +423,9 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-        <script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
-        <script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
-        <script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
-        <script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
-        <script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
-        <script src="../../../global/vendor/bootbox/bootbox.js"></script>
+
+        <script src="../../../global/vendor/moment/moment.min.js"></script>
+        <script src="../../../global/vendor/footable/footable.min.js"></script>
     
     <!-- Scripts -->
     <script src="../../../global/js/Component.js"></script>
@@ -422,8 +448,7 @@
     <script src="../../../global/js/Plugin/asscrollable.js"></script>
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
-        <script src="../../../global/js/Plugin/datatables.js"></script>
         
-        <script src="../../assets/examples/js/tables/datatable.js"></script>
+        <script src="../../assets/examples/js/tables/studacc-footable.js"></script>
   </body>
 </html>
