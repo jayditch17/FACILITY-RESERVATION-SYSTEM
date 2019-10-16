@@ -28,9 +28,15 @@
     <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-        
-        <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
-        <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
+        <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
+        <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
     
     
     <!-- Fonts -->
@@ -118,7 +124,7 @@
               <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
                 <div class="dropdown-divider" role="presentation"></div>
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -240,28 +246,10 @@
               </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
-                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                <a href="accounts.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                         <span class="site-menu-title">Accounts</span>
-                                <span class="site-menu-arrow"></span>
-                    </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="student_account.html">
-                      <span class="site-menu-title">Student</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="faculty_account.html">
-                      <span class="site-menu-title">Faculty</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="office_account.html">
-                      <span class="site-menu-title">Office</span>
-                    </a>
-                  </li>
-                </ul>
+                </a>
               </li>
               <li class="site-menu-item has-sub active">
                 <a href="facilities.php">
@@ -290,104 +278,145 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
-           
-        <div class="col-xl-12">
-            <!-- Panel Editing Rows -->
-            <div class="panel">
-              <header class="panel-heading">
-                <h3 class="panel-title">Facilities</h3>
-              </header>
-              <div class="panel-body">
-                <table id="exampleFooEditing" class="table table-bordered table-hover toggle-circle"
-                  data-paging="true" data-filtering="true" data-sorting="true">
-                  <thead>
-                    <tr>
-                      <th data-name="facilityID" data-type="number" data-breakpoints="xs">ID</th>
-                      <th data-name="facilityLevel">Level</th>
-                      <th data-name="facilityRoom">Room</th>
-                      <th data-name="roomType">Room Type</th>
-                      <th data-name="roomDescription">Description</th>
-                      <th data-name="roomCapacity" data-type="number" data-breakpoints="xs">Capacity</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mezzanine</td>
-                      <td>Mezzanine</td>
-                      <td>Others</td>
-                      <td>LIBRARY READING AREA/ TESTING AREA</td>
-                      <td>300</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- End Panel Editing Rows -->
-            
-            <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
-              <div class="modal-dialog modal-simple" role="document">
-                <form class="modal-content form-horizontal" id="editor">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="editor-title">Add Row</h4>
-                  </div>
-                  <div class="modal-body">
-                    <input type="number" id="facilityID" name="facilityID" class="hidden" style="display:none;" />
-                    <div class="form-group required">
-                      <label for="facilityLevel" class="col-sm-3 control-label">Level</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="facilityLevel" name="facilityLevel" placeholder="Level"
-                          required>
-                      </div>
-                    </div>
-                    <div class="form-group required">
-                      <label for="facilityRoom" class="col-sm-3 control-label">Room</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="facilityRoom" name="facilityRoom" placeholder="Room"
-                          required>
-                      </div>
-                    </div>
-                    <div class="form-group required">
-                      <label for="roomType" class="col-sm-3 control-label">Room Type</label>
-                      <div class="col-sm-9">
-                        <select class="form-control" id="roomType">
-                            <option value="" disabled selected>Select a room type</option>
-                            <option value="Clinic">Clinic</option>
-                            <option value="Court">Court</option>
-                            <option value="Laboratory">Laboratory</option>
-                            <option value="Lecture">Lecture</option>
-                            <option value="Office">Office</option>
-                            <option value="Others">Others</option>
-                            <option value="Stage Area">Stage Area</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group required">
-                      <label for="roomDescription" class="col-sm-3 control-label">Description</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="roomDescription" name="roomDescription" placeholder="Description">
-                      </div>
-                    </div>
-                    <div class="form-group required">
-                      <label for="roomCapacity" class="col-sm-3 control-label">Capacity</label>
-                      <div class="col-sm-9">
-                        <input type="number" class="form-control" id="roomCapacity" name="roomCapacity" placeholder="Capacity"
-                          required>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-        </div>
+          
+          
+            <!-- Panel Table Add Row -->
+          <div class="panel">
+            <header class="panel-heading">
+              <h3 class="panel-title">Facilities</h3>
+            </header>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-15">
+                  <button class="btn btn-outline btn-primary" data-target="#exampleNiftyFadeScale"
+                      data-toggle="modal" type="button"><i class="icon wb-plus ::before" aria-hidden="true"></i>Add Facility</button>
 
+                      <form action="addFacility.php" method="post" accept-charset="utf-8">
+                    <!-- Modal -->
+                    <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
+                      aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+                      <div class="modal-dialog modal-simple">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title">Facility  </h4>
+                          </div>
+                          <div class="modal-body">
+                            <form autocomplete="off">
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicLevel">Level</label>
+                                  <input type="text" class="form-control" id="inputBasicLevel" name="level"
+                                    placeholder="Level" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicRoom">Room</label>
+                                  <input type="text" class="form-control" id="inputBasicRoom" name="room"
+                                    placeholder="Room" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputCapacity">Capacity</label>
+                                  <input type="text" class="form-control" id="inputCapacity" name="capacity"
+                                    placeholder="Capacity" autocomplete="off" />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputRoomType">Room Type</label>
+                                <select name = "roomType" class="form-control">
+                                    <option>Clinic</option>
+                                    <option>Court</option>
+                                    <option>Laboratory</option>
+                                    <option>Lecture</option>
+                                    <option>Office</option>
+                                    <option>Others</option>
+                                    <option>Stage Area</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputBasicDescription">Description</label>
+                                <input type="text" class="form-control" id="inputBasicDescription" name="description"
+                                  placeholder="Description" autocomplete="off" />
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button name = "addFac"type="submit" class="btn btn-primary">Add Facility</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </form>
+                    <!-- End Modal -->
+                  </div>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
+                <thead>
+                  <tr>
+                    <th>Facility ID</th>
+                    <th>Level</th>
+                    <th>Room</th>
+                    <th>Room Type</th>
+                    <th>Description</th>
+                    <th>Capacity</th>
+                    <th>Actions</th>
+                  </tr>
+                   <?php
+                  $sql = "SELECT * FROM facilities";
+                  $result = $conn-> query($sql);
+                  if($result -> num_rows > 0){
+                    while ($row = $result -> fetch_assoc()){
+                      echo "<tr>";
+                        echo "<td>" . $row["facilityID"] . "</td>";
+                        echo "<td>" . $row["facilityLevel"] . "</td>";
+                        echo "<td>" . $row["facilityRoom"] . "</td>";
+                        echo "<td>" . $row["roomType"] . "</td>";
+                        echo "<td>" . $row["roomDescription"] . "</td>";
+                        echo "<td>" . $row["roomCapacity"] . "</td>";
+                        echo "<td><a href=delete.php?id=" . $row['ID'] . " >DELETE</a></td>";
+
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                  }else{
+                    echo "0 result";
+                  }
+                  $conn-> close();
+                  ?>
+
+                  
+                </thead>
+                <tbody>
+                  <!-- <tr class="gradeA">
+                    <td>1</td>
+                    <td>Mezzanine</td>
+                    <td>Mezzanine</td>
+                    <td>OTHERS</td>
+                    <td>LIBRARY READING AREA/ TESTING AREA</td>
+                    <td>300</td>
+                    <td class="actions">
+                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
+                        data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
+                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
+                        data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
+                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+                        data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
+                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
+                        data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Panel Table Add Row -->
+          
+
+          
         </div>
       </div>
     </div>
@@ -415,10 +444,22 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-    <script src="../../../global/vendor/moment/moment.min.js"></script>
-
-        <script src="../../../global/vendor/moment/moment.min.js"></script>
-        <script src="../../../global/vendor/footable/footable.min.js"></script>
+        <script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
+        <script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
+        <script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
+        <script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
+        <script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
+        <script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
+        <script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
+        <script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+        <script src="../../../global/vendor/bootbox/bootbox.js"></script>
     
     <!-- Scripts -->
     <script src="../../../global/js/Component.js"></script>
@@ -441,7 +482,8 @@
     <script src="../../../global/js/Plugin/asscrollable.js"></script>
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
+        <script src="../../../global/js/Plugin/datatables.js"></script>
         
-        <script src="../../assets/examples/js/tables/footable.js"></script>
+        <script src="../../assets/examples/js/tables/datatable.js"></script>
   </body>
 </html>
