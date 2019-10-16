@@ -7,7 +7,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>Student Accounts | Super User</title>
+    <title>Office Accounts | Super User</title>
     
     <link rel="apple-touch-icon" href="../../assets/images/samcis.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -242,7 +242,7 @@
                                 <span class="site-menu-arrow"></span>
                     </a>
                 <ul class="site-menu-sub">
-                  <li class="site-menu-item active">
+                  <li class="site-menu-item">
                     <a class="animsition-link" href="student_account.html">
                       <span class="site-menu-title">Student</span>
                     </a>
@@ -252,7 +252,7 @@
                       <span class="site-menu-title">Faculty</span>
                     </a>
                   </li>
-                  <li class="site-menu-item">
+                  <li class="site-menu-item active">
                     <a class="animsition-link" href="office_account.html">
                       <span class="site-menu-title">Office</span>
                     </a>
@@ -296,7 +296,7 @@
                 <!-- Panel Editing Rows --> 
                 <div class="panel">
                   <header class="panel-heading">
-                    <h3 class="panel-title">Student Accounts</h3>
+                    <h3 class="panel-title">Office Accounts</h3>
                   </header>
                   <div class="panel-body">
                     <table id="exampleFooEditing" class="table table-bordered table-hover toggle-circle"
@@ -304,12 +304,11 @@
                       <thead>
                         <tr>
                           <th data-name="userID" data-type="number" data-breakpoints="xs">ID</th>
-                          <th data-name="firstName">First Name</th>
-                          <th data-name="lastName">Last Name</th>
-                          <th data-name="studOrg">Organization</th>
-                          <th data-name="studPostition">Position</th>
-                          <th data-name="studEmail">Email Address</th>
-                          <th data-name="studPassword">Password</th>
+                          <th data-name="first_Name">First Name</th>
+                          <th data-name="last_Name">Last Name</th>
+                          <th data-name="deptFac">Office</th>
+                          <th data-name="facEmail">Email Address</th>
+                          <th data-name="facPassword">Password</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -317,8 +316,7 @@
                           <td>1</td>
                           <td>John</td>
                           <td>Doe</td>
-                          <td>SICAP</td>
-                          <td>President</td>
+                          <td>SAO</td>
                           <td>johndoe@slu.edu.ph</td>
                           <td>johndoengay</td>
                         </tr>
@@ -340,58 +338,46 @@
                       <div class="modal-body">
                         <input type="number" id="userID" name="userID" class="hidden" style="display:none;" />
                         <div class="form-group required">
-                          <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                          <label for="first_Name" class="col-sm-3 control-label">First Name</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                            <input type="text" class="form-control" id="first_Name" name="first_Name" placeholder="First Name"
                               required>
                           </div>
                         </div>
                         <div class="form-group required">
-                          <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                          <label for="last_Name" class="col-sm-3 control-label">Last Name</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                            <input type="text" class="form-control" id="last_Name" name="last_Name" placeholder="Last Name"
                               required>
                           </div>
                         </div>
                         <div class="form-group required">
-                          <label for="studOrg" class="col-sm-3 control-label">Organization</label>
+                          <label for="deptFac" class="col-sm-3 control-label">Department</label>
                           <div class="col-sm-12">
-                            <select class="form-control" id="studOrg">
-                                <option value="" disabled selected>Select an organization</option>
-                                <option value="GCS">GCS</option>
-                                <option value="ICON">ICON</option>
-                                <option value="JFINEX">JFINEX</option>
-                                <option value="JPIA">JPIA</option>
-                                <option value="JPMAP">JPMAP</option>
-                                <option value="Laissez Faire">Laissez Faire</option>
-                                <option value="LIGHT">LIGHT</option>
-                                <option value="Marketing Mixers">Marketing Mixers</option>
-                                <option value="PESO">PESO</option>
-                                <option value="ROTARACT">ROTARACT</option>
-                                <option value="RPG">RPG</option>
-                                <option value="SCHEMA">SCHEMA</option>
-                                <option value="SICAP">SICAP</option>
-                                <option value="YES">YES</option>
+                            <select class="form-control" id="deptFac">
+                                <option value="" disabled selected>Select an department</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="Financial Management">Financial Management</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Business Laws and Tax">Business Laws and Tax</option>
+                                <option value="Entrepreneurship, Human Resources, and Marketing">Entrepreneurship, Human Resources, and Marketing</option>
+                                <option value="Hotel and Tourism Management">Hotel and Tourism Management</option>
+                                <option value="Information and Communications Technology">Information and Communications Technology</option>
+                                <option value="Math">Math</option>
                             </select>
                           </div>
                         </div>
                         <div class="form-group required">
-                          <label for="studPostition" class="col-sm-3 control-label">Position</label>
+                          <label for="facEmail" class="col-sm-3 control-label">Email Address</label>
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" id="studPostition" name="studPostition" placeholder="Position">
-                          </div>
-                        </div>
-                        <div class="form-group required">
-                          <label for="studEmail" class="col-sm-3 control-label">Email Address</label>
-                          <div class="col-sm-12">
-                            <input type="email" class="form-control" id="studEmail" name="studEmail" placeholder="Email Address"
+                            <input type="email" class="form-control" id="facEmail" name="facEmail" placeholder="Email Address"
                               required>
                           </div>
                         </div>
                         <div class="form-group required">
-                            <label for="studPassword" class="col-sm-3 control-label">Password</label>
+                            <label for="facPassword" class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-12">
-                              <input type="password" class="form-control" id="studPassword" name="studPassword" placeholder="Password"
+                              <input type="password" class="form-control" id="facPassword" name="facPassword" placeholder="Password"
                                 required>
                             </div>
                           </div>
@@ -459,6 +445,6 @@
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
 
-        <script src="../../assets/examples/js/tables/studacc-footable.js"></script>
+        <script src="../../assets/examples/js/tables/facacc-footable.js"></script>
   </body>
 </html>

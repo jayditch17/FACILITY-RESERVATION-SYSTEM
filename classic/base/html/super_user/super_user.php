@@ -260,6 +260,11 @@
                       <span class="site-menu-title">Office</span>
                     </a>
                   </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="visitor_account.html">
+                      <span class="site-menu-title">Visitor</span>
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="site-menu-item has-sub">
