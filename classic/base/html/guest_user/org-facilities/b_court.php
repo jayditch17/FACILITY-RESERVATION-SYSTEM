@@ -105,7 +105,7 @@ include ('DBConnector.php');
           data-toggle="collapse">
           <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
-        <a class="navbar-brand navbar-brand-center" href="../guest_user.html">
+        <a class="navbar-brand navbar-brand-center" href="../guest_user.php">
           <img class="navbar-brand-logo navbar-brand-logo-normal" src="../../../assets1/images/samcis.png"
             title="Remark">
           <img class="navbar-brand-logo navbar-brand-logo-special" src="../../assets1/images/samcis.png"
@@ -266,7 +266,7 @@ include ('DBConnector.php');
             <ul class="site-menu" data-plugin="menu">
               <li class="site-menu-category">General</li>
               <li class="dropdown site-menu-item has-sub">
-                <a data-toggle="dropdown" href="../guest_user.html" data-dropdown-toggle="false">
+                <a data-toggle="dropdown" href="../guest_user.php" data-dropdown-toggle="false">
                         <i class="icon wb-home" aria-hidden="true"></i>
                         <span class="site-menu-title">Home</span>
                     </a>
