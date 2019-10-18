@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
+
+          
+          <link rel="stylesheet" href="../../assets/datatables/datatables.min.css">
+          
     
     <!-- Plugins -->
     <link rel="stylesheet" href="../../../global/vendor/animsition/animsition.css">
@@ -40,6 +44,7 @@
     
     
     <!-- Fonts -->
+          <link rel="stylesheet" href="../../../../global/fonts/glyphicons/glyphicons.css">
     <link rel="stylesheet" href="../../../global/fonts/7-stroke/7-stroke.css">
     <link rel="stylesheet" href="../../../global/fonts/weather-icons/weather-icons.css">
     <link rel="stylesheet" href="../../../global/fonts/web-icons/web-icons.min.css">
@@ -233,7 +238,7 @@
         <!-- End Site Navbar Seach -->
       </div>
     </nav>    <div class="site-menubar">
-      <div class="site-menubar-body">
+    <div class="site-menubar-body">
         <div>
           <div>
             <ul class="site-menu" data-plugin="menu">
@@ -246,10 +251,33 @@
               </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub">
-                <a href="accounts.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                <a href="javascript:void(0)">
+                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                         <span class="site-menu-title">Accounts</span>
-                </a>
+                                <span class="site-menu-arrow"></span>
+                    </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="student_account.html">
+                      <span class="site-menu-title">Student</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="faculty_account.html">
+                      <span class="site-menu-title">Faculty</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="office_account.html">
+                      <span class="site-menu-title">Office</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="visitor_account.html">
+                      <span class="site-menu-title">Visitor</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="site-menu-item has-sub active">
                 <a href="facilities.php">
@@ -280,7 +308,7 @@
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
           
-            <!-- Panel Table Add Row -->
+            <!-- Panel Table Add Row
           <div class="panel">
             <header class="panel-heading">
               <h3 class="panel-title">Facilities</h3>
@@ -292,9 +320,9 @@
                   <button class="btn btn-outline btn-primary" data-target="#exampleNiftyFadeScale"
                       data-toggle="modal" type="button"><i class="icon wb-plus ::before" aria-hidden="true"></i>Add Facility</button>
 
-                      <form action="addFacility.php" method="post" accept-charset="utf-8">
+                      <form action="addFacility.php" method="post" accept-charset="utf-8"> -->
                     <!-- Modal -->
-                    <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
+                    <!-- <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
                       aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
                       <div class="modal-dialog modal-simple">
                         <div class="modal-content">
@@ -349,9 +377,10 @@
                         </div>
                       </div>
                     </div>
-                    </form>
+                    </form> -->
                     <!-- End Modal -->
-                  </div>
+
+                  <!-- </div>
                 </div>
               </div>
               <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
@@ -364,58 +393,168 @@
                     <th>Description</th>
                     <th>Capacity</th>
                     <th>Actions</th>
-                  </tr>
-                   <?php
-                  $sql = "SELECT * FROM facilities";
-                  $result = $conn-> query($sql);
-                  if($result -> num_rows > 0){
-                    while ($row = $result -> fetch_assoc()){
-                      echo "<tr>";
-                        echo "<td>" . $row["facilityID"] . "</td>";
-                        echo "<td>" . $row["facilityLevel"] . "</td>";
-                        echo "<td>" . $row["facilityRoom"] . "</td>";
-                        echo "<td>" . $row["roomType"] . "</td>";
-                        echo "<td>" . $row["roomDescription"] . "</td>";
-                        echo "<td>" . $row["roomCapacity"] . "</td>";
-                        echo "<td><a href=delete.php?id=" . $row['ID'] . " >DELETE</a></td>";
-
-                        echo "</tr>";
-                    }
-                    echo "</table>";
-                  }else{
-                    echo "0 result";
-                  }
-                  $conn-> close();
-                  ?>
-
-                  
-                </thead>
-                <tbody>
-                  <!-- <tr class="gradeA">
-                    <td>1</td>
-                    <td>Mezzanine</td>
-                    <td>Mezzanine</td>
-                    <td>OTHERS</td>
-                    <td>LIBRARY READING AREA/ TESTING AREA</td>
-                    <td>300</td>
-                    <td class="actions">
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing save-row"
-                        data-toggle="tooltip" data-original-title="Save" hidden><i class="icon wb-wrench" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-editing cancel-row"
-                        data-toggle="tooltip" data-original-title="Delete" hidden><i class="icon wb-close" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-                        data-toggle="tooltip" data-original-title="Edit"><i class="icon wb-edit" aria-hidden="true"></i></a>
-                      <a href="#" class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"
-                        data-toggle="tooltip" data-original-title="Remove"><i class="icon wb-trash" aria-hidden="true"></i></a>
-                    </td>
                   </tr> -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- End Panel Table Add Row -->
-          
 
+
+                  <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<center><h1 class="page-header">CRUD System <small>DataTables</small> </h1> </center>
+
+				<div class="removeMessages"></div>
+
+				<button class="btn btn-default pull pull-right" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
+					<span class="icon wb-plus-circle" aria-hidden="true"></span>	Add Member
+				</button>
+
+				<br /> <br /> <br />
+
+				<table class="table" id="manageMemberTable">					
+					<thead>
+						<tr>
+							<th>S.no</th>
+							<th>Name</th>													
+							<th>Address</th>
+							<th>Contact</th>								
+							<th>Active</th>
+							<th>Option</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- add modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="addMember">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>	Add Member</h4>
+	      </div>
+	      
+	      <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
+
+	      <div class="modal-body">
+	      	<div class="messages"></div>
+
+			  <div class="form-group"> <!--/here teh addclass has-error will appear -->
+			    <label for="name" class="col-sm-2 control-label">Name</label>
+			    <div class="col-sm-10"> 
+			      <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+				<!-- here the text will apper  -->
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="address" class="col-sm-2 control-label">Address</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="contact" class="col-sm-2 control-label">Contact</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="active" class="col-sm-2 control-label">Active</label>
+			    <div class="col-sm-10">
+			      <select class="form-control" name="active" id="active">
+			      	<option value="">~~SELECT~~</option>
+			      	<option value="1">Activate</option>
+			      	<option value="2">Deactivate</option>
+			      </select>
+			    </div>
+			  </div>			 		
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Save changes</button>
+	      </div>
+	      </form> 
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /add modal -->
+
+	<!-- remove modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Member</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Do you really want to remove ?</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /remove modal -->
+
+	<!-- edit modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="editMemberModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> Edit Member</h4>
+	      </div>
+
+		<form class="form-horizontal" action="php_action/update.php" method="POST" id="updateMemberForm">	      
+
+	      <div class="modal-body">
+	        	
+	        <div class="edit-messages"></div>
+
+			  <div class="form-group"> <!--/here teh addclass has-error will appear -->
+			    <label for="editName" class="col-sm-2 control-label">Name</label>
+			    <div class="col-sm-10"> 
+			      <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
+				<!-- here the text will apper  -->
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="editAddress" class="col-sm-2 control-label">Address</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="editAddress" name="editAddress" placeholder="Address">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="editContact" class="col-sm-2 control-label">Contact</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="editContact" name="editContact" placeholder="Contact">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="editActive" class="col-sm-2 control-label">Active</label>
+			    <div class="col-sm-10">
+			      <select class="form-control" name="editActive" id="editActive">
+			      	<option value="">~~SELECT~~</option>
+			      	<option value="1">Activate</option>
+			      	<option value="2">Deactivate</option>
+			      </select>
+			    </div>
+			  </div>	
+	      </div>
+	      <div class="modal-footer editMemberModal">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Save changes</button>
+	      </div>
+	      </form>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /edit modal -->
           
         </div>
       </div>
@@ -485,5 +624,14 @@
         <script src="../../../global/js/Plugin/datatables.js"></script>
         
         <script src="../../assets/examples/js/tables/datatable.js"></script>
+
+        <!-- jquery plugin -->
+        <script type="text/javascript" src="../../assets/jquery/jquery.min.js"></script>
+        <!-- bootstrap js -->
+        <script type="text/javascript" src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- datatables js -->
+        <script type="text/javascript" src="../../assets/datatables/datatables.min.js"></script>
+        <!-- include custom index.js -->
+        <script type="text/javascript" src="../../assets/custom/js/index.js"></script>
   </body>
 </html>
