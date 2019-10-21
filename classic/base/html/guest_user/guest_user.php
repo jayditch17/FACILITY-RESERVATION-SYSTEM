@@ -258,7 +258,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-default" href="org-facilities/plaza.php">DEVESSE PLAZA</a>
+                                      <a type="button" class="btn btn-block btn-default" href="org-facilities/plaza.html">DEVESSE PLAZA</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -268,7 +268,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-primary" href="org-facilities/amphi.php">AMPHITHEATER</a>
+                                      <a type="button" class="btn btn-block btn-primary" href="org-facilities/amphi.html">AMPHITHEATER</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -278,7 +278,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-success" href="org-facilities/avr.php">AVR</a>
+                                      <a type="button" class="btn btn-block btn-success" href="org-facilities/avr.html">AVR</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -288,7 +288,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-info" href="org-facilities/pool.php">SWIMMING POOL</a>
+                                      <a type="button" class="btn btn-block btn-info" href="org-facilities/pool.html">SWIMMING POOL</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -298,7 +298,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-warning" href="org-facilities/oval.php">OVAL</a>
+                                      <a type="button" class="btn btn-block btn-warning" href="org-facilities/oval.html">OVAL</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -310,8 +310,8 @@
                                     <li class="mb-20">
                                       <a type="button" class="btn btn-block btn-danger" data-toggle="dropdown" >COURTS</a>
                                       <div class="dropdown-menu" aria-labelledby="exampleIconDropdown1" role="menu">
-                                        <a class="dropdown-item" role="menuitem" href="org-facilities/v_court.php">VOLLEYBALL COURT</a>
-                                        <a class="dropdown-item" role="menuitem" href="org-facilities/b_court.php">BASKETBALL COURT</a>
+                                        <a class="dropdown-item" role="menuitem" href="org-facilities/v_court.html">VOLLEYBALL COURT</a>
+                                        <a class="dropdown-item" role="menuitem" href="org-facilities/b_court.html">BASKETBALL COURT</a>
                                       </div>
                                     </li>
                                   </ul>
