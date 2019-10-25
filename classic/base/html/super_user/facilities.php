@@ -1,6 +1,3 @@
-<?php
-  include('DBConnector.php');
-?>
 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -20,8 +17,9 @@
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-          <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+          
           <link rel="stylesheet" href="../../assets/datatables/datatables.min.css">
           
     
@@ -307,200 +305,276 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
-      
-
-        <!-- Panel Table Add Row -->
-        <div class="panel">
-          <header class="panel-heading">
-            <h3 class="panel-title">Facilities</h3>
-          </header>
-          <div class="panel-body">
           
-            <div class="container">
+            <!-- Panel Table Add Row
+          <div class="panel">
+            <header class="panel-heading">
+              <h3 class="panel-title">Facilities</h3>
+            </header>
+            <div class="panel-body">
               <div class="row">
-                <div class="col-md-15">
+                <div class="col-md-6">
+                  <div class="mb-15">
+                  <button class="btn btn-outline btn-primary" data-target="#exampleNiftyFadeScale"
+                      data-toggle="modal" type="button"><i class="icon wb-plus ::before" aria-hidden="true"></i>Add Facility</button>
 
-                  <div class="removeMessages"></div>
+                      <form action="addFacility.php" method="post" accept-charset="utf-8"> -->
+                    <!-- Modal -->
+                    <!-- <div class="modal fade modal-fade-in-scale-up" id="exampleNiftyFadeScale" aria-hidden="true"
+                      aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+                      <div class="modal-dialog modal-simple">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title">Facility  </h4>
+                          </div>
+                          <div class="modal-body">
+                            <form autocomplete="off">
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicLevel">Level</label>
+                                  <input type="text" class="form-control" id="inputBasicLevel" name="level"
+                                    placeholder="Level" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputBasicRoom">Room</label>
+                                  <input type="text" class="form-control" id="inputBasicRoom" name="room"
+                                    placeholder="Room" autocomplete="off" />
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label class="form-control-label" for="inputCapacity">Capacity</label>
+                                  <input type="text" class="form-control" id="inputCapacity" name="capacity"
+                                    placeholder="Capacity" autocomplete="off" />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputRoomType">Room Type</label>
+                                <select name = "roomType" class="form-control">
+                                    <option>Clinic</option>
+                                    <option>Court</option>
+                                    <option>Laboratory</option>
+                                    <option>Lecture</option>
+                                    <option>Office</option>
+                                    <option>Others</option>
+                                    <option>Stage Area</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label" for="inputBasicDescription">Description</label>
+                                <input type="text" class="form-control" id="inputBasicDescription" name="description"
+                                  placeholder="Description" autocomplete="off" />
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button name = "addFac"type="submit" class="btn btn-primary">Add Facility</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </form> -->
+                    <!-- End Modal -->
 
-                  <button class="btn btn-default pull pull-right" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
-                    <span class="icon wb-plus-circle"></span>	Add Facility
-                  </button>
-
-                  <br /> <br /> 
-
-                  <table class="table" id="manageMemberTable">					
-                    <thead>
-                      <tr>
-                        <th>Facility ID</th>
-                        <th>Level</th>
-                        <th>Room</th>
-                        <th>Room Type</th>
-                        <th>Description</th>
-                        <th>Capacity</th>
-                        <th>Option</th>
-                      </tr>
-                    </thead>
-                  </table>
+                  <!-- </div>
                 </div>
               </div>
-            </div>
+              <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
+                <thead>
+                  <tr>
+                    <th>Facility ID</th>
+                    <th>Level</th>
+                    <th>Room</th>
+                    <th>Room Type</th>
+                    <th>Description</th>
+                    <th>Capacity</th>
+                    <th>Actions</th>
+                  </tr> -->
 
-            <!-- add modal -->
-            <div class="modal fade" tabindex="-1" role="dialog" id="addMember">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>	Add Facility</h4>
-                  </div>
-                  
-                  <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
 
-                  <div class="modal-body">
-                    <div class="messages"></div>
+                  <div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-                  <div class="form-group"> <!--/here teh addclass has-error will appear -->
-                    <label for="Level" class="col-sm-2 control-label">Level</label>
-                    <div class="col-sm-12"> 
-                      <input type="text" class="form-control" id="Level" name="Level" placeholder="Level">
-                  <!-- here the text will apper  -->
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="Room" class="col-sm-2 control-label">Room</label>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" id="Room" name="Room" placeholder="Room">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="roomType" class="col-sm-4 control-label">Room Type</label>
-                    <div class="col-sm-12">
-                      <select class="form-control" name="roomType" id="roomType">
-                        <option value="" disabled selected>Select a room type</option>
-                        <option value="Clinic">Clinic</option>
-                        <option value="Court">Court</option>
-                        <option value="Laboratory">Laboratory</option>
-                        <option value="Lecture">Lecture</option>
-                        <option value="Office">Office</option>
-                        <option value="Others">Others</option>
-                        <option value="Stage Area">Stage Area</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="Description" class="col-sm-2 control-label">Description</label>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" id="Description" name="Description" placeholder="Description">
-                    </div>
-                  </div>	
-                  <div class="form-group">
-                    <label for="Capacity" class="col-sm-2 control-label">Capacity</label>
-                    <div class="col-sm-12">
-                      <input type="number" class="form-control" id="Capacity" name="Capacity" placeholder="Capacity">
-                    </div>
-                  </div>		 		
+				<!-- <center><h1 class="page-header">CRUD System <small>DataTables</small> </h1> </center> -->
 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                  </div>
-                  </form> 
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-            <!-- /add modal -->
+				<div class="removeMessages"></div>
 
-            <!-- remove modal -->
-            <div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Facility</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Do you really want to remove?</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-            <!-- /remove modal -->
+				<button class="btn btn-default pull pull-right" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
+					<span class="icon wb-plus-circle" aria-hidden="true"></span>	Add Member
+				</button>
 
-            <!-- edit modal -->
-            <div class="modal fade" tabindex="-1" role="dialog" id="editMemberModal">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> Edit Facility</h4>
-                  </div>
+				<br /> <br /> <br />
 
-              <form class="form-horizontal" action="php_action/update.php" method="POST" id="updateMemberForm">	      
+				<table class="table" id="manageMemberTable">					
+					<thead>
+						<tr>
+                    <th>Facility ID</th>
+                    <th>Level</th>
+                    <th>Room</th>
+                    <th>Room Type</th>
+                    <th>Room Description</th>
+                    <th>Room Capacity</th>
+                    <th>Action</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
 
-                  <div class="modal-body">
-                      
-                    <div class="edit-messages"></div>
+	<!-- add modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="addMember">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>	Add Member</h4>
+	      </div>
+	      
+	      <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
 
-                    <div class="form-group"> <!--/here teh addclass has-error will appear -->
-                    <label for="editLevel" class="col-sm-2 control-label">Level</label>
-                    <div class="col-sm-12"> 
-                      <input type="text" class="form-control" id="Level" name="Level" placeholder="Level">
-                  <!-- here the text will apper  -->
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="Room" class="col-sm-2 control-label">Room</label>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" id="Room" name="Room" placeholder="Room">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="editRoomType" class="col-sm-4 control-label">Room Type</label>
-                    <div class="col-sm-12">
-                      <select class="form-control" name="roomType" id="roomType">
-                        <option value="" disabled selected>Select a room type</option>
-                        <option value="Clinic">Clinic</option>
-                        <option value="Court">Court</option>
-                        <option value="Laboratory">Laboratory</option>
-                        <option value="Lecture">Lecture</option>
-                        <option value="Office">Office</option>
-                        <option value="Others">Others</option>
-                        <option value="Stage Area">Stage Area</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="editDescription" class="col-sm-2 control-label">Description</label>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" id="Description" name="Description" placeholder="Description">
-                    </div>
-                  </div>	
-                  <div class="form-group">
-                    <label for="editCapacity" class="col-sm-2 control-label">Capacity</label>
-                    <div class="col-sm-12">
-                      <input type="number" class="form-control" id="Capacity" name="Capacity" placeholder="Capacity">
-                    </div>
-                  </div>	
-                  </div>
-                  <div class="modal-footer editMemberModal">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                  </div>
-                  </form>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-            <!-- /edit modal -->
-          
+	     <div Facilitiesv class="modal-body">
+          <div class="messages"></div>
+
+        <div class="form-group"> <!--/here teh addclass has-error will appear -->
+          <label for="level" class="col-sm-2 control-label">Level</label>
+          <div class="col-sm-10"> 
+            <input type="text" class="form-control" id="level" name="level" placeholder="Level">
+        <!-- here the text will apper  -->
           </div>
         </div>
-        <!-- End Panel Table Add Row -->
+        <div class="form-group">
+          <label for="room" class="col-sm-2 control-label">Room</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="room" name="room" placeholder="Room">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="type" class="col-sm-2 control-label">Type</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="type" id="type">
+              <option value="">~~SELECT~~</option>
+              <option>Court</option>
+              <option>Laboratory</option>
+              <option>Lecture</option>
+              <option>Office</option>
+              <option>Others</option>
+              <option>Stage Area</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="capacity" class="col-sm-2 control-label">Capacity</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="capacity" name="capacity" placeholder="capacity">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" name="description" placeholder="description">
+          </div>
+        </div>        
 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add Facilities</button>
+        </div>
+        </form> 
+      </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->    
+
+	</div><!-- /.modal -->
+	<!-- /add modal -->
+
+	<!-- remove modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="removeMemberModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Remove Member</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Do you really want to remove ?</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="removeBtn">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /remove modal -->
+
+	<!-- edit modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="editMemberModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><span class="glyphicon glyphicon-edit"></span> Edit Facility</h4>
+	      </div>
+
+		<form class="form-horizontal" action="php_action/update.php" method="POST" id="updateMemberForm">	      
+
+	      <div Facilitiesv class="modal-body">
+          <div class="messages"></div>
+
+        <div class="form-group"> <!--/here teh addclass has-error will appear -->
+          <label for="editLevel" class="col-sm-2 control-label">Level</label>
+          <div class="col-sm-10"> 
+            <input type="text" class="form-control" id="editLevel" name="editLevel" placeholder="Level">
+        <!-- here the text will apper  -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editRoom" class="col-sm-2 control-label">Room</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="editRoom" name="editRoom" placeholder="Room">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editType" class="col-sm-2 control-label">Type</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="editType" id="editType">
+              <option value="">~~SELECT~~</option>
+              <option>Court</option>
+              <option>Laboratory</option>
+              <option>Lecture</option>
+              <option>Office</option>
+              <option>Others</option>
+              <option>Stage Area</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editCapacity" class="col-sm-2 control-label">Capacity</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="editCapacity" name="editCapacity" placeholder="capacity">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editDescription" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="editDescription" name="editDescription" placeholder="description">
+          </div>
+        </div>
+	      </div>
+	      <div class="modal-footer editMemberModal">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Save changes</button>
+	      </div>
+	      </form>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /edit modal -->
+          
         </div>
       </div>
     </div>
@@ -578,5 +652,12 @@
         <script type="text/javascript" src="../../assets/datatables/datatables.min.js"></script>
         <!-- include custom index.js -->
         <script type="text/javascript" src="../../assets/custom/js/index.js"></script>
+        <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="assests/bootstrap/js/bootstrap.min.js"></script>
+  <!-- datatables js -->
+  <script type="text/javascript" src="assests/datatables/datatables.min.js"></script>
+  <!-- include custom index.js -->
+  <script type="text/javascript" src="custom/js/index.js"></script>
   </body>
 </html>
