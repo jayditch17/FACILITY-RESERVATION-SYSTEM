@@ -8,12 +8,13 @@ if($_POST) {
 	$validator = array('success' => false, 'messages' => array());
 
 	$id = $_POST['member_id'];
-	$name = $_POST['editName'];
-	$address = $_POST['editAddress'];
-	$contact = $_POST['editContact'];
-	$active = $_POST['editActive'];
+	$level = $_POST['editLevel'];
+	$room = $_POST['editRoom'];
+	$type = $_POST['editType'];
+	$description = $_POST['editDescription'];
+	$capacity = $_POST['editCapacity'];
 
-	$sql = "UPDATE members SET name = '$name', contact = '$contact', address = '$address', active = '$active' WHERE id = $id";
+	$sql = "UPDATE facilities SET facilityLevel = '$level', facilityRoom = '$room', roomType = '$type', roomDescription = '$description', roomCapacity = '$capacity' WHERE facilityID = $id";
 	$query = $connect->query($sql);
 
 	if($query === TRUE) {			
