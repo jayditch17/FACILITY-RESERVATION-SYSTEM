@@ -243,7 +243,7 @@
               <li class="site-menu-category">Facilities</li>
               <li class="site-menu-item has-sub">
                 <a href="plaza.html">
-                        <i class="site-menu-icon md-palette" aria-hidden="true"></i>
+                        <i class="site-menu-icon icon md-store" aria-hidden="true"></i>
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
@@ -267,13 +267,13 @@
               </li>
               <li class="site-menu-item has-sub">
                 <a href="oval.html">
-                        <i class="site-menu-icon md-comment-alt-text" aria-hidden="true"></i>
+                        <i class="site-menu-icon icon md-flag" aria-hidden="true"></i>
                         <span class="site-menu-title">Oval</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
                 <a href="javascript:void(0)">
-                        <i class="site-menu-icon icon ion-ios-baseball" aria-hidden="true"></i>
+                        <i class="site-menu-icon icon ion-ios-basketball" aria-hidden="true"></i>
                         <span class="site-menu-title">Courts</span>
                                 <span class="site-menu-arrow"></span>
                     </a>
@@ -294,21 +294,8 @@
               <li class="site-menu-item has-sub">
                 <a href="javascript:void(0)">
                         <i class="site-menu-icon md-apps" aria-hidden="true"></i>
-                        <span class="site-menu-title">Apps</span>
-                                <span class="site-menu-arrow"></span>
-                    </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="apps/contacts/contacts.html">
-                      <span class="site-menu-title">Contacts</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="apps/calendar/calendar.html">
-                      <span class="site-menu-title">Calendar</span>
-                    </a>
-                  </li>
-                </ul>
+                        <span class="site-menu-title">Request</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -329,7 +316,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-15">
-                    <h2>Devesse Plaza</h2>
+                    <h2>Oval</h2>
                     <p>October 2019</p>
                       <!-- Example Optional Sizes -->
                           <div class="example-buttons">
@@ -518,9 +505,7 @@
                     </div>
               
                     <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                      
-
-                      <tbody>
+                     <tbody>
                         <?php
                     // Include config file
                     require_once "config.php";
@@ -547,6 +532,7 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
 
+
                                         echo "<td>" . $row['actVenue'] . "</td>";
                                         echo "<td>" . $row['startDate'] . "</td>";
                                         echo "<td>" . $row['endDate'] . "</td>";
@@ -572,7 +558,6 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
-
                       </tbody>
                       
                     </table>
