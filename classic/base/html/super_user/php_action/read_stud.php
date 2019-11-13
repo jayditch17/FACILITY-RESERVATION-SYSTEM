@@ -101,7 +101,7 @@ if(isset($_GET["userID"]) && !empty(trim($_GET["userID"]))){
                         <label>Password:</label>
                         <p class="form-control-static"><?php echo $row["studPassword"]; ?></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="../student_account.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
