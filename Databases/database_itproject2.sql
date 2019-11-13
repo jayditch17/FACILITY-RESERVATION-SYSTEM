@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 05:38 AM
+-- Generation Time: Nov 13, 2019 at 06:38 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -108,15 +108,17 @@ CREATE TABLE `events` (
   `startTime` time(6) NOT NULL,
   `endTime` time(6) NOT NULL,
   `mob_num` int(11) NOT NULL,
-  `eve_adviser` varchar(20) NOT NULL
+  `eve_adviser` varchar(20) NOT NULL,
+  `posi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`) VALUES
-(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '');
+INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`, `posi`) VALUES
+(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', ''),
+(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,7 @@ ALTER TABLE `account_orgs`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `facilities`
