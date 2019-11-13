@@ -237,30 +237,6 @@
               </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
-                        <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-                        <span class="site-menu-title">Accounts</span>
-                                <span class="site-menu-arrow"></span>
-                    </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="student_account.html">
-                      <span class="site-menu-title">Student</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="faculty_account.html">
-                      <span class="site-menu-title">Faculty</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="office_account.html">
-                      <span class="site-menu-title">Office</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="site-menu-item has-sub">
                 <a href="facilities.php">
                         <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                         <span class="site-menu-title">Facilities</span>
@@ -276,6 +252,31 @@
                 <a href="events.php">
                         <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                         <span class="site-menu-title">Events</span>
+                </a>
+              </li>
+              <li class="site-menu-category">Accounts</li>
+              <li class="site-menu-item has-sub">
+                <a href="student_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Student</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="faculty_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Faculty</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="office_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Office</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="visitor_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Visitor</span>
                 </a>
               </li>
           </div>
