@@ -231,8 +231,6 @@ require_once 'db_connect.php';
             </li>
             <li class="site-menu-category">Controls</li>
             <li class="site-menu-item has-sub">
-            </li>
-            <li class="site-menu-item has-sub">
               <a href="facilities.php">
                 <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                 <span class="site-menu-title">Facilities</span>
@@ -250,27 +248,31 @@ require_once 'db_connect.php';
                 <span class="site-menu-title">Events</span>
               </a>
             </li>
-            <hr>
-            <li class="site-menu-item active">
-              <a class="animsition-link" href="student_account.php">
-                <span class="site-menu-title">Student Account</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="faculty_account.php">
-                <span class="site-menu-title">Faculty Account</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="office_account.php">
-                <span class="site-menu-title">Office Account</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="visitor_account.php">
-                <span class="site-menu-title">Visitor</span>
-              </a>
-            </li>
+            <li class="site-menu-category">Accounts</li>
+              <li class="site-menu-item has-sub active">
+                <a href="student_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Student</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="faculty_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Faculty</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="office_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Office</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="visitor_account.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Visitor</span>
+                </a>
+              </li>
           </div>
         </div>
       </div>
