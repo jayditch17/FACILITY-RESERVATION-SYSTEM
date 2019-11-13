@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2019 at 07:19 PM
+-- Generation Time: Nov 13, 2019 at 05:38 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -106,15 +106,17 @@ CREATE TABLE `events` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `startTime` time(6) NOT NULL,
-  `endTime` time(6) NOT NULL
+  `endTime` time(6) NOT NULL,
+  `mob_num` int(11) NOT NULL,
+  `eve_adviser` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`) VALUES
-(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000');
+INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`) VALUES
+(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '');
 
 -- --------------------------------------------------------
 
