@@ -178,7 +178,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group <?php echo (!empty($part_err)) ? 'has-error' : ''; ?>">
                             <label>Number of Participants</label>
-                            <input type="text" name="part" class="form-control" value="<?php echo $part; ?>">
+                            <input type="number" name="part" class="form-control" value="<?php echo $part; ?>">
                             <span class="help-block"><?php echo $part_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($st_err)) ? 'has-error' : ''; ?>">

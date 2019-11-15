@@ -295,6 +295,7 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
 
+
           <?php
                     // Include config file
                     require_once "config.php";

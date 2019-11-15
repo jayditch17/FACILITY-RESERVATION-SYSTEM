@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     
-    <link rel="stylesheet" href="../../assets/datatables/datatables.min.css">
+    
+        <link rel="stylesheet" href="../../assets/datatables/datatables.min.css">
     
     
     <!-- Plugins -->
