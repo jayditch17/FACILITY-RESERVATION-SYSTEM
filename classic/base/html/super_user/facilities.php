@@ -368,20 +368,20 @@
                       <label for="type" class="col-sm-2 control-label">Type</label>
                       <div class="col-sm-10">
                         <select class="form-control" name="type" id="type">
-                          <option value="">~~SELECT~~</option>
-                          <option>Court</option>
-                          <option>Laboratory</option>
-                          <option>Lecture</option>
-                          <option>Office</option>
-                          <option>Others</option>
-                          <option>Stage Area</option>
+                          <option selected disabled>Select a room type...</option>
+                          <option value="Court">Court</option>
+                          <option value="Laboratory">Laboratory</option>
+                          <option value="Lecture">Lecture</option>
+                          <option value="Office">Office</option>
+                          <option value="Others">Others</option>
+                          <option value="Stage Area">Stage Area</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="capacity" class="col-sm-2 control-label">Capacity</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="capacity" name="capacity" placeholder="capacity">
+                        <input type="number" class="form-control" id="capacity" name="capacity" placeholder="capacity">
                       </div>
                     </div>
                     <div class="form-group">
