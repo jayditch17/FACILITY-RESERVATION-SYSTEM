@@ -237,6 +237,12 @@
               </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub">
+                <a href="accounts.php">
+                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                        <span class="site-menu-title">Accounts</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
                 <a href="facilities.php">
                         <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
                         <span class="site-menu-title">Facilities</span>
@@ -254,7 +260,7 @@
                         <span class="site-menu-title">Events</span>
                 </a>
               </li>
-              <li class="site-menu-category">Accounts</li>
+              <!-- <li class="site-menu-category">Accounts</li>
               <li class="site-menu-item has-sub">
                 <a href="student_account.php">
                         <i class="site-menu-icon wb-users" aria-hidden="true"></i>
@@ -278,7 +284,7 @@
                         <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                         <span class="site-menu-title">Visitor</span>
                 </a>
-              </li>
+              </li> -->
           </div>
         </div>
       </div>
