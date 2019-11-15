@@ -12,13 +12,12 @@
     <meta name="author" content="">
     
     <title>Events | Super User</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     
     <link rel="apple-touch-icon" href="../../assets/images/samcis.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">

@@ -391,14 +391,14 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">Add Student</h4>
+                              <h4 class="modal-title" id="myModalLabel">Add Faculty</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                               </button>
                             </div>
 
                             <div class="modal-body">
-                              <h3>Modal Body</h3>
+                              
                               <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
                             <label>First Name</label>
