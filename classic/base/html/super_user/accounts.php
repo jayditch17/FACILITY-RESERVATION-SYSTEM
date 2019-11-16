@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
@@ -25,10 +25,17 @@
     <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-       
-        <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
-        <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
     
+    <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
+    <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
+    
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../../../global/fonts/7-stroke/7-stroke.css">
+    <link rel="stylesheet" href="../../../global/fonts/weather-icons/weather-icons.css">
+    <link rel="stylesheet" href="../../../global/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="../../../global/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     
     <!-- Fonts -->
     <link rel="stylesheet" href="../../../global/fonts/7-stroke/7-stroke.css">
@@ -255,12 +262,6 @@
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="reservation.html">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
-                        <span class="site-menu-title">Reservation</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
                 <a href="events.php">
                         <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                         <span class="site-menu-title">Events</span>
@@ -275,20 +276,14 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
-          
-        <div class="col-sm-12">
-          <h3>Student</h1>
-        </div>
-
-          <!-- STUDENT -->
           <?php
                     // Include config file
                     require_once "config.php";
                      
                     // Define variables and initialize with empty values
-                    $firstName = $lastName = $org = $position = $email = $pass = "";
+                    $firstName = $lastName = $orgs = $pos = $utype = $email = $pass = "";
                     //$name_err = $address_err = $salary_err = "";
-                    $firstName_err = $lastName_err = $org_err = $position_err = $email_err = $pass_err = "";
+                    $firstName_err = $lastName_err = $orgs_err = $pos_err =$utype_err= $email_err = $pass_err = "";
                      
                     // Processing form data when form is submitted
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -311,22 +306,29 @@
                             $lastName = $input_lname;
                         }
 
-                        $input_org = trim($_POST["org"]);
-                        if(empty($input_org)){
-                            $org_err = "Please enter a name.";
-                        } elseif(!filter_var($input_org, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-                            $org_err = "Please enter a valid name.";
+                        $input_orgs = trim($_POST["orgs"]);
+                        if(empty($input_orgs)){
+                            $orgs_err = "Please enter a name.";
+                        } elseif(!filter_var($input_orgs, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $orgs_err = "Please enter a valid name.";
                         } else{
-                            $org = $input_org;
+                            $orgs = $input_orgs;
                         }
 
-                        $input_position = trim($_POST["position"]);
-                        if(empty($input_position)){
-                            $position_err = "Please enter a name.";
-                        } elseif(!filter_var($input_position, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-                            $position_err = "Please enter a valid name.";
+                        $input_pos = trim($_POST["pos"]);
+                        if(empty($input_pos)){
+                            $pos_err = "Please enter a name.";
+                        } elseif(!filter_var($input_pos, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $pos_err = "Please enter a valid name.";
                         } else{
-                            $position = $input_position;
+                            $pos = $input_pos;
+                        }
+
+                        $input_utype = trim($_POST["utype"]);
+                        if(empty($input_utype)){
+                            $utype_err = "Please enter a name.";
+                        } else{
+                            $utype = $input_utype;
                         }
 
                         $input_email = trim($_POST["email"]);
@@ -335,36 +337,38 @@
                         } else{
                             $email = $input_email;
                         }
-                        $input_password = trim($_POST["pass"]);
-                        if(empty($input_password)){
+
+                        $input_pass = trim($_POST["pass"]);
+                        if(empty($input_pass)){
                             $pass_err = "Please enter a name.";
                         } else{
-                            $pass = $input_password;
+                            $pass = $input_pass;
                         }
 
                         
                         
                         // Check input errors before inserting in database
-                        if(empty($firstName_err) && empty($lastName_err) && empty($org_err) && empty($position_err) && empty($email_err) && empty($pass_err)){
+                        if(empty($firstName_err) && empty($lastName_err) && empty($orgs_err) && empty($pos_err) && empty($utype_err) &&empty($email_err) && empty($pass_err)){
                             // Prepare an insert statement
-                            $sql = "INSERT INTO account_orgs (firstName, lastName, studOrg, studPosition, studEmail, studPassword) VALUES (?, ?, ?, ?, ?, ?)";
+                            $sql = "INSERT INTO users (firstName, lastName, orgs, pos, email, user_type, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
                              
                             if($stmt = mysqli_prepare($link, $sql)){
                                 // Bind variables to the prepared statement as parameters
-                                mysqli_stmt_bind_param($stmt, "ssssss", $param_fname, $param_lName, $param_org, $param_pos, $param_email, $param_pass);
+                                mysqli_stmt_bind_param($stmt, "sssssss", $param_fname, $param_lName, $param_orgs, $param_pos, $param_email, $param_utype, $param_pass);
                                 
                                 // Set parameters
                                 $param_fname = $firstName;
                                 $param_lName = $lastName;
-                                $param_org = $org;
-                                $param_pos = $position;
+                                $param_orgs = $orgs;
+                                $param_pos = $pos;
+                                $param_utype = $utype;
                                 $param_email = $email;
                                 $param_pass = $pass;
                                 
                                 // Attempt to execute the prepared statement
                                 if(mysqli_stmt_execute($stmt)){
                                     // Records created successfully. Redirect to landing page
-                                    header("location:student_account.php");
+                                    header("location:accounts.php");
                                     exit();
                                 } else{
                                     echo "Something went wrong. Please try again later.";
@@ -412,21 +416,27 @@
                             <input type="text" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
                             <span class="help-block"><?php echo $lastName_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($org_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($orgs_err)) ? 'has-error' : ''; ?>">
                             <label>Organization</label>
-                            <input type="text" name="org" class="form-control" value="<?php echo $org; ?>">
-                            <span class="help-block"><?php echo $org_err;?></span>
+                            <input type="text" name="orgs" class="form-control" value="<?php echo $orgs; ?>">
+                            <span class="help-block"><?php echo $orgs_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($position_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($pos_err)) ? 'has-error' : ''; ?>">
                             <label>Position</label>
-                            <input type="text" name="position" class="form-control" value="<?php echo $position; ?>">
-                            <span class="help-block"><?php echo $position_err;?></span>
+                            <input type="text" name="pos" class="form-control" value="<?php echo $pos; ?>">
+                            <span class="help-block"><?php echo $pos_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                             <label>Email (SLU email)</label>
                             <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
                             <span class="help-block"><?php echo $email_err;?></span>
                         </div>
+                        <div class="form-group <?php echo (!empty($utype_err)) ? 'has-error' : ''; ?>">
+                            <label>User Type</label>
+                            <input type="text" name="utype" class="form-control" value="<?php echo $utype; ?>">
+                            <span class="help-block"><?php echo $utype_err;?></span>
+                        </div>
+                        
                         <div class="form-group <?php echo (!empty($pass_err)) ? 'has-error' : ''; ?>">
                             <label>Password</label>
                             <input type="text" name="pass" class="form-control" value="<?php echo $pass; ?>">
@@ -450,7 +460,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM account_orgs";
+                    $sql = "SELECT * FROM users";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
@@ -462,6 +472,7 @@
                                         echo "<th>Organization</th>";
                                         echo "<th>Position</th>";
                                         echo "<th>Email</th>";
+                                        echo "<th>User Type</th>";
                                         echo "<th>Password</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
@@ -472,15 +483,16 @@
                                         echo "<td>" . $row['userID'] . "</td>";
                                         echo "<td>" . $row['firstName'] . "</td>";
                                         echo "<td>" . $row['lastName'] . "</td>";
-                                        echo "<td>" . $row['studOrg'] . "</td>";
-                                        echo "<td>" . $row['studPosition'] . "</td>";
-                                        echo "<td>" . $row['studEmail'] . "</td>";
+                                        echo "<td>" . $row['orgs'] . "</td>";
+                                        echo "<td>" . $row['pos'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['user_type'] . "</td>";
                                         echo "<td>*****</td>";
                                     
                                         echo "<td>";
-                                            echo "<a href='php_action/read_stud.php?userID=". $row['userID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                            echo "<a href='php_action/edit.php?userID=". $row['userID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                            echo "<a href='php_action/deletestud.php?userID=". $row['userID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                            echo "<a href='php_action/read_acc.php?userID=". $row['userID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='php_action/edit_acc.php?userID=". $row['userID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='php_action/delete_acc.php?userID=". $row['userID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
                                     echo "</tr>";
                                 }
@@ -498,6 +510,7 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
+
                     
 
                     <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -527,7 +540,7 @@
                         </div>
                       </div>
 
-                    
+          
 
           
         </div>
@@ -558,9 +571,22 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-        
-        <script src="../../../global/vendor/moment/moment.min.js"></script>
-        <script src="../../../global/vendor/footable/footable.min.js"></script>
+        <script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
+        <script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
+        <script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
+        <script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
+        <script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
+        <script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
+        <script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
+        <script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
+        <script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
+        <script src="../../../global/vendor/bootbox/bootbox.js"></script>
     
     <!-- Scripts -->
     <script src="../../../global/js/Component.js"></script>
@@ -585,6 +611,6 @@
     <script src="../../../global/js/Plugin/switchery.js"></script>
         <script src="../../../global/js/Plugin/datatables.js"></script>
         
-        <script src="../../assets/examples/js/tables/footable.js"></script>
+        <script src="../../assets/examples/js/tables/datatable.js"></script>
   </body>
 </html>
