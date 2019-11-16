@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
@@ -24,15 +25,9 @@
     <link rel="stylesheet" href="../../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../../global/vendor/flag-icon-css/flag-icon.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
-        <link rel="stylesheet" href="../../../global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
-        <link rel="stylesheet" href="../../assets/examples/css/tables/datatable.css">
+       
+        <link rel="stylesheet" href="../../../global/vendor/footable/footable.core.css">
+        <link rel="stylesheet" href="../../assets/examples/css/tables/footable.css">
     
     
     <!-- Fonts -->
@@ -275,8 +270,258 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
-          <!-- content -->
+        <div class="col-sm-12">
+          <h3>Student</h1>
+        </div>
+
+          <!-- STUDENT -->
+          <?php
+                    // Include config file
+                    require_once "config.php";
+                     
+                    // Define variables and initialize with empty values
+                    $firstName = $lastName = $org = $position = $email = $pass = "";
+                    //$name_err = $address_err = $salary_err = "";
+                    $firstName_err = $lastName_err = $org_err = $position_err = $email_err = $pass_err = "";
+                     
+                    // Processing form data when form is submitted
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        // Validate name
+                        $input_fname = trim($_POST["firstName"]);
+                        if(empty($input_fname)){
+                            $firstName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_fname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $firstName_err = "Please enter a valid name.";
+                        } else{
+                            $firstName = $input_fname;
+                        }
+                        
+                        $input_lname = trim($_POST["lastName"]);
+                        if(empty($input_lname)){
+                            $lastName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_lname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $lastName_err = "Please enter a valid name.";
+                        } else{
+                            $lastName = $input_lname;
+                        }
+
+                        $input_org = trim($_POST["org"]);
+                        if(empty($input_org)){
+                            $org_err = "Please enter a name.";
+                        } elseif(!filter_var($input_org, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $org_err = "Please enter a valid name.";
+                        } else{
+                            $org = $input_org;
+                        }
+
+                        $input_position = trim($_POST["position"]);
+                        if(empty($input_position)){
+                            $position_err = "Please enter a name.";
+                        } elseif(!filter_var($input_position, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $position_err = "Please enter a valid name.";
+                        } else{
+                            $position = $input_position;
+                        }
+
+                        $input_email = trim($_POST["email"]);
+                        if(empty($input_email)){
+                            $email_err = "Please enter a name.";
+                        } else{
+                            $email = $input_email;
+                        }
+                        $input_password = trim($_POST["pass"]);
+                        if(empty($input_password)){
+                            $pass_err = "Please enter a name.";
+                        } else{
+                            $pass = $input_password;
+                        }
+
+                        
+                        
+                        // Check input errors before inserting in database
+                        if(empty($firstName_err) && empty($lastName_err) && empty($org_err) && empty($position_err) && empty($email_err) && empty($pass_err)){
+                            // Prepare an insert statement
+                            $sql = "INSERT INTO account_orgs (firstName, lastName, studOrg, studPosition, studEmail, studPassword) VALUES (?, ?, ?, ?, ?, ?)";
+                             
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "ssssss", $param_fname, $param_lName, $param_org, $param_pos, $param_email, $param_pass);
+                                
+                                // Set parameters
+                                $param_fname = $firstName;
+                                $param_lName = $lastName;
+                                $param_org = $org;
+                                $param_pos = $position;
+                                $param_email = $email;
+                                $param_pass = $pass;
+                                
+                                // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt)){
+                                    // Records created successfully. Redirect to landing page
+                                    header("location:student_account.php");
+                                    exit();
+                                } else{
+                                    echo "Something went wrong. Please try again later.";
+                                }
+                    // Close statement
+                            mysqli_stmt_close($stmt);
+                            }else {
+                        echo "Something's wrong with the query: " . mysqli_error($link);
+                    }
+                             
+                            
+                        }
+                        
+                        // Close connection
+                        mysqli_close($link);
+                    }
+                    ?>
           
+                  
+                    <div class="page-header clearfix">
+                        <a class="btn btn-success pull-right" data-toggle="modal" data-target="#basicModal">Add Account</a>
+                    </div>
+
+                    <!-- add modal  -->
+                    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel">Add Student</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+
+                            <div class="modal-body">
+                              
+                              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" class="form-control" value="<?php echo $firstName; ?>">
+                            <span class="help-block"><?php echo $firstName_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?>">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
+                            <span class="help-block"><?php echo $lastName_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($org_err)) ? 'has-error' : ''; ?>">
+                            <label>Organization</label>
+                            <input type="text" name="org" class="form-control" value="<?php echo $org; ?>">
+                            <span class="help-block"><?php echo $org_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($position_err)) ? 'has-error' : ''; ?>">
+                            <label>Position</label>
+                            <input type="text" name="position" class="form-control" value="<?php echo $position; ?>">
+                            <span class="help-block"><?php echo $position_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                            <label>Email (SLU email)</label>
+                            <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                            <span class="help-block"><?php echo $email_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($pass_err)) ? 'has-error' : ''; ?>">
+                            <label>Password</label>
+                            <input type="text" name="pass" class="form-control" value="<?php echo $pass; ?>">
+                            <span class="help-block"><?php echo $pass_err;?></span>
+                        </div>
+                        
+                        <div class="modal-footer">
+                              <input type="submit" class="btn btn-primary" value="Submit">
+                        <a href="index.php" class="btn btn-default">Cancel</a>
+                        </div>
+                    </form>
+                            </div>
+
+                            
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM account_orgs";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>ID Number</th>";
+                                        echo "<th>First Name</th>";
+                                        echo "<th>Last Name</th>";
+                                        echo "<th>Organization</th>";
+                                        echo "<th>Position</th>";
+                                        echo "<th>Email</th>";
+                                        echo "<th>Password</th>";
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['userID'] . "</td>";
+                                        echo "<td>" . $row['firstName'] . "</td>";
+                                        echo "<td>" . $row['lastName'] . "</td>";
+                                        echo "<td>" . $row['studOrg'] . "</td>";
+                                        echo "<td>" . $row['studPosition'] . "</td>";
+                                        echo "<td>" . $row['studEmail'] . "</td>";
+                                        echo "<td>*****</td>";
+                                    
+                                        echo "<td>";
+                                            echo "<a href='php_action/read_stud.php?userID=". $row['userID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='php_action/edit.php?userID=". $row['userID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='php_action/deletestud.php?userID=". $row['userID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No records were found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
+                    
+
+                    <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel">Remove Student</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+
+                            <div class="modal-body">
+                              <form action="deletestud.php" method="post">
+                        <div class="alert alert-danger fade in">
+                            <input type="hidden" name="userID" value="<?php echo trim($_GET["userID"]); ?>"/>
+                            <p>Are you sure you want to delete this record?</p><br>
+                            <p>
+                                <input type="submit" value="Yes" class="btn btn-danger">
+                                <a href="student_account.php" class="btn btn-default">No</a>
+                            </p>
+                        </div>
+                    </form>
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    
 
           
         </div>
@@ -307,22 +552,9 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-        <script src="../../../global/vendor/datatables.net/jquery.dataTables.js"></script>
-        <script src="../../../global/vendor/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedheader/dataTables.fixedHeader.js"></script>
-        <script src="../../../global/vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js"></script>
-        <script src="../../../global/vendor/datatables.net-rowgroup/dataTables.rowGroup.js"></script>
-        <script src="../../../global/vendor/datatables.net-scroller/dataTables.scroller.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive/dataTables.responsive.js"></script>
-        <script src="../../../global/vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/dataTables.buttons.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.html5.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.flash.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.print.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons/buttons.colVis.js"></script>
-        <script src="../../../global/vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js"></script>
-        <script src="../../../global/vendor/asrange/jquery-asRange.min.js"></script>
-        <script src="../../../global/vendor/bootbox/bootbox.js"></script>
+        
+        <script src="../../../global/vendor/moment/moment.min.js"></script>
+        <script src="../../../global/vendor/footable/footable.min.js"></script>
     
     <!-- Scripts -->
     <script src="../../../global/js/Component.js"></script>
@@ -347,6 +579,6 @@
     <script src="../../../global/js/Plugin/switchery.js"></script>
         <script src="../../../global/js/Plugin/datatables.js"></script>
         
-        <script src="../../assets/examples/js/tables/datatable.js"></script>
+        <script src="../../assets/examples/js/tables/footable.js"></script>
   </body>
 </html>
