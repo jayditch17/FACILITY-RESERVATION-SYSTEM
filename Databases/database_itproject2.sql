@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 06:38 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Nov 16, 2019 at 02:06 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -92,6 +92,24 @@ INSERT INTO `account_orgs` (`userID`, `firstName`, `lastName`, `studOrg`, `studP
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `equipment`
+--
+
+CREATE TABLE `equipment` (
+  `equipID` int(10) NOT NULL,
+  `equipName` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`equipID`, `equipName`) VALUES
+(1, 'chair');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `events`
 --
 
@@ -105,8 +123,8 @@ CREATE TABLE `events` (
   `numPart` varchar(10) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `startTime` time(6) NOT NULL,
-  `endTime` time(6) NOT NULL,
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL,
   `mob_num` int(11) NOT NULL,
   `eve_adviser` varchar(20) NOT NULL,
   `posi` varchar(20) NOT NULL
@@ -117,8 +135,10 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`, `posi`) VALUES
-(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', ''),
-(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', '');
+(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', 0, '', ''),
+(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', 0, '', ''),
+(8, 'gffh', 'gvdhj', 'fbyjkmg', 'fhusfgbg', 'hyjtf', '5', '2019-10-31', '2019-11-02', '00:00:00', '00:00:00', 0, '', ''),
+(9, 'fadsadafa', 'sdfsdfsd', 'fdfsdfs', 'dsfsdfs', 'dsfsdfsdfs', '1', '2019-11-14', '2019-11-30', '15:45:00', '07:08:00', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -192,6 +212,12 @@ ALTER TABLE `account_orgs`
   ADD PRIMARY KEY (`userID`);
 
 --
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`equipID`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
@@ -235,7 +261,7 @@ ALTER TABLE `account_orgs`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `facilities`

@@ -435,32 +435,7 @@
                     ?>
                     
 
-                    <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">Remove Student</h4>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                              </button>
-                            </div>
-
-                            <div class="modal-body">
-                              <form action="deletestud.php" method="post">
-                        <div class="alert alert-danger fade in">
-                            <input type="hidden" name="userID" value="<?php echo trim($_GET["userID"]); ?>"/>
-                            <p>Are you sure you want to delete this record?</p><br>
-                            <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="student_account.php" class="btn btn-default">No</a>
-                            </p>
-                        </div>
-                    </form>
-                             
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+            
 
           
         </div>

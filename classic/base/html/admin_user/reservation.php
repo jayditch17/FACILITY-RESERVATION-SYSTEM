@@ -1,8 +1,3 @@
-<?php
-  include('DBConnector.php');
-?>
-
-
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -12,13 +7,13 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>Equipments | Super User</title>
+    <title>Reservation | Admin User</title>
     
     <link rel="apple-touch-icon" href="../../assets/images/samcis.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
@@ -76,7 +71,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center">
           <img class="navbar-brand-logo" src="../../assets/images/samcis.png" title="Remark">
-          <span class="navbar-brand-text hidden-xs-down">Super User</span>
+          <span class="navbar-brand-text hidden-xs-down">Admin User</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -221,7 +216,7 @@
                 <i class="input-search-icon wb-search" aria-hidden="true"></i>
                 <input type="text" class="form-control" name="site-search" placeholder="Search...">
                 <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
-                  data-toggle="collapse" aria-label="Close"></button>
+                data-toggle="collapse" aria-label="Close"></button>
               </div>
             </div>
           </form>
@@ -229,182 +224,216 @@
         <!-- End Site Navbar Seach -->
       </div>
     </nav>    <div class="site-menubar">
-      <div class="site-menubar-body">
+    <div class="site-menubar-body">
+      <div>
         <div>
-          <div>
-            <ul class="site-menu" data-plugin="menu">
-              <li class="site-menu-category">General</li>
-              <li class="site-menu-item has-sub">
-                <a href="super_user.php">
-                        <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                        <span class="site-menu-title">Dashboard</span>
+          <ul class="site-menu" data-plugin="menu">
+            <li class="site-menu-category">General</li>
+            <li class="site-menu-item has-sub active">
+                <a href="admin_user.html">
+                        <i class="site-menu-icon wb-home" aria-hidden="true"></i>
+                        <span class="site-menu-title">Home</span>
                 </a>
-              </li>
-              <li class="site-menu-category">Controls</li>
-              <li class="site-menu-item has-sub">
-                <a href="accounts.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Accounts</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="facilities.php">
-                        <i class="site-menu-icon wb-briefcase" aria-hidden="true"></i>
-                        <span class="site-menu-title">Facilities</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub  active">
-                <a href="equipments.php">
-                        <i class="site-menu-icon wb-hammer" aria-hidden="true"></i>
-                        <span class="site-menu-title">Equipments</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
+            </li>
+            <li class="site-menu-category">Controls</li>
+            <li class="site-menu-item has-sub active">
                 <a href="reservation.html">
                         <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
-              <li class="site-menu-item has-sub">
-                <a href="events.php">
-                        <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
-                        <span class="site-menu-title">Events</span>
-                </a>
-              </li>
-              <!-- <li class="site-menu-category">Accounts</li>
-              <li class="site-menu-item has-sub">
-                <a href="student_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Student</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="faculty_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Faculty</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="office_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Office</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="visitor_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Visitor</span>
-                </a>
-              </li> -->
+            <li class="site-menu-item has-sub">
+              <a href="events.html">
+                <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                <span class="site-menu-title">Events</span>
+              </a>
+            </li>
           </div>
         </div>
       </div>
-    </div>    
+    </div>
 
     <!-- Page -->
+   <!-- Page -->
     <div class="page">
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
+
+
+           <?php
+                    // Include config file
+                    require_once "config.php";
+                     
+                    // Define variables and initialize with empty values
+                    $firstName = $lastName = $org = $position = $email = $pass = "";
+                    //$name_err = $address_err = $salary_err = "";
+                    $firstName_err = $lastName_err = $org_err = $position_err = $email_err = $pass_err = "";
+                     
+                    // Processing form data when form is submitted
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        // Validate name
+                        $input_fname = trim($_POST["firstName"]);
+                        if(empty($input_fname)){
+                            $firstName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_fname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $firstName_err = "Please enter a valid name.";
+                        } else{
+                            $firstName = $input_fname;
+                        }
+                        
+                        $input_lname = trim($_POST["lastName"]);
+                        if(empty($input_lname)){
+                            $lastName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_lname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $lastName_err = "Please enter a valid name.";
+                        } else{
+                            $lastName = $input_lname;
+                        }
+
+                        $input_org = trim($_POST["org"]);
+                        if(empty($input_org)){
+                            $org_err = "Please enter a name.";
+                        } elseif(!filter_var($input_org, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $org_err = "Please enter a valid name.";
+                        } else{
+                            $org = $input_org;
+                        }
+
+                        $input_position = trim($_POST["position"]);
+                        if(empty($input_position)){
+                            $position_err = "Please enter a name.";
+                        } elseif(!filter_var($input_position, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $position_err = "Please enter a valid name.";
+                        } else{
+                            $position = $input_position;
+                        }
+
+                        $input_email = trim($_POST["email"]);
+                        if(empty($input_email)){
+                            $email_err = "Please enter a name.";
+                        } else{
+                            $email = $input_email;
+                        }
+                        $input_password = trim($_POST["pass"]);
+                        if(empty($input_password)){
+                            $pass_err = "Please enter a name.";
+                        } else{
+                            $pass = $input_password;
+                        }
+
+                        
+                        
+                        // Check input errors before inserting in database
+                        if(empty($firstName_err) && empty($lastName_err) && empty($org_err) && empty($position_err) && empty($email_err) && empty($pass_err)){
+                            // Prepare an insert statement
+                            $sql = "INSERT INTO account_orgs (firstName, lastName, studOrg, studPosition, studEmail, studPassword) VALUES (?, ?, ?, ?, ?, ?)";
+                             
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "ssssss", $param_fname, $param_lName, $param_org, $param_pos, $param_email, $param_pass);
+                                
+                                // Set parameters
+                                $param_fname = $firstName;
+                                $param_lName = $lastName;
+                                $param_org = $org;
+                                $param_pos = $position;
+                                $param_email = $email;
+                                $param_pass = $pass;
+                                
+                                // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt)){
+                                    // Records created successfully. Redirect to landing page
+                                    header("location:student_account.php");
+                                    exit();
+                                } else{
+                                    echo "Something went wrong. Please try again later.";
+                                }
+                    // Close statement
+                            mysqli_stmt_close($stmt);
+                            }else {
+                        echo "Something's wrong with the query: " . mysqli_error($link);
+                    }
+                             
+                            
+                        }
+                        
+                        // Close connection
+                        mysqli_close($link);
+                    }
+                    ?>
           
-        <div class="col-sm-12">
-          <h3>Equipments</h1>
-        </div>  
+                  
 
-          <div class="page-header clearfix">
-              <a href="php_action/add_event.php" class="btn btn-success pull-right">Add Event</a>
-          </div>
-
-        
-          <?php
-          // Include config file
-          require_once "config.php";
-          
-          // Attempt select query execution
-          $sql = "SELECT * FROM events";
-          if($result = mysqli_query($link, $sql)){
-              if(mysqli_num_rows($result) > 0){
-                  echo "<table class='table table-bordered table-striped'>";
-                      echo "<thead>";
-                          echo "<tr>";
-                              echo "<th>ID</th>";
-                              echo "<th>First Name</th>";
-                              echo "<th>Last Name</th>";
-                              echo "<th>Organization</th>";
-                              echo "<th>Event</th>";
-                              echo "<th>Venue</th>";
-                              echo "<th>Participants</th>";
-                              echo "<th>Date Start</th>";
-                              echo "<th>Date End</th>";
-                              echo "<th>Start Time</th>";
-                              echo "<th>End Time</th>";
-                              echo "<th>Action</th>";
-                          echo "</tr>";
-                      echo "</thead>";
-                      echo "<tbody>";
-                      while($row = mysqli_fetch_array($result)){
-                          echo "<tr>";
-                              echo "<td>" . $row['eventID'] . "</td>";
-                              echo "<td>" . $row['firstName'] . "</td>";
-                              echo "<td>" . $row['lastName'] . "</td>";
-                              echo "<td>" . $row['eventOrg'] . "</td>";
-                              echo "<td>" . $row['actEve'] . "</td>";
-                              echo "<td>" . $row['actVenue'] . "</td>";
-                              echo "<td>" . $row['numPart'] . "</td>";
-                              echo "<td>" . $row['startDate'] . "</td>";
-                              echo "<td>" . $row['endDate'] . "</td>";
-                              echo "<td>" . $row['startTime'] . "</td>";
-                              echo "<td>" . $row['endTime'] . "</td>";
-                          
-                              echo "<td>";
-                                  echo "<a href='php_action/view_event.php?eventID=". $row['eventID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                  echo "<a href='php_action/update_eve.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                  echo "<a href='php_action/delete_event.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-                              echo "</td>";
-                          echo "</tr>";
-                      }
-                      echo "</tbody>";                            
-                  echo "</table>";
-                  // Free result set
-                  mysqli_free_result($result);
-              } else{
-                  echo "<p class='lead'><em>No records were found.</em></p>";
-              }
-          } else{
-              echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-          }
-
-          // Close connection
-          mysqli_close($link);
-          ?>
-          
-
-          <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Remove Student</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-
-                  <div class="modal-body">
-                    <form action="deletestud.php" method="post">
-              <div class="alert alert-danger fade in">
-                  <input type="hidden" name="userID" value="<?php echo trim($_GET["userID"]); ?>"/>
-                  <p>Are you sure you want to delete this record?</p><br>
-                  <p>
-                      <input type="submit" value="Yes" class="btn btn-danger">
-                      <a href="student_account.php" class="btn btn-default">No</a>
-                  </p>
-              </div>
-          </form>
+                  
+                    <?php
+                    // Include config file
+                    require_once "config.php";
                     
-                  </div>
-                </div>
-              </div>
-            </div>
-          
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM events";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>ID</th>";
+                                        echo "<th>First Name</th>";
+                                        echo "<th>Last Name</th>";
+                                        echo "<th>Organization</th>";
+                                        echo "<th>Event</th>";
+                                        echo "<th>Venue</th>";
+                                        echo "<th>Participants</th>";
+                                        echo "<th>Date Start</th>";
+                                        echo "<th>Date End</th>";
+                                        echo "<th>Start Time</th>";
+                                        echo "<th>End Time</th>";
+                                        echo "<th>Accept</th>";
+                                        echo "<th>Decline</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['eventID'] . "</td>";
+                                        echo "<td>" . $row['firstName'] . "</td>";
+                                        echo "<td>" . $row['lastName'] . "</td>";
+                                        echo "<td>" . $row['eventOrg'] . "</td>";
+                                        echo "<td>" . $row['actEve'] . "</td>";
+                                        echo "<td>" . $row['actVenue'] . "</td>";
+                                        echo "<td>" . $row['numPart'] . "</td>";
+                                        echo "<td>" . $row['startDate'] . "</td>";
+                                        echo "<td>" . $row['endDate'] . "</td>";
+                                        echo "<td>" . $row['startTime'] . "</td>";
+                                        echo "<td>" . $row['endTime'] . "</td>";
+                                    
+                                        echo "<td>";
+                                        
+                                             echo "<button type='button' class='btn btn-success'>Success</button>";
+                                        echo "</td>";
+                                        echo "<td>";
+                                       
+
+                                             echo "<button type='button' class='btn btn-danger' >Decline</button>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No records were found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
+                    
+
+                
 
           
         </div>
@@ -435,7 +464,7 @@
     <script src="../../../global/vendor/intro-js/intro.js"></script>
     <script src="../../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-
+        
         <script src="../../../global/vendor/moment/moment.min.js"></script>
         <script src="../../../global/vendor/footable/footable.min.js"></script>
     
@@ -460,7 +489,7 @@
     <script src="../../../global/js/Plugin/asscrollable.js"></script>
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
-        
-    <script src="../../assets/examples/js/tables/footable.js"></script>
+       
+        <script src="../../assets/examples/js/tables/footable.js"></script>
   </body>
 </html>
