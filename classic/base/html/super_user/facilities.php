@@ -387,13 +387,13 @@
                     <div class="form-group">
                       <label for="capacity" class="col-sm-2 control-label">Capacity</label>
                       <div class="col-sm-10">
-                        <input type="number" class="form-control" id="capacity" name="capacity" placeholder="capacity">
+                        <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Capacity">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="description" class="col-sm-2 control-label">Description</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="description" name="description" placeholder="description">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description">
                       </div>
                     </div>
                   </div>
@@ -466,13 +466,13 @@
                               <div class="form-group">
                                 <label for="editCapacity" class="col-sm-2 control-label">Capacity</label>
                                 <div class="col-sm-10">
-                                  <input type="number" class="form-control" id="editCapacity" name="editCapacity" placeholder="capacity">
+                                  <input type="number" class="form-control" id="editCapacity" name="editCapacity" placeholder="Capacity">
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label for="editDescription" class="col-sm-2 control-label">Description</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="editDescription" name="editDescription" placeholder="description">
+                                  <input type="text" class="form-control" id="editDescription" name="editDescription" placeholder="Description">
                                 </div>
                               </div>
                             </div>
