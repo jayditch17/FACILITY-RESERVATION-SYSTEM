@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="../../../../global/global2/vendor/chartist/chartist.css">
         <link rel="stylesheet" href="../../../../global/global2/vendor/jvectormap/jquery-jvectormap.css">
         <link rel="stylesheet" href="../../../../global/global2/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+        <link rel="stylesheet" href="../../../../global/global2/vendor/jquery-tabledit/jquery-tabledit.css">
         <link rel="stylesheet" href="../../../assets2/examples/css/dashboard/v1.css">
     
     
@@ -303,7 +304,69 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div data-plugin="matchHeight" data-by-row="true">
+          <!-- Panel Table Add Row -->
+          <div class="panel">
+            <div class="panel-body">
+              <div class="row">
+                <!-- Example #exampleTableditToolbars -->
+                <div class="example-wrap">
+                  <h4 class="example-title">Request</h4>
+                  <div class="example table-responsive">
+                    <table id="exampleTableditToolbars" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>@Elijah</td>
+                          <td>Teagan</td>
+                          <td>Prohaska</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>@Ramiro</td>
+                          <td>Andy</td>
+                          <td>Gaylord</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>@Maxime</td>
+                          <td>Veronica</td>
+                          <td>Gusikowski</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>@Maggio</td>
+                          <td>Bruce</td>
+                          <td>Rogahn</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>@Hammes</td>
+                          <td>Carolina</td>
+                          <td>Hickle</td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>@Amaya</td>
+                          <td>Madaline</td>
+                          <td>Eichmann</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- End Example #exampleTableditToolbars -->
+              </div>
 
+            </div>
+          </div>
+                <!-- End Panel Table Add Row -->
 
           </div>
       </div>
@@ -340,6 +403,7 @@
         <script src="../../../../global/global2/vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
         <script src="../../../../global/global2/vendor/matchheight/jquery.matchHeight-min.js"></script>
         <script src="../../../../global/global2/vendor/peity/jquery.peity.min.js"></script>
+        <script src="../../../../global/global2/vendor/jquery-tabledit/jquery.tabledit.min.js"></script>
     
     <!-- Scripts -->
     <script src="../../../../global/global2/js/Component.js"></script>
@@ -367,6 +431,7 @@
         <script src="../../../../global/global2/js/Plugin/peity.js"></script>
     
         <script src="../../../assets2/examples/js/dashboard/v1.js"></script>
+        <script src="../../../assets2/examples/js/tables/jqtabledit.js"></script>
     
   </body>
 </html>
