@@ -257,6 +257,12 @@
                 </a>
               </li>
               <li class="site-menu-item has-sub">
+                <a href="reservation.html">
+                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <span class="site-menu-title">Reservation</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
                 <a href="events.php">
                         <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                         <span class="site-menu-title">Events</span>
