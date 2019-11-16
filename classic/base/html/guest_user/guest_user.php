@@ -189,15 +189,6 @@
           <!-- Navbar Toolbar Right -->
           <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
             <li class="nav-item dropdown">
-              <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
-                data-animation="scale-up" role="button">
-                <span>
-                  <img src="../guest_user/images/icon/dropdown.svg" width="10px" height="10px">
-                <span class="avatar avatar-online">
-                  <img src="../../../global/global1/portraits/5.jpg" alt="...">
-                  <i></i>
-                </span>
-              </a>
               <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" href="../guest_user/auth/logout.php" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
               </div>
@@ -219,29 +210,12 @@
         </div>
         <!-- End Site Navbar Seach -->
       </div>
-    </nav>    <div class="site-menubar site-menubar-light">
-      <div class="site-menubar-body">
-        <div>
-          <div>
-            <ul class="site-menu" data-plugin="menu">
-              <li class="site-menu-category">General</li>
-              <li class="dropdown site-menu-item has-sub">
-                <a data-toggle="dropdown" href="guest_user.php" data-dropdown-toggle="false">
-                        <i class="site-menu-icon icon wb-home" aria-hidden="true"></i>
-                        <span class="site-menu-title">Home</span>
-                    </a>
-              </li>
-            </ul>      
-          </div>
-        </div>
-      </div>
-    </div>
+    </nav>    
 
     <!-- Page -->
     <div class="page">
       <div class="page-content container-fluid">
-        <div class="row" data-plugin="matchHeight" data-by-row="true">
-          
+        <div data-plugin="matchHeight" data-by-row="true">
             <!-- Panel Table Add Row -->
           <div class="panel">
             <div class="panel-body">
@@ -258,7 +232,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-default" href="org-facilities/plaza.html">DEVESSE PLAZA</a>
+                                      <a type="button" class="btn btn-block btn-default" href="org-facilities/plaza.php">DEVESSE PLAZA</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -268,7 +242,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-primary" href="org-facilities/amphi.html">AMPHITHEATER</a>
+                                      <a type="button" class="btn btn-block btn-primary" href="org-facilities/amphi.php">AMPHITHEATER</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -278,7 +252,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-success" href="org-facilities/avr.html">AVR</a>
+                                      <a type="button" class="btn btn-block btn-success" href="org-facilities/avr.php">AVR</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -288,7 +262,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-info" href="org-facilities/pool.html">SWIMMING POOL</a>
+                                      <a type="button" class="btn btn-block btn-info" href="org-facilities/pool.php">SWIMMING POOL</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -298,7 +272,7 @@
                                 <div class="example">
                                   <ul class="list-unstyled">
                                     <li class="mb-20">
-                                      <a type="button" class="btn btn-block btn-warning" href="org-facilities/oval.html">OVAL</a>
+                                      <a type="button" class="btn btn-block btn-warning" href="org-facilities/oval.php">OVAL</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -310,8 +284,8 @@
                                     <li class="mb-20">
                                       <a type="button" class="btn btn-block btn-danger" data-toggle="dropdown" >COURTS</a>
                                       <div class="dropdown-menu" aria-labelledby="exampleIconDropdown1" role="menu">
-                                        <a class="dropdown-item" role="menuitem" href="org-facilities/v_court.html">VOLLEYBALL COURT</a>
-                                        <a class="dropdown-item" role="menuitem" href="org-facilities/b_court.html">BASKETBALL COURT</a>
+                                        <a class="dropdown-item" role="menuitem" href="org-facilities/v_court.php">VOLLEYBALL COURT</a>
+                                        <a class="dropdown-item" role="menuitem" href="org-facilities/b_court.php">BASKETBALL COURT</a>
                                       </div>
                                     </li>
                                   </ul>
@@ -328,7 +302,6 @@
             </div>
           </div>
                 <!-- End Panel Table Add Row -->
-
         </div>
       </div>
     </div>

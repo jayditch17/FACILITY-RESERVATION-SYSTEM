@@ -242,31 +242,31 @@
               </li>
               <li class="site-menu-category">Facilities</li>
               <li class="site-menu-item has-sub">
-                <a href="plaza.html">
+                <a href="plaza.php">
                         <i class="site-menu-icon icon md-store" aria-hidden="true"></i>
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="amphi.html">
+                <a href="amphi.php">
                         <i class="site-menu-icon icon md-balance" aria-hidden="true"></i>
                         <span class="site-menu-title">Amphitheater</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="avr.html">
+                <a href="avr.php">
                         <i class="site-menu-icon icon ml-display-screen" aria-hidden="true"></i>
                         <span class="site-menu-title">AVR</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="pool.html">
+                <a href="pool.php">
                         <i class="site-menu-icon icon io-droplet" aria-hidden="true"></i>
                         <span class="site-menu-title">Swimming Pool</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="oval.html">
+                <a href="oval.php">
                         <i class="site-menu-icon icon md-flag" aria-hidden="true"></i>
                         <span class="site-menu-title">Oval</span>
                 </a>
@@ -279,12 +279,12 @@
                     </a>
                 <ul class="site-menu-sub">
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="v_court.html">
+                    <a class="animsition-link" href="v_court.php">
                       <span class="site-menu-title">Volleyball Court</span>
                     </a>
                   </li>
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="b_court.html">
+                    <a class="animsition-link" href="b_court.php">
                       <span class="site-menu-title">Basketball Court</span>
                     </a>
                   </li>
@@ -292,7 +292,7 @@
               </li>
               <li class="site-menu-category">Reservation</li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="request.php">
                         <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                         <span class="site-menu-title">Request</span>
                 </a>
@@ -317,7 +317,7 @@
                 <div class="col-md-6">
                   <div class="mb-15">
                     <h2>Basketball Court</h2>
-                    <p>October 2019</p>
+                    <p>November 2019</p>
                       <!-- Example Optional Sizes -->
                           <div class="example-buttons">
                             <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
