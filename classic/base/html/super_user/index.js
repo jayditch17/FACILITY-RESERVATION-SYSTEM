@@ -4,9 +4,10 @@ var manageMemberTable;
 $(document).ready(function() {
 	manageMemberTable = $("#manageMemberTable").DataTable({
 		"ajax": "php_action/retrieve.php",
-		"order":[]
+		"order":[],
 		
 	});
+
 
 	$("#addMemberModalBtn").on('click', function() {
 		// reset the form 
