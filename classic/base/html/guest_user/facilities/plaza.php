@@ -369,15 +369,20 @@
                                                 </div>
                                               </div>
                                               <div class="row">
-                                                <div class="form-group col-md-6">
-                                                  <label class="form-control-label" for="inputBasicEventName">Event Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicEventName" name="inputEventName"
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicOrganization">Event Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
+                                                   autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicPosition">No. of Participant</label>
+                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
                                                      autocomplete="off" />
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">No. of Participants</label>
-                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
-                                                       autocomplete="off" />
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicAdviser">Faculty Department</label>
+                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
+                                                     autocomplete="off" />
                                                 </div>
                                               </div>
                                               <div class="example-wrap">

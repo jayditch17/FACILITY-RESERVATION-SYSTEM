@@ -312,62 +312,9 @@
                     <h2>Amphitheater</h2>
                     <p>November 2019</p>
                       <!-- Example Optional Sizes -->
-
-                      <!-- Example Center -->
-                      <div class="example-wrap">
-                        <div class="example">
-
-                          <button class="btn btn-primary" data-target="#examplePositionCenter" data-toggle="modal"
-                            type="button">Add Event</button>
-
-                          <!-- Modal -->
-                          <div class="modal fade" id="examplePositionCenter" aria-hidden="true" aria-labelledby="examplePositionCenter"
-                            role="dialog" tabindex="-1">
-                            <div class="modal-dialog modal-simple modal-center">
-                              <div class="modal-content">
-                                <div class="modal-body">
-
-                                    <!-- Example Justified Button Group -->
-                                    <div class="example-wrap">
-                                      <h4 class="example-title"></h4>
-                                      <div class="example example-buttons">
-                                        <div class="btn-group btn-group-justified">
-                                          <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">
-                                              <i class="icon fa-users" aria-hidden="true"></i>
-                                              <br>
-                                              <span class="text-uppercase hidden-sm-down">Organization</span>
-                                            </button>
-                                          </div>
-
-                                          <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-info">
-                                              <i class="icon icon fa-vcard-o" aria-hidden="true"></i>
-                                              <br>
-                                              <span class="text-uppercase hidden-sm-down">Faculty</span>
-                                            </button>
-                                          </div>
-
-                                          <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-success">
-                                              <i class="icon icon fa-user-secret" aria-hidden="true"></i>
-                                              <br>
-                                              <span class="text-uppercase hidden-sm-down">Third Party</span>
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <!-- End Example Justified Button Group -->
-
-                                </div>
-                              </div>
-                            </div>
+                          <div class="example-buttons">
+                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
                           </div>
-                          <!-- End Modal -->
-                        </div>
-                      </div>
-                      <!-- End Example Center -->
 
                           <!-- Modal -->
                           <div class="modal fade example-modal-lg" aria-hidden="true" aria-labelledby="exampleOptionalLarge"
@@ -421,15 +368,20 @@
                                                 </div>
                                               </div>
                                               <div class="row">
-                                                <div class="form-group col-md-6">
-                                                  <label class="form-control-label" for="inputBasicEventName">Event Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicEventName" name="inputEventName"
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicOrganization">Event Name</label>
+                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
+                                                   autocomplete="off" />
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicPosition">No. of Participant</label>
+                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
                                                      autocomplete="off" />
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">No. of Participants</label>
-                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
-                                                       autocomplete="off" />
+                                                <div class="form-group col-sm-4">
+                                                  <label class="form-control-label" for="inputBasicAdviser">Faculty Department</label>
+                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
+                                                     autocomplete="off" />
                                                 </div>
                                               </div>
                                               <div class="example-wrap">
