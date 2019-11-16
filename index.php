@@ -1,5 +1,5 @@
 <?php  
-    session_start();
+    $conn = mysqli_connect("localhost","root","","database_itproject2")
 ?>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -66,16 +66,15 @@
         <p>Sign into your pages account</p>
 
 
-        <form method="post" action="php/login.php">
+        <form method="post" action="php/loginto.php">
           <div class="form-group">
             <label  class="sr-only" for="inputEmail">Email</label>
-            
-            <input name = "mailuid" type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <input name = "email" type="email" class="form-control" id="inputEmail" placeholder="Email">
           </div>
           <div class="form-group">
             <label class="sr-only" for="inputPassword">Password</label>
 
-            <input name = "pwdsu" type="password" class="form-control" id="inputPassword"
+            <input name = "password" type="password" class="form-control" id="inputPassword"
               placeholder="Password">
           </div>
           <div class="form-group clearfix">
@@ -85,7 +84,8 @@
             </div>
             <a class="float-right" href="classic/base/html/pages/forgot-password.html">Forgot password?</a>
           </div>
-          <button type="submit" name = "signin" class="btn btn-primary btn-block">Sign in</button>
+          <!-- <button type="submit" name = "btnLogin" class="btn btn-primary btn-block">Sign in</button> -->
+          <input type="submit" name="btnLogin" value="Sign In" class="btn btn-primary btn-block">
         </form>
 
         <footer class="page-copyright page-copyright-inverse">

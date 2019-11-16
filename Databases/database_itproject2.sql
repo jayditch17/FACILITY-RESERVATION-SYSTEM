@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2019 at 02:06 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Nov 16, 2019 at 08:10 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,28 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `database_itproject2`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `account_fac`
---
-
-CREATE TABLE `account_fac` (
-  `userID` int(11) NOT NULL,
-  `first_name` varchar(20) NOT NULL,
-  `last_name` varchar(20) NOT NULL,
-  `deptFac` varchar(20) NOT NULL,
-  `facEmail` varchar(20) NOT NULL,
-  `facPass` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `account_fac`
---
-
-INSERT INTO `account_fac` (`userID`, `first_name`, `last_name`, `deptFac`, `facEmail`, `facPass`) VALUES
-(3, 'jayditch', 'balansi', 'sao', 'awdawdawkll', '12345');
 
 -- --------------------------------------------------------
 
@@ -64,48 +42,20 @@ CREATE TABLE `account_office` (
 --
 
 INSERT INTO `account_office` (`officeID`, `firstName`, `lastName`, `depOfc`, `email`, `password`) VALUES
-(3, 'sample', 'sample', 'sao', 'office@slu.edu.ph', 'officefs');
+(3, 'sample', 'balansi', 'sao', 'office@slu.edu.ph', 'officefs');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account_orgs`
+-- Table structure for table `equipments`
 --
 
-CREATE TABLE `account_orgs` (
-  `userID` int(15) NOT NULL,
-  `firstName` varchar(50) NOT NULL,
-  `lastName` varchar(50) NOT NULL,
-  `studOrg` varchar(50) NOT NULL,
-  `studPosition` varchar(50) NOT NULL,
-  `studEmail` varchar(50) NOT NULL,
-  `studPassword` varchar(15) NOT NULL
+CREATE TABLE `equipments` (
+  `equipID` int(11) NOT NULL,
+  `equipName` varchar(100) NOT NULL,
+  `equipStatus` varchar(100) NOT NULL,
+  `equipRemarks` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `account_orgs`
---
-
-INSERT INTO `account_orgs` (`userID`, `firstName`, `lastName`, `studOrg`, `studPosition`, `studEmail`, `studPassword`) VALUES
-(12, 'localhost', 'localhost', 'localhost', 'localhost', 'student@slu.edu.ph', 'studentfs');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `equipment`
---
-
-CREATE TABLE `equipment` (
-  `equipID` int(10) NOT NULL,
-  `equipName` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `equipment`
---
-
-INSERT INTO `equipment` (`equipID`, `equipName`) VALUES
-(1, 'chair');
 
 -- --------------------------------------------------------
 
@@ -123,8 +73,8 @@ CREATE TABLE `events` (
   `numPart` varchar(10) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `startTime` time NOT NULL,
-  `endTime` time NOT NULL,
+  `startTime` time(6) NOT NULL,
+  `endTime` time(6) NOT NULL,
   `mob_num` int(11) NOT NULL,
   `eve_adviser` varchar(20) NOT NULL,
   `posi` varchar(20) NOT NULL
@@ -135,10 +85,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`, `posi`) VALUES
-(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', 0, '', ''),
-(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00', 0, '', ''),
-(8, 'gffh', 'gvdhj', 'fbyjkmg', 'fhusfgbg', 'hyjtf', '5', '2019-10-31', '2019-11-02', '00:00:00', '00:00:00', 0, '', ''),
-(9, 'fadsadafa', 'sdfsdfsd', 'fdfsdfs', 'dsfsdfs', 'dsfsdfsdfs', '1', '2019-11-14', '2019-11-30', '15:45:00', '07:08:00', 0, '', '');
+(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', ''),
+(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -160,44 +108,39 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`facilityID`, `facilityLevel`, `facilityRoom`, `roomType`, `roomDescription`, `roomCapacity`) VALUES
-(6, '4', '433', 'Clinic', 'dwadefdsf', '50'),
-(7, '4', '433', 'Clinic', 'dwadefdsf', '50'),
-(8, '4', '433', 'Court', 'dwadefdsf', '50'),
-(9, '4', '433', 'Laboratory', 'wda', '50'),
 (10, '100', '100', 'Laboratory', 'dwadefdsf', '500'),
 (11, '5', '515', 'Lecture', 'ayus', '500'),
-(12, '5', '433', 'Laboratory', 'lecturelecturelecturelecturelecture', '50'),
-(13, '100', '100', 'Lecture', 'wdwadawdawdawd', '4141');
+(12, '5', '433', 'Laboratory', 'lecturelecturelecturelecturelecture', '50');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `super_user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `super_user` (
-  `idSU` int(11) NOT NULL,
-  `uidSU` tinytext NOT NULL,
-  `emailSU` tinytext NOT NULL,
-  `pwdSU` longtext NOT NULL
+CREATE TABLE `users` (
+  `userID` int(11) NOT NULL,
+  `firstName` varchar(100) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
+  `orgs` varchar(100) NOT NULL,
+  `pos` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `user_type` varchar(11) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `super_user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `super_user` (`idSU`, `uidSU`, `emailSU`, `pwdSU`) VALUES
-(1, 'superadmin', 'superadmin@localhost.ph', '$2y$10$FCZfAUqW2TnmnQ9C568CnOcYEPhquuU28.TCilj8r2WzMpaRkj3O6');
+INSERT INTO `users` (`userID`, `firstName`, `lastName`, `orgs`, `pos`, `email`, `user_type`, `password`) VALUES
+(10, 'super', 'admin', 'super', 'admin', 'superadmin@localhost.ph', 'Super Admin', 'slu'),
+(11, 'admin', 'user', 'admin', 'user', 'adminuser@localhost.ph', 'Admin User', 'slu'),
+(12, 'guest', 'user', 'guest', 'user', 'guestuser@localhost.ph', 'Guest User', 'slu');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `account_fac`
---
-ALTER TABLE `account_fac`
-  ADD PRIMARY KEY (`userID`);
 
 --
 -- Indexes for table `account_office`
@@ -206,15 +149,9 @@ ALTER TABLE `account_office`
   ADD PRIMARY KEY (`officeID`);
 
 --
--- Indexes for table `account_orgs`
+-- Indexes for table `equipments`
 --
-ALTER TABLE `account_orgs`
-  ADD PRIMARY KEY (`userID`);
-
---
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
+ALTER TABLE `equipments`
   ADD PRIMARY KEY (`equipID`);
 
 --
@@ -230,38 +167,32 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`facilityID`);
 
 --
--- Indexes for table `super_user`
+-- Indexes for table `users`
 --
-ALTER TABLE `super_user`
-  ADD PRIMARY KEY (`idSU`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `account_fac`
---
-ALTER TABLE `account_fac`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `account_office`
 --
 ALTER TABLE `account_office`
-  MODIFY `officeID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `officeID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `account_orgs`
+-- AUTO_INCREMENT for table `equipments`
 --
-ALTER TABLE `account_orgs`
-  MODIFY `userID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `equipments`
+  MODIFY `equipID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `facilities`
@@ -270,10 +201,10 @@ ALTER TABLE `facilities`
   MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `super_user`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `super_user`
-  MODIFY `idSU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
