@@ -300,7 +300,9 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
 
-
+        <div class="col-sm-12">
+          <h3>Events</h1>
+        </div>    
           <?php
                     // Include config file
                     require_once "config.php";
