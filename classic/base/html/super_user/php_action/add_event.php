@@ -132,7 +132,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
+    <title>Create Event</title>
+    <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
