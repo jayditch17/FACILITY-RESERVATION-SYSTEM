@@ -1,3 +1,7 @@
+<?php
+  include('DBConnector.php');
+?>
+
 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -14,6 +18,7 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
@@ -295,110 +300,207 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
           
-        <div class="col-xl-12">
-                <!-- Panel Editing Rows --> 
-                <div class="panel">
-                  <header class="panel-heading">
-                    <h3 class="panel-title">Equipments</h3>
-                  </header>
-                  <div class="panel-body">
-                    <table id="exampleFooEditing" class="table table-bordered table-hover toggle-circle"
-                      data-paging="true" data-filtering="true" data-sorting="true">
-                      <thead>
-                        <tr>
-                          <th data-name="userID" data-type="number" data-breakpoints="xs">ID</th>
-                          <th data-name="firstName">Equipment Name</th>
-                          <th data-name="lastName">Quantity</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Microphone</td>
-                          <td>10</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <!-- End Panel Editing Rows -->
-                
-                <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
-                  <div class="modal-dialog modal-simple" role="document">
-                    <form class="modal-content form-horizontal" id="editor">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="editor-title">Add Row</h4>
-                      </div>
-                      <div class="modal-body">
-                        <input type="number" id="userID" name="userID" class="hidden" style="display:none;" />
-                        <div class="form-group required">
-                          <label for="firstName" class="col-sm-3 control-label">First Name</label>
-                          <div class="col-sm-12">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
-                              required>
-                          </div>
+        <div class="col-sm-12">
+          <h3>Equipments</h1>
+        </div>  
+
+        <?php
+                    // Include config file
+                    require_once "config.php";
+                     
+                    // Define variables and initialize with empty values
+                    $firstName = $lastName = $org = $position = $email = $pass = "";
+                    //$name_err = $address_err = $salary_err = "";
+                    $firstName_err = $lastName_err = $org_err = $position_err = $email_err = $pass_err = "";
+                     
+                    // Processing form data when form is submitted
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        // Validate name
+                        $input_fname = trim($_POST["firstName"]);
+                        if(empty($input_fname)){
+                            $firstName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_fname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $firstName_err = "Please enter a valid name.";
+                        } else{
+                            $firstName = $input_fname;
+                        }
+                        
+                        $input_lname = trim($_POST["lastName"]);
+                        if(empty($input_lname)){
+                            $lastName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_lname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $lastName_err = "Please enter a valid name.";
+                        } else{
+                            $lastName = $input_lname;
+                        }
+
+                        $input_org = trim($_POST["org"]);
+                        if(empty($input_org)){
+                            $org_err = "Please enter a name.";
+                        } elseif(!filter_var($input_org, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $org_err = "Please enter a valid name.";
+                        } else{
+                            $org = $input_org;
+                        }
+
+                        $input_position = trim($_POST["position"]);
+                        if(empty($input_position)){
+                            $position_err = "Please enter a name.";
+                        } elseif(!filter_var($input_position, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $position_err = "Please enter a valid name.";
+                        } else{
+                            $position = $input_position;
+                        }
+
+                        $input_email = trim($_POST["email"]);
+                        if(empty($input_email)){
+                            $email_err = "Please enter a name.";
+                        } else{
+                            $email = $input_email;
+                        }
+                        $input_password = trim($_POST["pass"]);
+                        if(empty($input_password)){
+                            $pass_err = "Please enter a name.";
+                        } else{
+                            $pass = $input_password;
+                        }
+
+                        
+                        
+                        // Check input errors before inserting in database
+                        if(empty($firstName_err) && empty($lastName_err) && empty($org_err) && empty($position_err) && empty($email_err) && empty($pass_err)){
+                            // Prepare an insert statement
+                            $sql = "INSERT INTO account_orgs (firstName, lastName, studOrg, studPosition, studEmail, studPassword) VALUES (?, ?, ?, ?, ?, ?)";
+                             
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "ssssss", $param_fname, $param_lName, $param_org, $param_pos, $param_email, $param_pass);
+                                
+                                // Set parameters
+                                $param_fname = $firstName;
+                                $param_lName = $lastName;
+                                $param_org = $org;
+                                $param_pos = $position;
+                                $param_email = $email;
+                                $param_pass = $pass;
+                                
+                                // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt)){
+                                    // Records created successfully. Redirect to landing page
+                                    header("location:student_account.php");
+                                    exit();
+                                } else{
+                                    echo "Something went wrong. Please try again later.";
+                                }
+                    // Close statement
+                            mysqli_stmt_close($stmt);
+                            }else {
+                        echo "Something's wrong with the query: " . mysqli_error($link);
+                    }
+                             
+                            
+                        }
+                        
+                        // Close connection
+                        mysqli_close($link);
+                    }
+                    ?>
+          
+                  
+                    <div class="page-header clearfix">
+                        <a href="php_action/add_event.php" class="btn btn-success pull-right">Add Event</a>
+                    </div>
+
+                  
+                    <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM events";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>ID</th>";
+                                        echo "<th>First Name</th>";
+                                        echo "<th>Last Name</th>";
+                                        echo "<th>Organization</th>";
+                                        echo "<th>Event</th>";
+                                        echo "<th>Venue</th>";
+                                        echo "<th>Participants</th>";
+                                        echo "<th>Date Start</th>";
+                                        echo "<th>Date End</th>";
+                                        echo "<th>Start Time</th>";
+                                        echo "<th>End Time</th>";
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['eventID'] . "</td>";
+                                        echo "<td>" . $row['firstName'] . "</td>";
+                                        echo "<td>" . $row['lastName'] . "</td>";
+                                        echo "<td>" . $row['eventOrg'] . "</td>";
+                                        echo "<td>" . $row['actEve'] . "</td>";
+                                        echo "<td>" . $row['actVenue'] . "</td>";
+                                        echo "<td>" . $row['numPart'] . "</td>";
+                                        echo "<td>" . $row['startDate'] . "</td>";
+                                        echo "<td>" . $row['endDate'] . "</td>";
+                                        echo "<td>" . $row['startTime'] . "</td>";
+                                        echo "<td>" . $row['endTime'] . "</td>";
+                                    
+                                        echo "<td>";
+                                            echo "<a href='php_action/view_event.php?eventID=". $row['eventID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='php_action/update_eve.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='php_action/delete_event.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No records were found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
+                    
+
+                    <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel">Remove Student</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+
+                            <div class="modal-body">
+                              <form action="deletestud.php" method="post">
+                        <div class="alert alert-danger fade in">
+                            <input type="hidden" name="userID" value="<?php echo trim($_GET["userID"]); ?>"/>
+                            <p>Are you sure you want to delete this record?</p><br>
+                            <p>
+                                <input type="submit" value="Yes" class="btn btn-danger">
+                                <a href="student_account.php" class="btn btn-default">No</a>
+                            </p>
                         </div>
-                        <div class="form-group required">
-                          <label for="lastName" class="col-sm-3 control-label">Last Name</label>
-                          <div class="col-sm-12">
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
-                              required>
-                          </div>
-                        </div>
-                        <div class="form-group required">
-                          <label for="studOrg" class="col-sm-3 control-label">Organization</label>
-                          <div class="col-sm-12">
-                            <select class="form-control" id="studOrg">
-                                <option value="" disabled selected>Select an organization</option>
-                                <option value="GCS">GCS</option>
-                                <option value="ICON">ICON</option>
-                                <option value="JFINEX">JFINEX</option>
-                                <option value="JPIA">JPIA</option>
-                                <option value="JPMAP">JPMAP</option>
-                                <option value="Laissez Faire">Laissez Faire</option>
-                                <option value="LIGHT">LIGHT</option>
-                                <option value="Marketing Mixers">Marketing Mixers</option>
-                                <option value="PESO">PESO</option>
-                                <option value="ROTARACT">ROTARACT</option>
-                                <option value="RPG">RPG</option>
-                                <option value="SCHEMA">SCHEMA</option>
-                                <option value="SICAP">SICAP</option>
-                                <option value="YES">YES</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group required">
-                          <label for="studPostition" class="col-sm-3 control-label">Position</label>
-                          <div class="col-sm-12">
-                            <input type="text" class="form-control" id="studPostition" name="studPostition" placeholder="Position">
-                          </div>
-                        </div>
-                        <div class="form-group required">
-                          <label for="studEmail" class="col-sm-3 control-label">Email Address</label>
-                          <div class="col-sm-12">
-                            <input type="email" class="form-control" id="studEmail" name="studEmail" placeholder="Email Address"
-                              required>
-                          </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="studPassword" class="col-sm-3 control-label">Password</label>
-                            <div class="col-sm-12">
-                              <input type="password" class="form-control" id="studPassword" name="studPassword" placeholder="Password"
-                                required>
+                    </form>
+                             
                             </div>
                           </div>
+                        </div>
                       </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-            </div>
           
 
           
@@ -456,6 +558,6 @@
     <script src="../../../global/js/Plugin/slidepanel.js"></script>
     <script src="../../../global/js/Plugin/switchery.js"></script>
         
-        <script src="../../assets/examples/js/tables/studacc-footable.js"></script>
+    <script src="../../assets/examples/js/tables/footable.js"></script>
   </body>
 </html>
