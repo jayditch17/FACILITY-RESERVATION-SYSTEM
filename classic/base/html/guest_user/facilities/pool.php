@@ -242,57 +242,50 @@
               </li>
               <li class="site-menu-category">Facilities</li>
               <li class="site-menu-item has-sub">
-                <a href="plaza.html">
+                <a href="plaza.php">
                         <i class="site-menu-icon icon md-store" aria-hidden="true"></i>
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="amphi.html">
+                <a href="amphi.php">
                         <i class="site-menu-icon icon md-balance" aria-hidden="true"></i>
                         <span class="site-menu-title">Amphitheater</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="avr.html">
+                <a href="avr.php">
                         <i class="site-menu-icon icon ml-display-screen" aria-hidden="true"></i>
                         <span class="site-menu-title">AVR</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="pool.html">
+                <a href="pool.php">
                         <i class="site-menu-icon icon io-droplet" aria-hidden="true"></i>
                         <span class="site-menu-title">Swimming Pool</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="oval.html">
+                <a href="oval.php">
                         <i class="site-menu-icon icon md-flag" aria-hidden="true"></i>
                         <span class="site-menu-title">Oval</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="v_court.php">
+                        <i class="site-menu-icon icon pe-ball" aria-hidden="true"></i>
+                        <span class="site-menu-title">Volleyball Court</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="b_court.php">
                         <i class="site-menu-icon icon ion-ios-basketball" aria-hidden="true"></i>
-                        <span class="site-menu-title">Courts</span>
-                                <span class="site-menu-arrow"></span>
-                    </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="v_court.html">
-                      <span class="site-menu-title">Volleyball Court</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="b_court.html">
-                      <span class="site-menu-title">Basketball Court</span>
-                    </a>
-                  </li>
-                </ul>
+                        <span class="site-menu-title">Basketball Court</span>
+                </a>
               </li>
               <li class="site-menu-category">Reservation</li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="request.php">
                         <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                         <span class="site-menu-title">Request</span>
                 </a>
@@ -316,8 +309,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-15">
-                    <h2>Devesse Plaza</h2>
-                    <p>October 2019</p>
+                    <h2>Swimming Pool</h2>
+                    <p>November 2019</p>
                       <!-- Example Optional Sizes -->
                           <div class="example-buttons">
                             <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
@@ -505,46 +498,59 @@
                     </div>
               
                     <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>Event Name</th>
-                          <th>Date Start</th>
-                          <th>Date End</th>
-                          <th>Time Start</th>
-                          <th>Time End</th>
-                          <th>Organization</th>
-                          <th>Position</th>
-                          <th>No. of Participants</th>
-                        </tr>
-                      </thead>
+                     <tbody>
+                        <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM events";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo "<table class='table table-bordered table-striped'>";
+                                echo "<thead>";
+                                    echo "<tr>";
 
-                      <tbody>
-                        <!--
-                        <tr class="gradeA">
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                                       echo "<th>Event Name</th>";
+                                       echo "<th>Date Start</th>";
+                                       echo "<th>Date End</th>";
+                                       echo "<th>Time Start</th>";
+                                       echo "<th>Time End</th>";
+                                       echo "<th>Organization</th>";
+                                       echo "<th>Position</th>";
+                                        echo"<th>No. of Participants</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
 
-                        <tr class="gradeA">
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                      -->
+
+                                        echo "<td>" . $row['actVenue'] . "</td>";
+                                        echo "<td>" . $row['startDate'] . "</td>";
+                                        echo "<td>" . $row['endDate'] . "</td>";
+                                        echo "<td>" . $row['startTime'] . "</td>";
+                                        echo "<td>" . $row['endTime'] . "</td>";
+                                        echo "<td>" . $row['eventOrg'] . "</td>";
+                                        echo "<td>" . $row['posi'] . "</td>";
+                                        echo "<td>" . $row['numPart'] . "</td>";
+
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No records were found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
 
                       </tbody>
                       

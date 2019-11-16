@@ -272,23 +272,16 @@
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="v_court.php">
+                        <i class="site-menu-icon icon pe-ball" aria-hidden="true"></i>
+                        <span class="site-menu-title">Volleyball Court</span>
+                </a>
+              </li>
+              <li class="site-menu-item has-sub">
+                <a href="b_court.php">
                         <i class="site-menu-icon icon ion-ios-basketball" aria-hidden="true"></i>
-                        <span class="site-menu-title">Courts</span>
-                                <span class="site-menu-arrow"></span>
-                    </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="v_court.php">
-                      <span class="site-menu-title">Volleyball Court</span>
-                    </a>
-                  </li>
-                  <li class="site-menu-item">
-                    <a class="animsition-link" href="b_court.php">
-                      <span class="site-menu-title">Basketball Court</span>
-                    </a>
-                  </li>
-                </ul>
+                        <span class="site-menu-title">Basketball Court</span>
+                </a>
               </li>
               <li class="site-menu-category">Reservation</li>
               <li class="site-menu-item has-sub">
