@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="../../../../global/global2/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
         <link rel="stylesheet" href="../../../../global/global2/vendor/jquery-tabledit/jquery-tabledit.css">
         <link rel="stylesheet" href="../../../assets2/examples/css/dashboard/v1.css">
+        <link rel="stylesheet" href="../../../../global/global2/vendor/tablesaw/tablesaw.css">
     
     
     <!-- Fonts -->
@@ -304,69 +305,42 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div data-plugin="matchHeight" data-by-row="true">
-          <!-- Panel Table Add Row -->
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <!-- Example #exampleTableditToolbars -->
-                <div class="example-wrap">
-                  <h4 class="example-title">Request</h4>
-                  <div class="example table-responsive">
-                    <table id="exampleTableditToolbars" class="table table-striped table-bordered">
+
+
+            <!-- Panel Swipe -->
+            <div class="panel">
+              <header class="panel-heading">
+                <h3 class="panel-title">Reservation Request</h3>
+              </header>
+              <div class="panel-body">
+                <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
                       <thead>
                         <tr>
-                          <th>#</th>
                           <th>First Name</th>
                           <th>Last Name</th>
+                          <th>Mobile Number</th>
+                          <th>Organization</th>
+                          <th>Position</th>
+                          <th>Adviser</th>
+                          <th>Event Name</th>
+                          <th>No. of Participants</th>
+                          <th>Faculty Department</th>
+                          <th>Start Date</th>
+                          <th>End Date</th>
+                          <th>Start Time</th>
+                          <th>End Time</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>@Elijah</td>
-                          <td>Teagan</td>
-                          <td>Prohaska</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>@Ramiro</td>
-                          <td>Andy</td>
-                          <td>Gaylord</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>@Maxime</td>
-                          <td>Veronica</td>
-                          <td>Gusikowski</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>@Maggio</td>
-                          <td>Bruce</td>
-                          <td>Rogahn</td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>@Hammes</td>
-                          <td>Carolina</td>
-                          <td>Hickle</td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>@Amaya</td>
-                          <td>Madaline</td>
-                          <td>Eichmann</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <!-- End Example #exampleTableditToolbars -->
-              </div>
 
+                      <tbody>
+
+                      </tbody>
+                      
+                    </table>
+              </div>
             </div>
-          </div>
-                <!-- End Panel Table Add Row -->
+            <!-- End Panel Swipe -->
 
           </div>
       </div>
@@ -404,6 +378,7 @@
         <script src="../../../../global/global2/vendor/matchheight/jquery.matchHeight-min.js"></script>
         <script src="../../../../global/global2/vendor/peity/jquery.peity.min.js"></script>
         <script src="../../../../global/global2/vendor/jquery-tabledit/jquery.tabledit.min.js"></script>
+        <script src="../../../../global/global2/vendor/tablesaw/tablesaw.jquery.js"></script>
     
     <!-- Scripts -->
     <script src="../../../../global/global2/js/Component.js"></script>
@@ -429,9 +404,11 @@
         <script src="../../../../global/global2/js/Plugin/matchheight.js"></script>
         <script src="../../../../global/global2/js/Plugin/jvectormap.js"></script>
         <script src="../../../../global/global2/js/Plugin/peity.js"></script>
+        <script src="../../../../global/global2/js/Plugin/tablesaw.js"></script>
     
         <script src="../../../assets2/examples/js/dashboard/v1.js"></script>
         <script src="../../../assets2/examples/js/tables/jqtabledit.js"></script>
+
     
   </body>
 </html>
