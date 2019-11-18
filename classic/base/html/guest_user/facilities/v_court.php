@@ -285,7 +285,7 @@
               </li>
               <li class="site-menu-category">Reservation</li>
               <li class="site-menu-item has-sub">
-                <a href="javascript:void(0)">
+                <a href="request.php">
                         <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                         <span class="site-menu-title">Request</span>
                 </a>
