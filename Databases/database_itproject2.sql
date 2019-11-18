@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2019 at 08:10 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Nov 18, 2019 at 04:33 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -115,6 +115,51 @@ INSERT INTO `facilities` (`facilityID`, `facilityLevel`, `facilityRoom`, `roomTy
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `finance_office`
+--
+
+CREATE TABLE `finance_office` (
+  `officeID` int(50) NOT NULL,
+  `firstName` varchar(15) NOT NULL,
+  `lastName` varchar(15) NOT NULL,
+  `eventOrg` varchar(50) NOT NULL,
+  `actVenue` varchar(50) NOT NULL,
+  `numPart` varchar(10) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `startTime` time(6) NOT NULL,
+  `endTime` time(6) NOT NULL,
+  `mobNumber` int(11) NOT NULL,
+  `org_adviser` varchar(20) NOT NULL,
+  `posi` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sao_office`
+--
+
+CREATE TABLE `sao_office` (
+  `officeID` int(50) NOT NULL,
+  `firstName` varchar(15) NOT NULL,
+  `lastName` varchar(15) NOT NULL,
+  `eventOrg` varchar(15) NOT NULL,
+  `actEve` varchar(50) NOT NULL,
+  `actVenue` varchar(50) NOT NULL,
+  `numPart` varchar(10) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `startTime` time(6) NOT NULL,
+  `endTime` time(6) NOT NULL,
+  `mobNumber` int(11) NOT NULL,
+  `org_adviser` varchar(20) NOT NULL,
+  `posi` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -126,17 +171,18 @@ CREATE TABLE `users` (
   `pos` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `user_type` varchar(11) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `stat` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `firstName`, `lastName`, `orgs`, `pos`, `email`, `user_type`, `password`) VALUES
-(10, 'super', 'admin', 'super', 'admin', 'superadmin@localhost.ph', 'Super Admin', 'slu'),
-(11, 'admin', 'user', 'admin', 'user', 'adminuser@localhost.ph', 'Admin User', 'slu'),
-(12, 'guest', 'user', 'guest', 'user', 'guestuser@localhost.ph', 'Guest User', 'slu');
+INSERT INTO `users` (`userID`, `firstName`, `lastName`, `orgs`, `pos`, `email`, `user_type`, `password`, `stat`) VALUES
+(10, 'super', 'admin', 'super', 'admin', 'superadmin@localhost.ph', 'Super Admin', 'slu', 'active'),
+(11, 'admin', 'user', 'admin', 'user', 'adminuser@localhost.ph', 'Admin User', 'slu', ''),
+(12, 'guest', 'user', 'guest', 'user', 'guestuser@localhost.ph', 'Guest User', 'slu', '');
 
 --
 -- Indexes for dumped tables
@@ -167,6 +213,18 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`facilityID`);
 
 --
+-- Indexes for table `finance_office`
+--
+ALTER TABLE `finance_office`
+  ADD PRIMARY KEY (`officeID`);
+
+--
+-- Indexes for table `sao_office`
+--
+ALTER TABLE `sao_office`
+  ADD PRIMARY KEY (`officeID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -180,7 +238,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `account_office`
 --
 ALTER TABLE `account_office`
-  MODIFY `officeID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `officeID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `equipments`
@@ -198,7 +256,19 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `finance_office`
+--
+ALTER TABLE `finance_office`
+  MODIFY `officeID` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sao_office`
+--
+ALTER TABLE `sao_office`
+  MODIFY `officeID` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
