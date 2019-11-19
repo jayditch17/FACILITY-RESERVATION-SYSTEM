@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -243,53 +241,73 @@
               </li>
               <li class="site-menu-category">Facilities</li>
               <li class="site-menu-item has-sub">
-                <a href="plaza.php">
-                        <i class="site-menu-icon md-palette" aria-hidden="true"></i>
+                <a href="plaza.html">
+                        <i class="site-menu-icon md-palette active" aria-hidden="true"></i>
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="amphi.php">
+                <a href="amphi.html">
                         <i class="site-menu-icon icon md-balance" aria-hidden="true"></i>
                         <span class="site-menu-title">Amphitheater</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="avr.php">
+                <a href="avr.html">
                         <i class="site-menu-icon icon ml-display-screen" aria-hidden="true"></i>
                         <span class="site-menu-title">AVR</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="pool.php">
+                <a href="pool.html">
                         <i class="site-menu-icon icon io-droplet" aria-hidden="true"></i>
                         <span class="site-menu-title">Swimming Pool</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="oval.php">
+                <a href="oval.html">
                         <i class="site-menu-icon md-comment-alt-text" aria-hidden="true"></i>
                         <span class="site-menu-title">Oval</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="v_court.php">
-                        <i class="site-menu-icon icon pe-ball" aria-hidden="true"></i>
-                        <span class="site-menu-title">Volleyball Court</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="b_court.php">
-                        <i class="site-menu-icon icon ion-ios-basketball" aria-hidden="true"></i>
-                        <span class="site-menu-title">Basketball Court</span>
-                </a>
+                <a href="javascript:void(0)">
+                        <i class="site-menu-icon icon ion-ios-baseball" aria-hidden="true"></i>
+                        <span class="site-menu-title">Courts</span>
+                                <span class="site-menu-arrow"></span>
+                    </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="v_court.html">
+                      <span class="site-menu-title">Volleyball Court</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="b_court.html">
+                      <span class="site-menu-title">Basketball Court</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="site-menu-category">Reservation</li>
               <li class="site-menu-item has-sub">
-                <a href="request.php">
+                <a href="javascript:void(0)">
                         <i class="site-menu-icon md-apps" aria-hidden="true"></i>
-                        <span class="site-menu-title">Request</span>
+                        <span class="site-menu-title">Apps</span>
+                                <span class="site-menu-arrow"></span>
                     </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="apps/contacts/contacts.html">
+                      <span class="site-menu-title">Contacts</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="apps/calendar/calendar.html">
+                      <span class="site-menu-title">Calendar</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -300,211 +318,267 @@
       </div>
     </div>
 
+
+
+    <?php
+                    // Include config file
+                    require_once "config.php";
+                     
+                    // Define variables and initialize with empty values
+                    $firstName = $lastName = $mobNum = $org = $pos = $adviser = $eveName = $numPart = $startDate = $endDate = $startTime =$endTime = "";
+                    //$name_err = $address_err = $salary_err = "";
+                    $firstName_err = $lastName_err = $mobNum_err = $org_err = $pos_err = $adviser_err = $eveName_err = $numPart_err = $startDate_err = $endDate_err = $startTime_err = $endTime_err = "";
+                     
+                    // Processing form data when form is submitted
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        // Validate name
+                        $input_fname = trim($_POST["firstName"]);
+                        if(empty($input_fname)){
+                            $firstName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_fname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $firstName_err = "Please enter a valid name.";
+                        } else{
+                            $firstName = $input_fname;
+                        }
+                        
+                        $input_lname = trim($_POST["lastName"]);
+                        if(empty($input_lname)){
+                            $lastName_err = "Please enter a name.";
+                        } elseif(!filter_var($input_lname, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $lastName_err = "Please enter a valid name.";
+                        } else{
+                            $lastName = $input_lname;
+                        }
+
+                        $input_mobNum = trim($_POST["mobNum"]);
+                        if(empty($input_mobNum)){
+                            $mobNum_err = "Please enter a name.";
+                        } else{
+                            $mobNum = $input_mobNum;
+                        }
+
+                        $input_org = trim($_POST["org"]);
+                        if(empty($input_org)){
+                            $org_err = "Please enter a name.";
+                        }else{
+                            $org = $input_org;
+                        }
+
+                        $input_pos = trim($_POST["pos"]);
+                        if(empty($input_pos)){
+                            $pos_err = "Please enter a name.";
+                        } elseif(!filter_var($input_pos, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+                            $pos_err = "Please enter a valid name.";
+                        } else{
+                            $pos = $input_pos;
+                        }
+
+                        $input_adviser = trim($_POST["adviser"]);
+                        if(empty($input_adviser)){
+                            $adviser_err = "Please enter a name.";
+                        } else{
+                            $adviser = $input_adviser;
+                        }
+                        $input_eveName = trim($_POST["eveName"]);
+                        if(empty($input_eveName)){
+                            $eveName_err = "Please enter a name.";
+                        } else{
+                            $eveName = $input_eveName;
+                        }
+
+                        $input_numPart = trim($_POST["numPart"]);
+                        if(empty($input_numPart)){
+                            $numPart_err = "Please enter a name.";
+                        } else{
+                            $numPart = $input_numPart;
+                        }
+
+                        $input_startDate = trim($_POST["startDate"]);
+                        if(empty($input_startDate)){
+                            $startDate_err = "Please enter a name.";
+                        } else{
+                            $startDate = $input_startDate;
+                        }
+
+                        $input_endDate = trim($_POST["endDate"]);
+                        if(empty($input_endDate)){
+                            $endDate_err = "Please enter a name.";
+                        } else{
+                            $endDate = $input_endDate;
+                        }
+
+                        $input_startTime = trim($_POST["startTime"]);
+                        if(empty($input_startTime)){
+                            $startTime_err = "Please enter a name.";
+                        } else{
+                            $startTime = $input_startTime;
+                        }
+                        $input_endTime= trim($_POST["endTime"]);
+                        if(empty($input_endTime)){
+                            $endTime_err = "Please enter a name.";
+                        } else{
+                            $endTime = $input_endTime;
+                        }
+
+
+                        
+                        
+                        // Check input errors before inserting in database
+                        if(empty($firstName_err) && empty($lastName_err) && empty($mobNum_err) && empty($org_err) && empty($pos_err) && empty($adviser_err) && empty($eveName_err) && empty($numPart_err) && empty($startDate_err) && empty($endDate_err) && empty($startTime_err) && empty($endTime_err)){
+                            // Prepare an insert statement
+                            $sql = "INSERT INTO request_su (firstName, lastName, mobNum, org, pos, adviser, eveName, numPart, startDate, endDate, startTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                             
+                            if($stmt = mysqli_prepare($link, $sql)){
+                                // Bind variables to the prepared statement as parameters
+                                mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_fname, $param_lName, $param_mobNum, $param_org, $param_pos, $param_adviser, $param_eveName, $param_numPart, $param_startDate, $param_endDate, $param_startTime, $param_endTime);
+                                
+                                // Set parameters
+                                $param_fname = $firstName;
+                                $param_lName = $lastName;
+                                $param_mobNum = $mobNum;
+                                $param_org = $org;
+                                $param_pos = $pos;
+                                $param_adviser = $adviser;
+                                $param_eveName = $eveName;
+                                $param_numPart = $numPart;
+                                $param_startDate = $startDate;
+                                $param_endDate = $endDate;
+                                $param_startTime = $startTime;
+                                $param_endTime = $endTime;
+                                
+                                // Attempt to execute the prepared statement
+                                if(mysqli_stmt_execute($stmt)){
+                                    // Records created successfully. Redirect to landing page
+                                    echo '<script type="text/javascript">'; 
+                                    echo 'alert("Reservation is now Pending. Thank You!");'; 
+                                    echo 'window.location.href = "plaza.php";';
+                                    echo '</script>';
+                                    exit();
+                                } else{
+                                    echo "Something went wrong. Please try again later.";
+                                }
+                    // Close statement
+                            mysqli_stmt_close($stmt);
+                            }else {
+                        echo "Something's wrong with the query: " . mysqli_error($link);
+                    }
+                             
+                            
+                        }
+                        
+                        // Close connection
+                        mysqli_close($link);
+                    }
+                    ?>
+
+
     <!-- Page -->
     <div class="page">
       <div class="page-content container-fluid">
         <div data-plugin="matchHeight" data-by-row="true">
-          <!-- Panel Table Add Row -->
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <h2>Devesse Plaza</h2>
-                    <p>November 2019</p>
-                      <!-- Example Optional Sizes -->
-                          <div class="example-buttons">
-                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
+
+          <div class="page-header clearfix">
+                        <a class="btn btn-success pull-right" data-toggle="modal" data-target="#basicModal">Add Account</a>
+                    </div>
+
+                    <!-- add modal  -->
+                    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel">Add Student</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+
+                            <div class="modal-body">
+                              
+                              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                                <div class="form-group <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?>">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="firstName" class="form-control" value="<?php echo $firstName; ?>">
+                                                    <span class="help-block"><?php echo $firstName_err;?></span>
+                                                </div>
+                                                <div class="form-group <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Last Name</label>
+                                                  <input type="text" name="lastName" class="form-control" value="<?php echo $lastName; ?>">
+                                                  <span class="help-block"><?php echo $lastName_err;?></span>
+                                              </div>
+                                                <div class="form-group <?php echo (!empty($mobNum_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Mobile Number</label>
+                                                  <input type="text" name="mobNum" class="form-control" value="<?php echo $mobNum; ?>">
+                                                  <span class="help-block"><?php echo $mobNum_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($org_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Organization</label>
+                                                  <input type="text" name="org" class="form-control" value="<?php echo $org; ?>">
+                                                  <span class="help-block"><?php echo $org_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($pos_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Position</label>
+                                                  <input type="text" name="pos" class="form-control" value="<?php echo $pos; ?>">
+                                                  <span class="help-block"><?php echo $pos_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($adviser_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Adviser</label>
+                                                  <input type="text" name="adviser" class="form-control" value="<?php echo $adviser; ?>">
+                                                  <span class="help-block"><?php echo $adviser_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($eveName_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Event Name</label>
+                                                  <input type="text" name="eveName" class="form-control" value="<?php echo $eveName; ?>">
+                                                  <span class="help-block"><?php echo $eveName_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($numPart_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Number of Participants</label>
+                                                  <input type="text" name="numPart" class="form-control" value="<?php echo $numPart; ?>">
+                                                  <span class="help-block"><?php echo $numPart_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($startDate_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Start Date</label>
+                                                  <input type="text" name="startDate" class="form-control" value="<?php echo $startDate; ?>">
+                                                  <span class="help-block"><?php echo $startDate_err;?></span>
+                                                </div>
+                                                <div class="form-group <?php echo (!empty($endDate_err)) ? 'has-error' : ''; ?>">
+                                                  <label>End Date</label>
+                                                  <input type="text" name="endDate" class="form-control" value="<?php echo $endDate; ?>">
+                                                  <span class="help-block"><?php echo $endDate_err;?></span>
+                                                </div>
+                                                <div class="form-group <?php echo (!empty($startTime_err)) ? 'has-error' : ''; ?>">
+                                                  <label>Start Time</label>
+                                                  <input type="text" name="startTime" class="form-control" value="<?php echo $startTime; ?>">
+                                                  <span class="help-block"><?php echo $startTime_err;?></span>
+                                                </div>
+
+                                                <div class="form-group <?php echo (!empty($endTime_err)) ? 'has-error' : ''; ?>">
+                                                  <label>End Time</label>
+                                                  <input type="text" name="endTime" class="form-control" value="<?php echo $endTime; ?>">
+                                                  <span class="help-block"><?php echo $endTime_err;?></span>
+                                                  <div class="modal-footer">
+                                                </div>
+                                                <div class="modal-footer">
+                                               <input type="submit" class="btn btn-primary" value="Submit">
+                                                <a href="index.php" class="btn btn-default">Cancel</a>
+                                                </div>
+                                                </form>
+                            </div> <!--Modal Body-->
+
+                            
                           </div>
+                        </div>
+                      </div>
 
-                          <!-- Modal -->
-                          <div class="modal fade example-modal-lg" aria-hidden="true" aria-labelledby="exampleOptionalLarge"
-                            role="dialog" tabindex="-1">
-                            <div class="modal-dialog modal-simple modal-lg">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="exampleOptionalLarge">Event Reservation Form</h4>
-                                </div>
-                                
-                                <div class="modal-body">
-                                        <!-- Example Basic Form (Form grid) -->
-                                        <div class="example-wrap">
-                                          <div class="example">
-                                            <form autocomplete="off">
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicFirstName">First Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicFirstName" name="inputFirstName"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicLastName">Last Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicLastName" name="inputLastName"
-                                                     autocomplete="off" />
-                                                </div>
-                                                  <div class="form-group col-sm-4">
-                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">Mobile Number</label>
-                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
-                                                       autocomplete="off" />
-                                                  </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicOrganization">Organization</label>
-                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
-                                                   autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicPosition">Position</label>
-                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicAdviser">Adviser</label>
-                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
-                                                     autocomplete="off" />
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicOrganization">Event Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
-                                                   autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicPosition">No. of Participant</label>
-                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicAdviser">Faculty Department</label>
-                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
-                                                     autocomplete="off" />
-                                                </div>
-                                              </div>
-                                              <div class="example-wrap">
-                                                <div class="example datepair-wrap" data-plugin="datepair">
-                                                  <div class="input-daterange-wrap">
-                                                    <label class="form-control-label" for="inputBasicDateAndTime">Date and Time</label>
-                                                    <div class="input-daterange">
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-date datepair-start" data-plugin="datepicker">
-                                                      </div>
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-time" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-time datepair-start" data-plugin="timepicker"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="input-daterange-to"></div>
-                                                  <div class="input-daterange-wrap">
-                                                    <div class="input-daterange">
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-date datepair-end" name="end" data-plugin="datepicker">
-                                                      </div>
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-time" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-time datepair-end" data-plugin="timepicker"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                        <!-- End Example Basic Form (Form grid) -->
-                                        <h5>Equipment/s to be used:</h5>
-
-                                              <div class="row">
-                                                <div class="form-group col-md-6">
-                                                  <label class="gu_container">Bench(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Chairs(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Platform(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Table(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Triboard(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Divider(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                </div>
-
-                                                <div class="form-group col-md-6">
-                                                  <label class="gu_container">Microphone(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Mic Stand(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Karaoke
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Projector(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Sound System
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">TV/DVD
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                </div>
-                                              </div>
-                                    </div>
-
-
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- End Modal -->
-                          <!-- End Example Optional Sizes -->
+                
                         </div>
                       </div>
                     </div>
-              
-                    <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                      
 
                       <tbody>
                         <?php
@@ -512,9 +586,10 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM events";
+                    $sql = "SELECT * FROM request_su";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
+                          echo "<h4>Pending Reservation</h4>";
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
@@ -533,13 +608,13 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
 
-                                        echo "<td>" . $row['actVenue'] . "</td>";
+                                        echo "<td>" . $row['eveName'] . "</td>";
                                         echo "<td>" . $row['startDate'] . "</td>";
                                         echo "<td>" . $row['endDate'] . "</td>";
                                         echo "<td>" . $row['startTime'] . "</td>";
                                         echo "<td>" . $row['endTime'] . "</td>";
-                                        echo "<td>" . $row['eventOrg'] . "</td>";
-                                        echo "<td>" . $row['posi'] . "</td>";
+                                        echo "<td>" . $row['org'] . "</td>";
+                                        echo "<td>" . $row['pos'] . "</td>";
                                         echo "<td>" . $row['numPart'] . "</td>";
 
                                     echo "</tr>";
@@ -558,14 +633,9 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
-
                       </tbody>
-                      
-                    </table>
                   </div>
                 </div>
-                <!-- End Panel Table Add Row -->
-
           </div>
       </div>
     </div>
