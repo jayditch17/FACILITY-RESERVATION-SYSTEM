@@ -22,7 +22,7 @@ if($_POST) {
 		// echo "success";	
 	} else {		
 		 $validator['success'] = false;
-		 $validator['messages'] = "Error while adding the facility information";
+		 $validator['messages'] = "Error while adding the member information";
 		// echo "error";	
 	}
 

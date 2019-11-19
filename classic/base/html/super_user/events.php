@@ -258,43 +258,12 @@
                 <span class="site-menu-title">Equipments</span>
               </a>
             </li>
-            <li class="site-menu-item has-sub">
-                <a href="reservation.html">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
-                        <span class="site-menu-title">Reservation</span>
-                </a>
-              </li>
             <li class="site-menu-item has-sub active">
               <a href="events.php">
                 <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
               </a>
             </li>
-            <!-- <li class="site-menu-category">Accounts</li>
-              <li class="site-menu-item has-sub">
-                <a href="student_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Student</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="faculty_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Faculty</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="office_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Office</span>
-                </a>
-              </li>
-              <li class="site-menu-item has-sub">
-                <a href="visitor_account.php">
-                        <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                        <span class="site-menu-title">Visitor</span>
-                </a>
-              </li> -->
           </div>
         </div>
       </div>
@@ -306,9 +275,7 @@
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
 
-        <div class="col-sm-12">
-          <h3>Events</h1>
-        </div>    
+
           <?php
                     // Include config file
                     require_once "config.php";
@@ -428,39 +395,42 @@
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>ID</th>";
-                                        echo "<th>First Name</th>";
-                                        echo "<th>Last Name</th>";
-                                        echo "<th>Organization</th>";
-                                        echo "<th>Event</th>";
-                                        echo "<th>Venue</th>";
-                                        echo "<th>Participants</th>";
-                                        echo "<th>Date Start</th>";
-                                        echo "<th>Date End</th>";
-                                        echo "<th>Start Time</th>";
-                                        echo "<th>End Time</th>";
+
+                                       echo "<th>Event ID</th>";
+                                       echo "<th>First Name</th>";
+                                       echo "<th>Last Name</th>";
+                                       echo "<th>Mobile Number</th>";
+                                       echo "<th>Organization</th>";
+                                       echo "<th>Adviser</th>";
+                                       echo "<th>Event Name</th>";
+                                       echo "<th>Number of Participants</th>";
+                                       echo "<th>Start Date</th>";
+                                       echo "<th>End Date</th>";
+                                       echo "<th>Time Start</th>";
+                                       echo "<th>Time End</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
+
                                         echo "<td>" . $row['eventID'] . "</td>";
                                         echo "<td>" . $row['firstName'] . "</td>";
                                         echo "<td>" . $row['lastName'] . "</td>";
-                                        echo "<td>" . $row['eventOrg'] . "</td>";
-                                        echo "<td>" . $row['actEve'] . "</td>";
-                                        echo "<td>" . $row['actVenue'] . "</td>";
+                                        echo "<td>" . $row['mobNum'] . "</td>";
+                                        echo "<td>" . $row['org'] . "</td>";
+                                        echo "<td>" . $row['adviser'] . "</td>";
+                                        echo "<td>" . $row['eveName'] . "</td>";
                                         echo "<td>" . $row['numPart'] . "</td>";
                                         echo "<td>" . $row['startDate'] . "</td>";
                                         echo "<td>" . $row['endDate'] . "</td>";
                                         echo "<td>" . $row['startTime'] . "</td>";
                                         echo "<td>" . $row['endTime'] . "</td>";
-                                    
-                                        echo "<td>";
-                                            echo "<a href='php_action/view_event.php?eventID=". $row['eventID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                            echo "<a href='php_action/update_eve.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                            echo "<a href='php_action/delete_event.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                         echo "<td>";
+                                            echo "<a href='php_action/read_acc.php?eventID=". $row['eventID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                            echo "<a href='php_action/edit_acc.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='php_action/delete_acc.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
                                     echo "</tr>";
                                 }
@@ -469,7 +439,7 @@
                             // Free result set
                             mysqli_free_result($result);
                         } else{
-                            echo "<p class='lead'><em>No records were found.</em></p>";
+                            echo "<p class='lead'><em>No Reservation were found.</em></p>";
                         }
                     } else{
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

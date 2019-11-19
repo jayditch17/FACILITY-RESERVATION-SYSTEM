@@ -3,9 +3,9 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$firstName = $lastName = $orgs = $pos = $utype = $email = $pass = $pass = $stat = "";
+$firstName = $lastName = $orgs = $pos = $utype = $email = $pass = $stat ="";
 //$name_err = $address_err = $salary_err = "";
-$firstName_err = $lastName_err = $orgs_err = $pos_err = $utype_err = $email_err = $pass_err = $stat_err = "";
+$firstName_err = $lastName_err = $orgs_err = $pos_err = $utype_err = $email_err = $pass_err = $stat_err="";
  
 // Processing form data when form is submitted
 if(isset($_POST["userID"]) && !empty($_POST["userID"])){
@@ -66,8 +66,7 @@ if(isset($_POST["userID"]) && !empty($_POST["userID"])){
     } else{
         $pass = $input_pass;
     }
-
-     $input_stat = trim($_POST["stat"]);
+    $input_stat = trim($_POST["stat"]);
     if(empty($input_stat)){
         $stat_err = "Please enter a name.";
     } elseif(!filter_var($input_stat, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
@@ -77,9 +76,9 @@ if(isset($_POST["userID"]) && !empty($_POST["userID"])){
     }
     
     // Check input errors before inserting in database
-    if(empty($firstName_err) && empty($lastName_err) && empty($orgs_err) && empty($pos_err) && empty($email_err) && empty($utype_err) &&empty($pass_err) &&empty($stat_err)){
+    if(empty($firstName_err) && empty($lastName_err) && empty($orgs_err) && empty($pos_err) && empty($email_err) && empty($utype_err) &&empty($pass_err)){
         // Prepare an update statement
-        $sql = "UPDATE users SET firstName=?, lastName=?, orgs=?, pos=?, email=?, user_type=?, password=?, stat=? WHERE userID=?";
+        $sql = "UPDATE users SET firstName=?, lastName=?, orgs=?, pos=?, email=?, user_type=?, password=?, status=? WHERE userID=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -95,7 +94,6 @@ if(isset($_POST["userID"]) && !empty($_POST["userID"])){
             $param_pass = $pass;
             $param_stat = $stat;
             $param_userID = $userID;
-           
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -146,7 +144,7 @@ if(isset($_POST["userID"]) && !empty($_POST["userID"])){
                 $email = $row["email"];
                 $utype = $row["user_type"];
                 $pass = $row["password"];
-                $stat = $row["stat"];
+                $stat = $row["status"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     echo "error!";
@@ -233,7 +231,7 @@ if(isset($_POST["userID"]) && !empty($_POST["userID"])){
                             <span class="help-block"><?php echo $pass_err;?></span>
                         </div>
 
-                         <div class="form-group <?php echo (!empty($stat_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($stat_err)) ? 'has-error' : ''; ?>">
                             <label>Status</label>
                             <input type="text" name="stat" class="form-control" value="<?php echo $stat; ?>">
                             <span class="help-block"><?php echo $stat_err;?></span>

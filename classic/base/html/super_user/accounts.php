@@ -489,7 +489,8 @@
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['user_type'] . "</td>";
                                         echo "<td>*****</td>";
-                                        echo "<td>" . $row['stat'] . "</td>";
+                                        echo "<td>" . $row['stat'] . "</td>";   
+                                        
                                     
                                         echo "<td>";
                                             echo "<a href='php_action/read_acc.php?userID=". $row['userID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";

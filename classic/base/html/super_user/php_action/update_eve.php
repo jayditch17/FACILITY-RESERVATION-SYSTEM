@@ -187,8 +187,7 @@ if(isset($_POST["eventID"]) && !empty($_POST["eventID"])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Event</title>
-    <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
+    <title>Update Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -203,7 +202,7 @@ if(isset($_POST["eventID"]) && !empty($_POST["eventID"])){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Update Event</h2>
+                        <h2>Update Record</h2>
                     </div>
                     <p>Please edit the input values and submit to update the record.</p>
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
@@ -239,22 +238,22 @@ if(isset($_POST["eventID"]) && !empty($_POST["eventID"])){
                         </div>
                         <div class="form-group <?php echo (!empty($sd_err)) ? 'has-error' : ''; ?>">
                             <label>Start Date</label>
-                            <input type="date" name="sd" class="form-control" value="<?php echo $sd; ?>">
+                            <input type="text" name="sd" class="form-control" value="<?php echo $sd; ?>">
                             <span class="help-block"><?php echo $sd_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($ed_err)) ? 'has-error' : ''; ?>">
                             <label>End Date</label>
-                            <input type="date" name="ed" class="form-control" value="<?php echo $ed; ?>">
+                            <input type="text" name="ed" class="form-control" value="<?php echo $ed; ?>">
                             <span class="help-block"><?php echo $ed_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($st_err)) ? 'has-error' : ''; ?>">
                             <label>Start Time</label>
-                            <input type="time" name="st" class="form-control" value="<?php echo $st; ?>">
+                            <input type="text" name="st" class="form-control" value="<?php echo $st; ?>">
                             <span class="help-block"><?php echo $st_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($et_err)) ? 'has-error' : ''; ?>">
                             <label>End Time</label>
-                            <input type="time" name="et" class="form-control" value="<?php echo $et; ?>">
+                            <input type="text" name="et" class="form-control" value="<?php echo $et; ?>">
                             <span class="help-block"><?php echo $et_err;?></span>
                         </div>
 

@@ -5,7 +5,7 @@ if(isset($_GET["userID"]) && !empty(trim($_GET["userID"]))){
     require_once "config.php";
     
     // Prepare a select statement
-    $sql = "SELECT * FROM account_fac WHERE userID = ?";
+    $sql = "SELECT * FROM users WHERE userID = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -24,11 +24,14 @@ if(isset($_GET["userID"]) && !empty(trim($_GET["userID"]))){
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
                 // Retrieve individual field value
-                $firstName = $row["first_name"];
-                $lastName = $row["last_name"];
-                $dept = $row["deptFac"];
-                $email = $row["facEmail"];
-                $pass = $row["facPass"];
+                $firstName = $row["firstName"];
+                $lastName = $row["lastName"];
+                $orgs = $row["orgs"];
+                $pos = $row["pos"];
+                $type = $row["user_type"];
+                $email = $row["email"];
+                $pass = $row["password"];
+                
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: error.php");
@@ -78,15 +81,23 @@ if(isset($_GET["userID"]) && !empty(trim($_GET["userID"]))){
                     </div>
                     <div class="form-group">
                         <label>First Name:</label>
-                        <p class="form-control-static"><?php echo $row["first_name"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["firstName"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Last Name:</label>
-                        <p class="form-control-static"><?php echo $row["last_name"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["lastName"]; ?></p>
                     </div>
                     <div class="form-group">
-                        <label>Department:</label>
-                        <p class="form-control-static"><?php echo $row["deptFac"]; ?></p>
+                        <label>Department / Organization:</label>
+                        <p class="form-control-static"><?php echo $row["orgs"]; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Posistion:</label>
+                        <p class="form-control-static"><?php echo $row["pos"]; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Type:</label>
+                        <p class="form-control-static"><?php echo $row["user_type"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Email:</label>
