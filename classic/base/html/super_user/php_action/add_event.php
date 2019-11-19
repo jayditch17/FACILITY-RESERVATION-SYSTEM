@@ -183,22 +183,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group <?php echo (!empty($st_err)) ? 'has-error' : ''; ?>">
                             <label>Start Date</label>
-                            <input type="text" name="sd" class="form-control" value="<?php echo $sd; ?>">
+                            <input type="date" name="sd" class="form-control" value="<?php echo $sd; ?>">
                             <span class="help-block"><?php echo $sd_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($ed_err)) ? 'has-error' : ''; ?>">
                             <label>End Date</label>
-                            <input type="text" name="ed" class="form-control" value="<?php echo $ed; ?>">
+                            <input type="date" name="ed" class="form-control" value="<?php echo $ed; ?>">
                             <span class="help-block"><?php echo $ed_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($st_err)) ? 'has-error' : ''; ?>">
                             <label>Start Time</label>
-                            <input type="text" name="st" class="form-control" value="<?php echo $st; ?>">
+                            <input type="time" name="st" class="form-control" value="<?php echo $st; ?>">
                             <span class="help-block"><?php echo $st_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($et_err)) ? 'has-error' : ''; ?>">
                             <label>End Time</label>
-                            <input type="text" name="et" class="form-control" value="<?php echo $et; ?>">
+                            <input type="time" name="et" class="form-control" value="<?php echo $et; ?>">
                             <span class="help-block"><?php echo $et_err;?></span>
                         </div>
                         
