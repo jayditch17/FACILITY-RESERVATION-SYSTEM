@@ -232,20 +232,20 @@
             <ul class="site-menu" data-plugin="menu">
               <li class="site-menu-category">General</li>
               <li class="site-menu-item has-sub active">
-                <a href="admin_user.html">
+                <a href="admin_user.php">
                         <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                         <span class="site-menu-title">Home</span>
                 </a>
               </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub">
-                <a href="reservation.html">
+                <a href="reservation.php">
                         <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="events.html">
+                <a href="events.php">
                         <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                         <span class="site-menu-title">Events</span>
                 </a>
