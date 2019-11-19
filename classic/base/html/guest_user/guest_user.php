@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -97,7 +98,7 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -226,7 +227,7 @@
                       <div class="col-12">
                         <!-- Example Default Button -->
                           <div class="example-wrap">
-                            <h3 class="example-title" align="center">Maryheaights Campus Facilities</h3>
+                            <h3 class="example-title" align="center">Maryheights Campus Facilities</h3>
                             <div class="row">
                               <div class="col-sm-12 col-md-4 col-xl-2">
                                 <div class="example">
