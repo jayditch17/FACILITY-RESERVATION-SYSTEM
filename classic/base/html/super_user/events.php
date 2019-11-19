@@ -258,6 +258,12 @@
                 <span class="site-menu-title">Equipments</span>
               </a>
             </li>
+            <li class="site-menu-item has-sub">
+                <a href="reservation.php">
+                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <span class="site-menu-title">Reservation</span>
+                </a>
+              </li>
             <li class="site-menu-item has-sub active">
               <a href="events.php">
                 <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
