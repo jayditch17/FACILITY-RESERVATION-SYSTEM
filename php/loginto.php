@@ -15,10 +15,14 @@ if (isset($_POST["btnLogin"])) {
 				# code...
 				//$_SESSION['LoginUser'] = $row["email"];
 				header('Location: ../classic/base/html/super_user/super_user.php');
-			}else if(($row["user_type"] == "Admin User")  && ($row["status"] == "Active")){
+			}else if(($row["user_type"] == "Dean User")  && ($row["status"] == "Active")){
 				// $_SESSION['LoginUser'] = $row["email"];
 				// header('Location: user.php');
-				header('Location: ../classic/base/html/admin_user/admin_user.php');
+				header('Location: ../classic/base/html/admin_user/dean_office.php');
+			}else if(($row["user_type"] == "Sao User")  && ($row["status"] == "Active")){
+				// $_SESSION['LoginUser'] = $row["email"];
+				// header('Location: user.php');
+				header('Location: ../classic/base/html/admin_user/sao_office.php');
 			}else if(($row["user_type"] == "Guest User")  && ($row["status"] == "Active")){
 				// $_SESSION['LoginUser'] = $row["email"];
 				// header('Location: user.php');
