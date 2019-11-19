@@ -246,7 +246,7 @@
                 </a>
               </li>
             <li class="site-menu-item has-sub">
-              <a href="events.html">
+              <a href="events_dean.php">
                 <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
               </a>

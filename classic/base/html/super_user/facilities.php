@@ -567,7 +567,7 @@
       <!-- datatables js -->
       <script type="text/javascript" src="../../assets/datatables/datatables.min.js"></script>
       <!-- include custom index.js -->
-      <script type="text/javascript" src="../../assets/custom/js/index.js"></script>
+      <!-- <script type="text/javascript" src="../../assets/custom/js/index.js"></script> -->
       <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
       <!-- bootstrap js -->
       <script type="text/javascript" src="assests/bootstrap/js/bootstrap.min.js"></script>

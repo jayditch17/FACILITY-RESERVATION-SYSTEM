@@ -373,8 +373,10 @@
                                 // Attempt to execute the prepared statement
                                 if(mysqli_stmt_execute($stmt)){
                                     // Records created successfully. Redirect to landing page
-                                    header("location:accounts.php");
-                                    exit();
+                                    echo '<script type="text/javascript">'; 
+                                    echo 'alert("Account Registered. Thank You!");'; 
+                                    echo 'window.location.href = "accounts.php";';
+                                    echo '</script>';
                                 } else{
                                     echo "Something went wrong. Please try again later.";
                                 }
@@ -494,7 +496,7 @@
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['user_type'] . "</td>";
                                         echo "<td>*****</td>";
-                                        echo "<td>" . $row['stat'] . "</td>";   
+                                        echo "<td>" . $row['status'] . "</td>";   
                                         
                                     
                                         echo "<td>";

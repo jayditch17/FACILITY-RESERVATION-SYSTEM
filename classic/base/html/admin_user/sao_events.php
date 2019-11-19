@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -7,7 +9,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>Reservation | Sao Office</title>
+    <title>Events | SAO Office</title>
     
     <link rel="apple-touch-icon" href="../../assets/images/samcis.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -71,7 +73,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center">
           <img class="navbar-brand-logo" src="../../assets/images/samcis.png" title="Remark">
-          <span class="navbar-brand-text hidden-xs-down">Sao Office</span>
+          <span class="navbar-brand-text hidden-xs-down">SAO Office</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -225,6 +227,7 @@
       </div>
     </nav>    <div class="site-menubar">
     <div class="site-menubar-body">
+      <div class="site-menubar-body">
       <div>
         <div>
           <ul class="site-menu" data-plugin="menu">
@@ -236,13 +239,13 @@
                 </a>
             </li>
             <li class="site-menu-category">Controls</li>
-            <li class="site-menu-item has-sub active">
-                <a href="sao_office.php">
+            <li class="site-menu-item has-sub">
+                <a href="dean_office.php">
                         <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
-            <li class="site-menu-item has-sub">
+            <li class="site-menu-item has-sub active">
               <a href="sao_events.php">
                 <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
@@ -251,6 +254,7 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- Page -->
@@ -258,14 +262,14 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
-                  
-            <tbody>
+
+                    <tbody>
                         <?php
                     // Include config file
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM sao_office";
+                    $sql = "SELECT * FROM events";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                           echo "<h4>Pending Reservation</h4>";
@@ -286,8 +290,8 @@
                                        echo "<th>Time Start</th>";
                                        echo "<th>Time End</th>";
 
-                                        echo "<th>Accept</th>";
-                                       echo "<th>Decline</th>";
+                                       //  echo "<th>Accept</th>";
+                                       // echo "<th>Decline</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -306,8 +310,8 @@
                                         echo "<td>" . $row['endDate'] . "</td>";
                                         echo "<td>" . $row['startTime'] . "</td>";
                                         echo "<td>" . $row['endTime'] . "</td>";
-                                         echo "<td><a href='php/accept_sao.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip' class='btn btn-success'>Accept</a></td>";
-                                        echo "<td><a href='php/reject_sao.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip' class='btn btn-danger'>Reject</a></td>";
+                                        //  echo "<td><a href='php/accept_reser.php?eventID=". $row['eventID'] ."' title='Delete Record' data-toggle='tooltip' class='btn btn-success'>Accept</a></td>";
+                                        // echo "<td><a href='php/reject.php?eventID=". $row['eventID'] ."' title='Update Record' data-toggle='tooltip' class='btn btn-danger'>Reject</a></td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
@@ -326,6 +330,7 @@
                     ?>
                       </tbody>
 
+           
         </div>
       </div>
     </div>
