@@ -119,7 +119,7 @@
               <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
                 <div class="dropdown-divider" role="presentation"></div>
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+               <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown">
