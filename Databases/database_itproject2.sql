@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2019 at 04:33 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Nov 19, 2019 at 09:51 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,6 +47,28 @@ INSERT INTO `account_office` (`officeID`, `firstName`, `lastName`, `depOfc`, `em
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dean_office`
+--
+
+CREATE TABLE `dean_office` (
+  `eventID` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `mobNum` varchar(11) NOT NULL,
+  `org` varchar(50) NOT NULL,
+  `pos` varchar(50) NOT NULL,
+  `adviser` varchar(50) NOT NULL,
+  `eveName` varchar(50) NOT NULL,
+  `numPart` varchar(11) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `equipments`
 --
 
@@ -64,29 +86,27 @@ CREATE TABLE `equipments` (
 --
 
 CREATE TABLE `events` (
-  `eventID` int(50) NOT NULL,
-  `firstName` varchar(15) NOT NULL,
-  `lastName` varchar(15) NOT NULL,
-  `eventOrg` varchar(15) NOT NULL,
-  `actEve` varchar(50) NOT NULL,
-  `actVenue` varchar(50) NOT NULL,
-  `numPart` varchar(10) NOT NULL,
+  `eventID` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `mobNum` varchar(50) NOT NULL,
+  `org` varchar(50) NOT NULL,
+  `pos` varchar(50) NOT NULL,
+  `adviser` varchar(50) NOT NULL,
+  `eveName` varchar(50) NOT NULL,
+  `numPart` varchar(50) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `startTime` time(6) NOT NULL,
-  `endTime` time(6) NOT NULL,
-  `mob_num` int(11) NOT NULL,
-  `eve_adviser` varchar(20) NOT NULL,
-  `posi` varchar(20) NOT NULL
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `eventOrg`, `actEve`, `actVenue`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `mob_num`, `eve_adviser`, `posi`) VALUES
-(5, 'h', 'gjhg', 'jhg', 'jhg', 'jhg', 'jhg', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', ''),
-(6, 'hakdog', 'hakdog', 'Sikap', 'Suntukan', 'Plaza', '1999', '0000-00-00', '0000-00-00', '00:00:00.000000', '00:00:00.000000', 0, '', '');
+INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `mobNum`, `org`, `pos`, `adviser`, `eveName`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`) VALUES
+(1, 'j', 'j', 'j', 'org', 'j', 'j', 'j', 'j', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -115,23 +135,23 @@ INSERT INTO `facilities` (`facilityID`, `facilityLevel`, `facilityRoom`, `roomTy
 -- --------------------------------------------------------
 
 --
--- Table structure for table `finance_office`
+-- Table structure for table `request_su`
 --
 
-CREATE TABLE `finance_office` (
-  `officeID` int(50) NOT NULL,
-  `firstName` varchar(15) NOT NULL,
-  `lastName` varchar(15) NOT NULL,
-  `eventOrg` varchar(50) NOT NULL,
-  `actVenue` varchar(50) NOT NULL,
-  `numPart` varchar(10) NOT NULL,
+CREATE TABLE `request_su` (
+  `eventID` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `mobNum` varchar(11) NOT NULL,
+  `org` varchar(50) NOT NULL,
+  `pos` varchar(50) NOT NULL,
+  `adviser` varchar(50) NOT NULL,
+  `eveName` varchar(50) NOT NULL,
+  `numPart` varchar(50) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `startTime` time(6) NOT NULL,
-  `endTime` time(6) NOT NULL,
-  `mobNumber` int(11) NOT NULL,
-  `org_adviser` varchar(20) NOT NULL,
-  `posi` varchar(20) NOT NULL
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -141,20 +161,19 @@ CREATE TABLE `finance_office` (
 --
 
 CREATE TABLE `sao_office` (
-  `officeID` int(50) NOT NULL,
-  `firstName` varchar(15) NOT NULL,
-  `lastName` varchar(15) NOT NULL,
-  `eventOrg` varchar(15) NOT NULL,
-  `actEve` varchar(50) NOT NULL,
-  `actVenue` varchar(50) NOT NULL,
-  `numPart` varchar(10) NOT NULL,
+  `eventID` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `mobNum` varchar(11) NOT NULL,
+  `org` varchar(50) NOT NULL,
+  `pos` varchar(50) NOT NULL,
+  `adviser` varchar(50) NOT NULL,
+  `eveName` varchar(50) NOT NULL,
+  `numPart` varchar(5) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `startTime` time(6) NOT NULL,
-  `endTime` time(6) NOT NULL,
-  `mobNumber` int(11) NOT NULL,
-  `org_adviser` varchar(20) NOT NULL,
-  `posi` varchar(20) NOT NULL
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -195,6 +214,12 @@ ALTER TABLE `account_office`
   ADD PRIMARY KEY (`officeID`);
 
 --
+-- Indexes for table `dean_office`
+--
+ALTER TABLE `dean_office`
+  ADD PRIMARY KEY (`eventID`);
+
+--
 -- Indexes for table `equipments`
 --
 ALTER TABLE `equipments`
@@ -213,16 +238,16 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`facilityID`);
 
 --
--- Indexes for table `finance_office`
+-- Indexes for table `request_su`
 --
-ALTER TABLE `finance_office`
-  ADD PRIMARY KEY (`officeID`);
+ALTER TABLE `request_su`
+  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `sao_office`
 --
 ALTER TABLE `sao_office`
-  ADD PRIMARY KEY (`officeID`);
+  ADD PRIMARY KEY (`eventID`);
 
 --
 -- Indexes for table `users`
@@ -241,6 +266,12 @@ ALTER TABLE `account_office`
   MODIFY `officeID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `dean_office`
+--
+ALTER TABLE `dean_office`
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `equipments`
 --
 ALTER TABLE `equipments`
@@ -250,7 +281,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eventID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `facilities`
@@ -259,16 +290,16 @@ ALTER TABLE `facilities`
   MODIFY `facilityID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `finance_office`
+-- AUTO_INCREMENT for table `request_su`
 --
-ALTER TABLE `finance_office`
-  MODIFY `officeID` int(50) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `request_su`
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sao_office`
 --
 ALTER TABLE `sao_office`
-  MODIFY `officeID` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
