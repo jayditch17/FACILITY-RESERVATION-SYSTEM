@@ -325,9 +325,9 @@
                     require_once "config.php";
                      
                     // Define variables and initialize with empty values
-                    $firstName = $lastName = $mobNum = $org = $pos = $adviser = $eveName = $numPart = $startDate = $endDate = $startTime =$endTime = "";
+                    $firstName = $lastName = $mobNum = $org = $pos = $adviser = $eveName = $numPart = $startDate = $endDate = $startTime =$endTime = $equip = "";
                     //$name_err = $address_err = $salary_err = "";
-                    $firstName_err = $lastName_err = $mobNum_err = $org_err = $pos_err = $adviser_err = $eveName_err = $numPart_err = $startDate_err = $endDate_err = $startTime_err = $endTime_err = "";
+                    $firstName_err = $lastName_err = $mobNum_err = $org_err = $pos_err = $adviser_err = $eveName_err = $numPart_err = $startDate_err = $endDate_err = $startTime_err = $endTime_err = $equip_err = "";
                      
                     // Processing form data when form is submitted
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -420,17 +420,26 @@
                             $endTime = $input_endTime;
                         }
 
+                        $input_equip= trim($_POST["equip"]);
+                        if(empty($input_equip)){
+                            $equip_err = "Please enter a name.";
+                        } else{
+                            $equip = $input_equip;
+                        }
+
 
                         
-                        
+                        // if (mysqli_num_rows) {
+                          # code...
+                        // }
                         // Check input errors before inserting in database
-                        if(empty($firstName_err) && empty($lastName_err) && empty($mobNum_err) && empty($org_err) && empty($pos_err) && empty($adviser_err) && empty($eveName_err) && empty($numPart_err) && empty($startDate_err) && empty($endDate_err) && empty($startTime_err) && empty($endTime_err)){
+                        if(empty($firstName_err) && empty($lastName_err) && empty($mobNum_err) && empty($org_err) && empty($pos_err) && empty($adviser_err) && empty($eveName_err) && empty($numPart_err) && empty($startDate_err) && empty($endDate_err) && empty($startTime_err) && empty($endTime_err) && empty($equip_err)){
                             // Prepare an insert statement
-                            $sql = "INSERT INTO request_su (firstName, lastName, mobNum, org, pos, adviser, eveName, numPart, startDate, endDate, startTime, endTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                            $sql = "INSERT INTO request_su (firstName, lastName, mobNum, org, pos, adviser, eveName, numPart, startDate, endDate, startTime, endTime, equipments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                              
                             if($stmt = mysqli_prepare($link, $sql)){
                                 // Bind variables to the prepared statement as parameters
-                                mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_fname, $param_lName, $param_mobNum, $param_org, $param_pos, $param_adviser, $param_eveName, $param_numPart, $param_startDate, $param_endDate, $param_startTime, $param_endTime);
+                                mysqli_stmt_bind_param($stmt, "sssssssssssss", $param_fname, $param_lName, $param_mobNum, $param_org, $param_pos, $param_adviser, $param_eveName, $param_numPart, $param_startDate, $param_endDate, $param_startTime, $param_endTime, $param_equip);
                                 
                                 // Set parameters
                                 $param_fname = $firstName;
@@ -445,6 +454,7 @@
                                 $param_endDate = $endDate;
                                 $param_startTime = $startTime;
                                 $param_endTime = $endTime;
+                                $param_equip = $equip;
                                 
                                 // Attempt to execute the prepared statement
                                 if(mysqli_stmt_execute($stmt)){
@@ -478,7 +488,7 @@
         <div data-plugin="matchHeight" data-by-row="true">
 
           <div class="page-header clearfix">
-                        <a class="btn btn-success pull-right" data-toggle="modal" data-target="#basicModal">Add Account</a>
+                        <a class="btn btn-success pull-right" data-toggle="modal" data-target="#basicModal">Add Reservation</a>
                     </div>
 
                     <!-- add modal  -->
@@ -486,7 +496,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">Add Student</h4>
+                              <h4 class="modal-title" id="myModalLabel">Add Reservation</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                               </button>
@@ -543,29 +553,35 @@
 
                                                 <div class="form-group <?php echo (!empty($startDate_err)) ? 'has-error' : ''; ?>">
                                                   <label>Start Date</label>
-                                                  <input type="text" name="startDate" class="form-control" value="<?php echo $startDate; ?>">
+                                                  <input type="date" name="startDate" class="form-control" value="<?php echo $startDate; ?>">
                                                   <span class="help-block"><?php echo $startDate_err;?></span>
                                                 </div>
                                                 <div class="form-group <?php echo (!empty($endDate_err)) ? 'has-error' : ''; ?>">
                                                   <label>End Date</label>
-                                                  <input type="text" name="endDate" class="form-control" value="<?php echo $endDate; ?>">
+                                                  <input type="date" name="endDate" class="form-control" value="<?php echo $endDate; ?>">
                                                   <span class="help-block"><?php echo $endDate_err;?></span>
                                                 </div>
                                                 <div class="form-group <?php echo (!empty($startTime_err)) ? 'has-error' : ''; ?>">
                                                   <label>Start Time</label>
-                                                  <input type="text" name="startTime" class="form-control" value="<?php echo $startTime; ?>">
+                                                  <input type="time" name="startTime" class="form-control" value="<?php echo $startTime; ?>">
                                                   <span class="help-block"><?php echo $startTime_err;?></span>
                                                 </div>
 
                                                 <div class="form-group <?php echo (!empty($endTime_err)) ? 'has-error' : ''; ?>">
                                                   <label>End Time</label>
-                                                  <input type="text" name="endTime" class="form-control" value="<?php echo $endTime; ?>">
+                                                  <input type="time" name="endTime" class="form-control" value="<?php echo $endTime; ?>">
                                                   <span class="help-block"><?php echo $endTime_err;?></span>
+                                                  <div class="modal-footer">
+                                                </div>
+                                                <div class="form-group <?php echo (!empty($equip_err)) ? 'has-error' : ''; ?>">
+                                                  <label>List of Equipments</label>
+                                                  <input type="text" name="equip" class="form-control" value="<?php echo $equip; ?>"placeholder="e.g. 100 chairs, 100 tables, ...">
+                                                  <span class="help-block"><?php echo $equip_err;?></span>
                                                   <div class="modal-footer">
                                                 </div>
                                                 <div class="modal-footer">
                                                <input type="submit" class="btn btn-primary" value="Submit">
-                                                <a href="index.php" class="btn btn-default">Cancel</a>
+                                                <a href="plaza.php" class="btn btn-default">Cancel</a>
                                                 </div>
                                                 </form>
                             </div> <!--Modal Body-->
@@ -589,7 +605,7 @@
                     $sql = "SELECT * FROM request_su";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                          echo "<h4>Pending Reservation</h4>";
+                          echo "<h4>Events</h4>";
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
@@ -632,8 +648,10 @@
  
                     // Close connection
                     mysqli_close($link);
+                      
                     ?>
                       </tbody>
+
                   </div>
                 </div>
           </div>

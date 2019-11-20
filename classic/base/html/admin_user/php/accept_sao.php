@@ -56,7 +56,7 @@
                             <p>The reservation is now Pending to the Offices.</p><br>
                             <p>
 
-                                <a href="../dean_office.php" class="btn btn-default">Back</a>
+                                <a href="../sao_office.php" class="btn btn-default">Back</a>
                             </p>
                         </div>
                     </form>

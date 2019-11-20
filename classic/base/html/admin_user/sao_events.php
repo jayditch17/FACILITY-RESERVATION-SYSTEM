@@ -240,7 +240,7 @@
             </li>
             <li class="site-menu-category">Controls</li>
             <li class="site-menu-item has-sub">
-                <a href="dean_office.php">
+                <a href="sao_office.php">
                         <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
@@ -272,7 +272,6 @@
                     $sql = "SELECT * FROM events";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                          echo "<h4>Pending Reservation</h4>";
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";

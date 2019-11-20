@@ -433,23 +433,23 @@
                                               <div class="row">
                                                 <div class="form-group col-md-6">
                                                   <label class="gu_container">Bench(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Chairs(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Platform(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Table(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Triboard(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox"name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Divider(s)
@@ -460,11 +460,11 @@
 
                                                 <div class="form-group col-md-6">
                                                   <label class="gu_container">Microphone(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox"name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Mic Stand(s)
-                                                    <input type="checkbox">
+                                                    <input type="checkbox"name="equip[]">
                                                     <span class="gu_checkmark"></span>
                                                   </label>
                                                   <label class="gu_container">Karaoke
