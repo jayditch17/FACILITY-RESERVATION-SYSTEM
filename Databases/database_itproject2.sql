@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2019 at 06:36 PM
+-- Generation Time: Nov 20, 2019 at 07:31 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -106,7 +106,9 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`eventID`, `firstName`, `lastName`, `mobNum`, `org`, `pos`, `adviser`, `eveName`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`) VALUES
-(1, 'j', 'j', 'j', 'org', 'j', 'j', 'j', 'j', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00');
+(1, 'j', 'j', 'j', 'org', 'j', 'j', 'j', 'j', '0000-00-00', '0000-00-00', '00:00:00', '00:00:00'),
+(2, 'j', 'j', 'j', 'org', 'j', 'j', 'j', 'j', '2019-12-13', '2019-12-12', '00:00:00', '00:00:00'),
+(3, 'j', 'j', 'j', 'org', 'j', 'j', 'j', 'j', '2019-12-12', '2019-12-12', '16:00:00', '05:00:00');
 
 -- --------------------------------------------------------
 
@@ -151,8 +153,16 @@ CREATE TABLE `request_su` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `startTime` time NOT NULL,
-  `endTime` time NOT NULL
+  `endTime` time NOT NULL,
+  `equipments` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `request_su`
+--
+
+INSERT INTO `request_su` (`eventID`, `firstName`, `lastName`, `mobNum`, `org`, `pos`, `adviser`, `eveName`, `numPart`, `startDate`, `endDate`, `startTime`, `endTime`, `equipments`) VALUES
+(8, 'j', 'j', 'j', 'j', 'j', 'j', 'jj', 'j', '1212-12-12', '1212-12-12', '00:12:00', '00:12:00', '100chairs, 2mics');
 
 -- --------------------------------------------------------
 
@@ -270,7 +280,7 @@ ALTER TABLE `account_office`
 -- AUTO_INCREMENT for table `dean_office`
 --
 ALTER TABLE `dean_office`
-  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `equipments`
@@ -282,7 +292,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `facilities`
@@ -294,13 +304,13 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT for table `request_su`
 --
 ALTER TABLE `request_su`
-  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sao_office`
 --
 ALTER TABLE `sao_office`
-  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `eventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
