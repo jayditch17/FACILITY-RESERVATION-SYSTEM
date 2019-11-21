@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+?>
+
+<?php
  $conn = mysqli_connect("localhost","root","","database_itproject2");
  $role="";
 if (isset($_POST["btnLogin"])) {
@@ -14,18 +19,22 @@ if (isset($_POST["btnLogin"])) {
 			if (($row["user_type"] == "Super Admin") && ($row["status"] == "Active")) {
 				# code...
 				//$_SESSION['LoginUser'] = $row["email"];
+				$_SESSION['login'] = true;
 				header('Location: ../classic/base/html/super_user/super_user.php');
 			}else if(($row["user_type"] == "Dean User")  && ($row["status"] == "Active")){
 				// $_SESSION['LoginUser'] = $row["email"];
 				// header('Location: user.php');
+				$_SESSION['login'] = true;
 				header('Location: ../classic/base/html/admin_user/dean_office.php');
 			}else if(($row["user_type"] == "Sao User")  && ($row["status"] == "Active")){
 				// $_SESSION['LoginUser'] = $row["email"];
 				// header('Location: user.php');
+				$_SESSION['login'] = true;
 				header('Location: ../classic/base/html/admin_user/sao_office.php');
 			}else if(($row["user_type"] == "Guest User")  && ($row["status"] == "Active")){
 				// $_SESSION['LoginUser'] = $row["email"];
 				// header('Location: user.php');
+				$_SESSION['login'] = true;
 				header('Location: ../classic/base/html/guest_user/guest_user.php');
 			}else{
 				echo '<script type="text/javascript">'; 
