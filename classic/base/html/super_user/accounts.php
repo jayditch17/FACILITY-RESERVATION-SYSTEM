@@ -2,7 +2,7 @@
     session_start();
     include("functions.php");
     if($_SESSION['login'] !==true){
-      header('location:../../../../index.php')
+      header('location:../../../../index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -127,11 +127,6 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
-                <div class="dropdown-divider" role="presentation"></div>
-               <!--  <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
-           </div>
-            </li> -->
 
             <form method="post" class="dropdown-item">
             <button name="logout" class='btn btn-danger my-2'>Logout</button>
@@ -264,6 +259,12 @@
                         <span class="site-menu-title">Dashboard</span>
                 </a>
               </li>
+              <li class="site-menu-item has-sub">
+                <a href="calendar.php">
+                        <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                        <span class="site-menu-title">Calendar</span>
+                </a>
+              </li>
               <li class="site-menu-category">Controls</li>
               <li class="site-menu-item has-sub active">
                 <a href="accounts.php">
@@ -285,13 +286,13 @@
               </li>
               <li class="site-menu-item has-sub">
                 <a href="reservation.php">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
                 <a href="events.php">
-                        <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                         <span class="site-menu-title">Events</span>
                 </a>
               </li>

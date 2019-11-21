@@ -2,7 +2,7 @@
     session_start();
     include("functions.php");
     if($_SESSION['login'] !==true){
-      header('location:../../../../index.php')
+      header('location:../../../../index.php');
     }
 ?>
 
@@ -121,8 +121,6 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
-                <div class="dropdown-divider" role="presentation"></div>
                 <form method="post" class="dropdown-item">
             <button name="logout" class='btn btn-danger my-2'>Logout</button>
           </form>
@@ -256,6 +254,12 @@
                 <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
+            <li class="site-menu-item has-sub">
+                <a href="calendar.php">
+                        <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                        <span class="site-menu-title">Calendar</span>
+                </a>
+              </li>
             <li class="site-menu-category">Controls</li>
             <li class="site-menu-item has-sub">
                 <a href="accounts.php">
@@ -277,13 +281,13 @@
             </li>
             <li class="site-menu-item has-sub">
                 <a href="reservation.php">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
             <li class="site-menu-item has-sub active">
               <a href="events.php">
-                <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
               </a>
             </li>

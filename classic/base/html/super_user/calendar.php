@@ -131,11 +131,18 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <!-- <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
-                <div class="dropdown-divider" role="presentation"></div> -->
-               <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
-              </div>
-            </li>
+              <form method="post" class="dropdown-item">
+            <button name="logout" class='btn btn-danger my-2'>Logout</button>
+          </form>
+          <?php
+          if(isset($_POST['logout'])) {
+            session_destroy();
+            echo '<script type="text/javascript">';
+            echo 'alert("You have been succesfully logout");';
+            echo 'window.location.href = "../../../../index.php";';
+            echo '</script>';
+          }
+          ?>
             <li class="nav-item dropdown">
               <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
                 aria-expanded="false" data-animation="scale-up" role="button">
@@ -279,7 +286,7 @@
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="reservation.html">
+                <a href="reservation.php">
                         <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
