@@ -120,8 +120,6 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
-                <div class="dropdown-divider" role="presentation"></div>
                 <!-- <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
               </div>
             </li> -->
@@ -250,7 +248,7 @@
           <ul class="site-menu" data-plugin="menu">
             <li class="site-menu-category">General</li>
             <li class="site-menu-item has-sub">
-                <a href="admin_user.html">
+                <a href="dean_home.php">
                         <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                         <span class="site-menu-title">Home</span>
                 </a>
@@ -258,13 +256,13 @@
             <li class="site-menu-category">Controls</li>
             <li class="site-menu-item has-sub">
                 <a href="dean_office.php">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
             <li class="site-menu-item has-sub active">
               <a href="events_dean.php">
-                <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
               </a>
             </li>

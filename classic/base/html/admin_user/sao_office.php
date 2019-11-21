@@ -14,7 +14,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>Reservation | Sao Office</title>
+    <title>Reservation | Student Affairs Office</title>
     
     <link rel="apple-touch-icon" href="../../assets/images/samcis.png">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -78,7 +78,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center">
           <img class="navbar-brand-logo" src="../../assets/images/samcis.png" title="Remark">
-          <span class="navbar-brand-text hidden-xs-down">Sao Office</span>
+          <span class="navbar-brand-text hidden-xs-down">Student Affairs Office</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -120,8 +120,6 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>  
-                <div class="dropdown-divider" role="presentation"></div>
                 <!-- <a class="dropdown-item" href="../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
               </div>
             </li> -->
@@ -249,7 +247,7 @@
           <ul class="site-menu" data-plugin="menu">
             <li class="site-menu-category">General</li>
             <li class="site-menu-item has-sub">
-                <a href="admin_user.html">
+                <a href="sao_home.php">
                         <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                         <span class="site-menu-title">Home</span>
                 </a>
@@ -257,13 +255,13 @@
             <li class="site-menu-category">Controls</li>
             <li class="site-menu-item has-sub active">
                 <a href="sao_office.php">
-                        <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                        <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                         <span class="site-menu-title">Reservation</span>
                 </a>
               </li>
             <li class="site-menu-item has-sub">
               <a href="sao_events.php">
-                <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                 <span class="site-menu-title">Events</span>
               </a>
             </li>
