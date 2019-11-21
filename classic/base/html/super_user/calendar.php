@@ -17,10 +17,24 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     
     <!-- Stylesheets -->
+
+            <link href='../../fullcalendar-4.3.1/packages/core/main.css' rel='stylesheet' />
+        <link href='../../fullcalendar-4.3.1/packages/daygrid/main.css' rel='stylesheet' />
+        <link href='../../fullcalendar-4.3.1/packages/timegrid/main.css' rel='stylesheet' />
+        <link href='../../fullcalendar-4.3.1/packages/list/main.css' rel='stylesheet' /> 
+
+        <script src='../../fullcalendar-4.3.1/packages/core/main.js'></script>
+        <script src='../../fullcalendar-4.3.1/packages/interaction/main.js'></script>
+        <script src='../../fullcalendar-4.3.1/packages/daygrid/main.js'></script>
+        <script src='../../fullcalendar-4.3.1/packages/timegrid/main.js'></script>
+        <script src='../../fullcalendar-4.3.1/packages/list/main.js'></script>
+
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../assets/css/site.min.css">
+
+        
     
     <!-- Plugins -->
     <link rel="stylesheet" href="../../../global/vendor/animsition/animsition.css">
@@ -286,6 +300,86 @@
     <div class="page">
       <div class="page-content container-fluid">
         <div class="row" data-plugin="matchHeight" data-by-row="true">
+
+        <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    },
+    defaultDate: '2019-11-12',
+    navLinks: true, // can click day/week names to navigate views
+    editable: false,
+    eventLimit: true, // allow "more" link when too many events
+    // events: [
+    //   {
+    //     title: 'All Day Event',
+    //     start: '2019-11-01',
+    //   },
+    //   {
+    //     title: 'Long Event',
+    //     start: '2019-11-07',
+    //     end: '2019-11-10'
+    //   },
+    //   {
+    //     groupId: 999,
+    //     title: 'Repeating Event',
+    //     start: '2019-11-09T16:00:00'
+    //   },
+    //   {
+    //     groupId: 999,
+    //     title: 'Repeating Event',
+    //     start: '2019-11-16T16:00:00'
+    //   },
+    //   {
+    //     title: 'Conference',
+    //     start: '2019-11-11',
+    //     end: '2019-11-13'
+    //   },
+    //   {
+    //     title: 'Meeting',
+    //     start: '2019-11-12T10:30:00',
+    //     end: '2019-11-12T12:30:00'
+    //   },
+    //   {
+    //     title: 'Lunch',
+    //     start: '2019-11-12T12:00:00'
+    //   },
+    //   {
+    //     title: 'Meeting',
+    //     start: '2019-11-12T14:30:00'
+    //   },
+    //   {
+    //     title: 'Happy Hour',
+    //     start: '2019-11-12T17:30:00'
+    //   },
+    //   {
+    //     title: 'Dinner',
+    //     start: '2019-11-12T20:00:00'
+    //   },
+    //   {
+    //     title: 'Birthday Party',
+    //     start: '2019-11-13T07:00:00'
+    //   },
+    //   {
+    //     title: 'Click for Google',
+    //     url: 'http://google.com/',
+    //     start: '2019-11-28'
+    //   }
+    // ]
+  });
+
+  calendar.render();
+});
+
+</script>
+            <div id='calendar'></div>
 
 
           
