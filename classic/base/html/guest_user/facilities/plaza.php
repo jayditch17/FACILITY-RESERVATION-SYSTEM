@@ -13,7 +13,7 @@
     <meta name="description" content="bootstrap material admin template">
     <meta name="author" content="">
     
-    <title>Guest User</title>
+    <title>Devesse Plaza | Guest User</title>
     
     <link rel="apple-touch-icon" href="../../../assets2/images/samcis.png">
     <link rel="shortcut icon" href="../../../assets2/images/samcis.png">
@@ -84,7 +84,7 @@
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
           <img class="navbar-brand-logo" src="../../../assets2/images/samcis.png" title="Remark">
-          <span class="navbar-brand-text hidden-xs-down"> Guest User</span>
+          <span class="navbar-brand-text hidden-xs-down">Guest User</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -256,32 +256,32 @@
                 </a>
               </li>
               <li class="site-menu-category">Facilities</li>
-              <li class="site-menu-item has-sub">
-                <a href="plaza.html">
-                        <i class="site-menu-icon md-palette active" aria-hidden="true"></i>
+              <li class="site-menu-item has-sub  active">
+                <a href="plaza.php">
+                        <i class="site-menu-icon md-palette" aria-hidden="true"></i>
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="amphi.html">
+                <a href="amphi.php">
                         <i class="site-menu-icon icon md-balance" aria-hidden="true"></i>
                         <span class="site-menu-title">Amphitheater</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="avr.html">
+                <a href="avr.php">
                         <i class="site-menu-icon icon ml-display-screen" aria-hidden="true"></i>
                         <span class="site-menu-title">AVR</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="pool.html">
+                <a href="pool.php">
                         <i class="site-menu-icon icon io-droplet" aria-hidden="true"></i>
                         <span class="site-menu-title">Swimming Pool</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub">
-                <a href="oval.html">
+                <a href="oval.php">
                         <i class="site-menu-icon md-comment-alt-text" aria-hidden="true"></i>
                         <span class="site-menu-title">Oval</span>
                 </a>

@@ -8,7 +8,7 @@
     <meta name="description" content="bootstrap material admin template">
     <meta name="author" content="">
     
-    <title>Guest User</title>
+    <title>Amphitheater | Guest User</title>
     
     <link rel="apple-touch-icon" href="../../../assets2/images/samcis.png">
     <link rel="shortcut icon" href="../../../assets2/images/samcis.png">
@@ -121,9 +121,18 @@
                 </span>
               </a>
               <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item" href="../../../../../index.php" role="menuitem"><i class="icon wb-power" aria-hidden="true" name="logout"></i> Logout</a>
-              </div>
-            </li>
+              <form method="post" class="dropdown-item">
+            <button name="logout" class='btn btn-danger my-2'>Logout</button>
+          </form>
+          <?php
+          if(isset($_POST['logout'])) {
+            session_destroy();
+            echo '<script type="text/javascript">';
+            echo 'alert("You have been succesfully logout");';
+            echo 'window.location.href = "../../../../../index.php";';
+            echo '</script>';
+          }
+          ?>
             <li class="nav-item dropdown">
               <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
                 aria-expanded="false" data-animation="scale-up" role="button">
@@ -247,7 +256,7 @@
                         <span class="site-menu-title">Devesse Plaza</span>
                 </a>
               </li>
-              <li class="site-menu-item has-sub">
+              <li class="site-menu-item has-sub active">
                 <a href="amphi.php">
                         <i class="site-menu-icon icon md-balance" aria-hidden="true"></i>
                         <span class="site-menu-title">Amphitheater</span>
