@@ -1,3 +1,6 @@
+<?php
+  include('DBConnector.php');
+?>
 
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
@@ -18,6 +21,19 @@
     <link rel="stylesheet" href="../../../../global/global2/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../../assets2/css/site.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../global/css/style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+
+        <link href='../../../fullcalendar-4.3.1/packages/core/main.css' rel='stylesheet' />
+        <link href='../../../fullcalendar-4.3.1/packages/daygrid/main.css' rel='stylesheet' />
+        <link href='../../../fullcalendar-4.3.1/packages/timegrid/main.css' rel='stylesheet' />
+        <link href='../../../fullcalendar-4.3.1/packages/list/main.css' rel='stylesheet' /> 
+
+        <script src='../../../fullcalendar-4.3.1/packages/core/main.js'></script>
+        <script src='../../../fullcalendar-4.3.1/packages/interaction/main.js'></script>
+        <script src='../../../fullcalendar-4.3.1/packages/daygrid/main.js'></script>
+        <script src='../../../fullcalendar-4.3.1/packages/timegrid/main.js'></script>
+        <script src='../../../fullcalendar-4.3.1/packages/list/main.js'></script>
     
     <!-- Plugins -->
     <link rel="stylesheet" href="../../../../global/global2/vendor/animsition/animsition.css">
@@ -311,271 +327,91 @@
     <!-- Page -->
     <div class="page">
       <div class="page-content container-fluid">
-        <div data-plugin="matchHeight" data-by-row="true">
-          <!-- Panel Table Add Row -->
-          <div class="panel">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-15">
-                    <h2>Amphitheater</h2>
-                    <p>November 2019</p>
-                      <!-- Example Optional Sizes -->
-                          <div class="example-buttons">
-                            <button type="button" class="btn btn-primary" data-target=".example-modal-lg" data-toggle="modal">Add Event</button>
-                          </div>
+        <div class="row" data-plugin="matchHeight" data-by-row="true">
 
-                          <!-- Modal -->
-                          <div class="modal fade example-modal-lg" aria-hidden="true" aria-labelledby="exampleOptionalLarge"
-                            role="dialog" tabindex="-1">
-                            <div class="modal-dialog modal-simple modal-lg">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="exampleOptionalLarge">Event Reservation Form</h4>
-                                </div>
-                                
-                                <div class="modal-body">
-                                        <!-- Example Basic Form (Form grid) -->
-                                        <div class="example-wrap">
-                                          <div class="example">
-                                            <form autocomplete="off">
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicFirstName">First Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicFirstName" name="inputFirstName"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicLastName">Last Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicLastName" name="inputLastName"
-                                                     autocomplete="off" />
-                                                </div>
-                                                  <div class="form-group col-sm-4">
-                                                    <label class="form-control-label" for="inputBasicNoOfParticipants">Mobile Number</label>
-                                                    <input type="text" class="form-control" id="inputBasicNoOfParticipants" name="inputNoOfParticipants"
-                                                       autocomplete="off" />
-                                                  </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicOrganization">Organization</label>
-                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
-                                                   autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicPosition">Position</label>
-                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicAdviser">Adviser</label>
-                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
-                                                     autocomplete="off" />
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicOrganization">Event Name</label>
-                                                  <input type="text" class="form-control" id="inputBasicOrganization" name="inputOrganization"
-                                                   autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicPosition">No. of Participant</label>
-                                                  <input type="text" class="form-control" id="inputBasicPosition" name="inputPosition"
-                                                     autocomplete="off" />
-                                                </div>
-                                                <div class="form-group col-sm-4">
-                                                  <label class="form-control-label" for="inputBasicAdviser">Faculty Department</label>
-                                                  <input type="text" class="form-control" id="inputBasicAdviser" name="inputAdviser"
-                                                     autocomplete="off" />
-                                                </div>
-                                              </div>
-                                              <div class="example-wrap">
-                                                <div class="example datepair-wrap" data-plugin="datepair">
-                                                  <div class="input-daterange-wrap">
-                                                    <label class="form-control-label" for="inputBasicDateAndTime">Date and Time</label>
-                                                    <div class="input-daterange">
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-date datepair-start" data-plugin="datepicker">
-                                                      </div>
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-time" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-time datepair-start" data-plugin="timepicker"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="input-daterange-to"></div>
-                                                  <div class="input-daterange-wrap">
-                                                    <div class="input-daterange">
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-date datepair-end" name="end" data-plugin="datepicker">
-                                                      </div>
-                                                      <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                          <i class="icon wb-time" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control datepair-time datepair-end" data-plugin="timepicker"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                        <!-- End Example Basic Form (Form grid) -->
-                                        <h5>Equipment/s to be used:</h5>
+        <script>
 
-                                              <div class="row">
-                                                <div class="form-group col-md-6">
-                                                  <label class="gu_container">Bench(s)
-                                                    <input type="checkbox" name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Chairs(s)
-                                                    <input type="checkbox" name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Platform(s)
-                                                    <input type="checkbox" name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Table(s)
-                                                    <input type="checkbox" name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Triboard(s)
-                                                    <input type="checkbox"name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Divider(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                </div>
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
 
-                                                <div class="form-group col-md-6">
-                                                  <label class="gu_container">Microphone(s)
-                                                    <input type="checkbox"name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Mic Stand(s)
-                                                    <input type="checkbox"name="equip[]">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Karaoke
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Projector(s)
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">Sound System
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                  <label class="gu_container">TV/DVD
-                                                    <input type="checkbox">
-                                                    <span class="gu_checkmark"></span>
-                                                  </label>
-                                                </div>
-                                              </div>
-                                    </div>
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    },
+    defaultDate: '2020-01',
+    navLinks: true, // can click day/week names to navigate views
+    editable: false,
+    eventLimit: true, // allow "more" link when too many events
+    // events: [
+    //   {
+    //     title: 'All Day Event',
+    //     start: '2019-11-01',
+    //   },
+    //   {
+    //     title: 'Long Event',
+    //     start: '2019-11-07',
+    //     end: '2019-11-10'
+    //   },
+    //   {
+    //     groupId: 999,
+    //     title: 'Repeating Event',
+    //     start: '2019-11-09T16:00:00'
+    //   },
+    //   {
+    //     groupId: 999,
+    //     title: 'Repeating Event',
+    //     start: '2019-11-16T16:00:00'
+    //   },
+    //   {
+    //     title: 'Conference',
+    //     start: '2019-11-11',
+    //     end: '2019-11-13'
+    //   },
+    //   {
+    //     title: 'Meeting',
+    //     start: '2019-11-12T10:30:00',
+    //     end: '2019-11-12T12:30:00'
+    //   },
+    //   {
+    //     title: 'Lunch',
+    //     start: '2019-11-12T12:00:00'
+    //   },
+    //   {
+    //     title: 'Meeting',
+    //     start: '2019-11-12T14:30:00'
+    //   },
+    //   {
+    //     title: 'Happy Hour',
+    //     start: '2019-11-12T17:30:00'
+    //   },
+    //   {
+    //     title: 'Dinner',
+    //     start: '2019-11-12T20:00:00'
+    //   },
+    //   {
+    //     title: 'Birthday Party',
+    //     start: '2019-11-13T07:00:00'
+    //   },
+    //   {
+    //     title: 'Click for Google',
+    //     url: 'http://google.com/',
+    //     start: '2019-11-28'
+    //   }
+    // ]
+  });
+
+  calendar.render();
+});
+
+</script>
+            <div id='calendar'></div>
 
 
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- End Modal -->
-                          <!-- End Example Optional Sizes -->
-                        </div>
-                      </div>
-                    </div>
-              
-                    <table class="table table-bordered table-hover table-striped" cellspacing="0" id="exampleAddRow">
-                     
-
-                     <tbody>
-                        <?php
-                    // Include config file
-                    require_once "config.php";
-                    
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM events";
-                    if($result = mysqli_query($link, $sql)){
-                        if(mysqli_num_rows($result) > 0){
-                            echo "<table class='table table-bordered table-striped'>";
-                                echo "<thead>";
-                                    echo "<tr>";
-
-                                       echo "<th>Event Name</th>";
-                                       echo "<th>Date Start</th>";
-                                       echo "<th>Date End</th>";
-                                       echo "<th>Time Start</th>";
-                                       echo "<th>Time End</th>";
-                                       echo "<th>Organization</th>";
-                                       echo "<th>Position</th>";
-                                        echo"<th>No. of Participants</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-
-
-                                        echo "<td>" . $row['actVenue'] . "</td>";
-                                        echo "<td>" . $row['startDate'] . "</td>";
-                                        echo "<td>" . $row['endDate'] . "</td>";
-                                        echo "<td>" . $row['startTime'] . "</td>";
-                                        echo "<td>" . $row['endTime'] . "</td>";
-                                        echo "<td>" . $row['eventOrg'] . "</td>";
-                                        echo "<td>" . $row['posi'] . "</td>";
-                                        echo "<td>" . $row['numPart'] . "</td>";
-
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
-                            mysqli_free_result($result);
-                        } else{
-                            echo "<p class='lead'><em>No records were found.</em></p>";
-                        }
-                    } else{
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-                    }
- 
-                    // Close connection
-                    mysqli_close($link);
-                    ?>
-
-                      </tbody>
-                      
-                    </table>
-                  </div>
-                </div>
-                <!-- End Panel Table Add Row -->
-
-          </div>
+          
+        </div>
       </div>
     </div>
     <!-- End Page -->
@@ -610,6 +446,9 @@
         <script src="../../../../global/global2/vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
         <script src="../../../../global/global2/vendor/matchheight/jquery.matchHeight-min.js"></script>
         <script src="../../../../global/global2/vendor/peity/jquery.peity.min.js"></script>
+
+        <script src="../../../../global/global2/vendor/moment/moment.min.js"></script>
+        <script src="../../../../global/global2/vendor/footable/footable.min.js"></script>
     
     <!-- Scripts -->
     <script src="../../../../global/global2/js/Component.js"></script>
@@ -637,6 +476,7 @@
         <script src="../../../../global/global2/js/Plugin/peity.js"></script>
     
         <script src="../../../assets2/examples/js/dashboard/v1.js"></script>
+        <script src="../../../assets2/examples/js/tables/footable.js"></script>
     
   </body>
 </html>
